@@ -2,6 +2,9 @@
 
 An open source app to quickly estimate energy consumption of homes and small buildings in cold-climate Canada + prepare the business case to upgrade a building to net-zero energy through clean energy financing.
 
+## Contribution
+Please contact us ahead of time if you're interested in contributing to the project so we can best work together.
+
 ## Available Scripts
 
 In the project directory, you can run:
