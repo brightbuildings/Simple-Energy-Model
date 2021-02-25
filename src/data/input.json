@@ -1,921 +1,921 @@
-[
-  {
-    "introduction": {
-      "label": "Input",
-      "content": "Lorem ipsum",
-      "fields": {
-        "introduction": {
-          "buildingOwner": {
-            "label": "Building Owner",
-            "type": "text",
-            "required": true
-          },
-          "address": {
-            "label": "Address",
-            "type": "text",
-            "required": true
-          }
+{
+  "introduction": {
+    "label": "Introduction",
+    "content": "Lorem ipsum",
+    "fields": {
+      "introduction": {
+        "buildingOwner": {
+          "label": "Building Owner",
+          "type": "text",
+          "required": true
         },
-        "dimensions": {
-          "instructions": {
-            "label": "Please enter the overall dimensions of the building: ",
-            "type": "label"
-          },
-          "length": {
-            "label": "Length (facing east)",
-            "type": "float",
-            "required": true,
-            "unit": "m"
-          },
-          "width": {
-            "label": "Width (facing south)",
-            "type": "float",
-            "required": true,
-            "unit": "m"
-          },
-          "height": {
-            "label": "Height above grade",
-            "type": "float",
-            "required": true,
-            "unit": "m"
-          },
-          "depth": {
-            "label": "Length (facing east)",
-            "type": "float",
-            "required": true,
-            "unit": "m"
-          },
-          "gap1": {
-            "type": "gap"
-          },
-          "interiorFloorArea": {
-            "label": "Interior Floor Area",
-            "type": "float",
-            "unit": "m²"
-          },
-          "people": {
-            "label": "People",
-            "type": "integer",
-            "unit": "#"
-          },
-          "units": {
-            "label": "Units",
-            "type": "integer",
-            "unit": "#"
-          },
-          "gap2": {
-            "type": "gap"
-          },
-          "roofArea": {
-            "label": "Roof Area",
-            "type": "float",
-            "unit": "m²"
-          },
-          "floorArea": {
-            "label": "Floor Area (footprint)",
-            "type": "float",
-            "unit": "m²"
-          }
-        },
-        "solar": {
-          "solar": {
-            "label": "Solar",
-            "type": "label"
-          },
-          "availableSolarArea": {
-            "label": "Available Solar Area",
-            "type": "float",
-            "unit": "m²",
-            "required": true
-          },
-          "gap1": {
-            "type": "gap"
-          },
-          "totalWindowAndGlassDoorsArea": {
-            "label": "Total Window & Glass Doors Area",
-            "type": "label"
-          },
-          "north": {
-            "label": "North",
-            "type": "float",
-            "unit": "m²",
-            "required": true
-          },
-          "east": {
-            "label": "East",
-            "type": "float",
-            "unit": "m²",
-            "required": true
-          },
-          "south": {
-            "label": "South",
-            "type": "float",
-            "unit": "m²",
-            "required": true
-          },
-          "west": {
-            "label": "West",
-            "type": "float",
-            "unit": "m²",
-            "required": true
-          },
-          "gap2": {
-            "type": "gap"
-          },
-          "exterialSolidDoorArea": {
-            "label": "Exterior Solid Door Area",
-            "type": "float",
-            "unit": "m²",
-            "required": true
-          },
-          "buildingVolume": {
-            "label": "Building Volume",
-            "type": "float",
-            "unit": "m²"
-          }
-        },
-        "location": {
-          "location": {
-            "label": "Location",
-            "type": "text"
-          },
-          "heatingDegreeDays": {
-            "label": "Heating Degree Days",
-            "type": "integer",
-            "unit": "HDD18"
-          },
-          "heatingDegreeHours": {
-            "label": "Heating Degree Hours",
-            "type": "float",
-            "unit": "kKh/a"
-          }
+        "address": {
+          "label": "Address",
+          "type": "text",
+          "required": true
         }
-      }
-    },
-    "parameters": {
-      "label": "Parameters - Model A",
-      "labelB": "Parameters - Model B",
-      "content": "How is the existing home built?",
-      "contentB": "What improvements would you like to consider?",
-      "fields": {
-        "build": {
-          "airtightness": {
-            "label": "Airtightness",
-            "type": "select",
-            "values": [
-              { "0.6 (Passivhaus)": {
-                "annualEnergy": 0.0522074784276127,
-                "heatingLoad": 0.130518696069032
-              } },
-              { "0.8": {
-                "annualEnergy": 0.0696099712368169,
-                "heatingLoad": 0.174024928092042
-              } },
-              { "1.0 (Net-zero)": {
-                "annualEnergy": 0.0870124640460211,
-                "heatingLoad": 0.217531160115053
-              } },
-              { "1.5": {
-                "annualEnergy": 0.130518696069032,
-                "heatingLoad": 0.326296740172579
-              } },
-              { "2.5 (NBC)": {
-                "annualEnergy": 0.218,
-                "heatingLoad": 0.544
-              } },
-              { "3": {
-                "annualEnergy": 0.261037392138063,
-                "heatingLoad": 0.652593480345158
-              } },
-              { "5": {
-                "annualEnergy": 0.435062320230105,
-                "heatingLoad": 1.08765580057526
-              } },
-              { "10 (100 years old)": {
-                "annualEnergy": 0.870124640460211,
-                "heatingLoad": 2.17531160115053
-              } }
-            ],
-            "unit": "ACH @50 Pa",
-            "required": true
-          },
-          "gap1": {
-            "type": "gap"
-          },
-          "insulation": {
-            "label": "Insulation",
-            "type": "label"
-          },
-          "wallAboveGrade": {
-            "label": "Wall Above Grade",
-            "type": "select",
-            "values": [
-              { "R1 - Uninsulated": {
-                "u": 4.527
-              } },
-              { "R10 - 2x4 w Batt": {
-                "u": 0.553
-              } },
-              { "R15 - 2x6 w Batt": {
-                "u": 0.379
-              } },
-              { "R17 - NBC": {
-                "u": 0.337
-              } },
-              { "R19 - 2x8 w Batt": {
-                "u": 0.298
-              } },
-              { "R21 - 2x4 + 3\" Rigid": {
-                "u": 0.273
-              } },
-              { "R31 - 2x4 + 6\" Rigid": {
-                "u": 0.183
-              } },
-              { "R35 - 2x4 + 2x8 w Batt": {
-                "u": 0.162
-              } },
-              { "R42 - 2x4 + 9.5\" I-joist": {
-                "u": 0.136
-              } },
-              { "R50 - 2x4 + 12\" I-joist": {
-                "u": 0.113
-              } },
-              { "R26 - 2x6 + 3\" Rigid": {
-                "u": 0.220
-              } },
-              { "R55 - 2x6 +12\" I-joist": {
-                "u": 0.103
-              } },
-              { "R75 - 2x6 + 16\" I-joist": {
-                "u": 0.076
-              } }
-            ],
-            "unit": "W/m²K",
-            "required": true
-          },
-          "wallBelowGrade": {
-            "label": "Wall Below Grade",
-            "type": "select",
-            "values": [
-              { "R6 - Concrete Uninsulated": {
-                "u": 1.000
-              } },
-              { "R13 - Conc. + 3\" Rigid": {
-                "u": 0.437
-              }  },
-              { "R17 - NBC": {
-                "u": 0.336
-              }  },
-              { "R25 - Conc. + 6\" Rigid": {
-                "u": 0.228
-              }  },
-              { "R37 - Conc. + 9\" Rigid": {
-                "u": 0.154
-              }  },
-              { "R9 - 2x4 + Conc.": {
-                "u": 0.601
-              }  },
-              { "R14 - 2x6 + Conc.": {
-                "u": 0.401
-              }  },
-              { "R30 - 2x4 + 5.5\" Batt + Conc.": {
-                "u": 0.192
-              }  }
-            ],
-            "unit": "W/m²K",
-            "required": true
-          },
-          "roof": {
-            "label": "Roof",
-            "type": "select",
-            "values": [
-              { "R1 - Uninsulated": {
-                "u": 3.987
-              } },
-              { "R20 - 6\"": {
-                "u": 0.284
-              } },
-              { "R40 - 12\"": {
-                "u": 0.142
-              } },
-              { "R50 - NBC": {
-                "u": 0.115
-              } },
-              { "R60 - 18\"": {
-                "u": 0.095
-              } },
-              { "R80 - 24\"": {
-                "u": 0.071
-              } },
-              { "R100 - 30\"": {
-                "u": 0.057
-              } }
-            ],
-            "unit": "W/m²K",
-            "required": true
-          },
-          "floor": {
-            "label": "Floor",
-            "type": "Select",
-            "values": [
-              { "R6 - Uninsulated [NBC Below Frost]": {
-                "u": 1.00
-              } },
-              { "R11 - NBC Above Frost Line": {
-                "u": 0.51
-              } },
-              { "R13 - 3\" Rigid": {
-                "u": 0.43
-              } },
-              { "R16 - NBC Heated Floor or Slab On Grade": {
-                "u": 0.35
-              } },
-              { "R25 - 6\" Rigid": {
-                "u": 0.23
-              } },
-              { "R37 - 9\" Rigid": {
-                "u": 0.15
-              } }
-            ],
-            "unit": "W/m²K",
-            "required": true
-          },
-          "gap": {
-            "type": "gap"
-          },
-          "windows": {
-            "label": "Windows",
-            "type": "select",
-            "values": [
-              { "Single Pane": {
-                "u": 5.8,
-                "shgc": 0.8
-              } },
-              { "Double Pane": {
-                "u": 2.9,
-                "shgc": 0.7
-              } },
-              { "NBC": {
-                "u": 1.6,
-                "shgc": 0.4
-              } },
-              { "Improved Double Pane (Argon, Low-E)": {
-                "u": 1.5,
-                "shgc": 0.5
-              } },
-              { "Triple Pane (PVC, uninsulated)": {
-                "u": 1.2,
-                "shgc": 0.5
-              } },
-              { "Triple Pane (High Performance) - High SHGC": {
-                "u": 1.0,
-                "shgc": 0.5
-              } },
-              { "Triple Pane (High Performance) - Low SHGC": {
-                "u": 1.0,
-                "shgc": 0.37
-              } },
-              { "Triple Pane (Passivhaus)": {
-                "u": 0.85,
-                "shgc": 0.5
-              } },
-              { "Quad Pane (or Passivhaus Cold Climate)": {
-                "u": 0.65,
-                "shgc": 0.5
-              } }
-            ],
-            "unit": "W/m²K",
-            "required": true
-          },
-          "solidDoor": {
-            "label": "Solid Door",
-            "type": "select",
-            "values": [
-              { "Uninsulated": {
-                "u": 5.882
-              } },
-              { "Insulated (R10)": {
-                "u": 0.568
-              } }
-            ],
-            "unit": "W/m²K",
-            "required": true
-          }
+      },
+      "dimensions": {
+        "instructions": {
+          "label": "Please enter the overall dimensions of the building: ",
+          "type": "label"
         },
-        "mechanical": {
-          "mechanical": {
-            "label": "Mechanical Equipment - Seasonal Average Efficiency",
-            "type": "label"
-          },
-          "ventilation": {
-            "label": "Ventilation",
-            "type": "select",
-            "values": [
-              { "Exhaust Only": {
-                "efficiency": 0
-              } },
-              { "Minimum Efficiency NECB": {
-                "efficiency": 0.5
-              } },
-              { "Minimum Efficiency NBC 9.36": {
-                "efficiency": 0.6
-              } },
-              { "75%": {
-                "efficiency": 0.75
-              } },
-              { "80%": {
-                "efficiency": 0.8
-              } },
-              { "85%": {
-                "efficiency": 0.85
-              } },
-              { "90%": {
-                "efficiency": 0.9
-              } }
-            ],
-            "unit": "%",
-            "required": true
-          },
-          "heating": {
-            "label": "Heating",
-            "type": "select",
-            "values": [
-              { "Mid Eff. Furnace / Boiler": {
-                "efficiency": 0.8,
-                "dhwFuelType": "Natural Gas"
-              } },
-              { "High Eff. Furnace / Boiler": {
-                "efficiency": 0.95,
-                "dhwFuelType": "Natural Gas"
-              } },
-              { "Electric Heat": {
-                "efficiency": 1,
-                "dhwFuelType": "Electricity"
-              } },
-              { "Air Source Heat Pump": {
-                "efficiency": 2,
-                "dhwFuelType": "Electricity"
-              } },
-              { "Ground Source Heat Pump": {
-                "efficiency": 3,
-                "dhwFuelType": "Electricity" 
-              } }
-            ],
-            "unit": "%",
-            "required": true
-          },
-          "cooling": {
-            "label": "Cooling",
-            "type": "select",
-            "values": [
-              { "None": {
-                "efficiency": 0
-              } },
-              { "Minimum Efficiency AC Unit": {
-                "efficiency": 3.81
-              } },
-              { "Ground Source Heat Pump": {
-                "efficiency": 4.69
-              } },
-              { "Air Source Heat Pump": {
-                "efficiency": 5.87
-              } }
-            ],
-            "unit": "%",
-            "required": true
-          },
-          "hotWaterHeater": {
-            "label": "Hot Water Heating",
-            "type": "select",
-            "values": [
-              { "Mid Eff. Water Heater / Boiler": {
-                "efficiency": 0.8,
-                "dhwFuelType": "Natural Gas"
-              } },
-              { "High Eff. Water Heater / Boiler": {
-                "efficiency": 0.95,
-                "dhwFuelType": "Natural Gas"
-              } },
-              { "Electric Water Heater": {
-                "efficiency": 1,
-                "dhwFuelType": "Electricity"
-              } },
-              { "Heat Pump Water Heater": {
-                "efficiency": 2.3,
-                "dhwFuelType": "Electricity"
-              } },
-              { "Ground Source Heat Pump": {
-                "efficiency": 3,
-                "dhwFuelType": "Electricity" 
-              } }
-            ],
-            "unit": "%",
-            "required": true
-          },
-          "hotWaterHeaterStorage": {
-            "label": "Hot Water Heater Storage",
-            "type": "select",
-            "values": [
-              { "On Demand": 50 },
-              { "Tank": 800 }
-            ],
-            "required": true
-          },
-          "drainWaterHeatRecovery": {
-            "label": "Drain Water Heat Recovery",
-            "type": "select",
-            "values": [
-              { "No": {
-                "efficiency": 0.8,
-                "dhwFuelType": "Natural Gas"
-              } },
-              { "Yes": {
-                "efficiency": 0.8,
-                "dhwFuelType": "Natural Gas"
-              } }
-            ],
-            "unit": "%",
-            "required": true
-          },
-          "gap": {
-            "type": "gap"
-          },
-          "hotWaterFixturesLightingAndAppliances": {
-            "label": "Hot Water Fixtures, Lighting and Appliances",
-            "type": "label"
-          },
-          "hotWaterFixtures": {
-            "label": "Hot Water Fixtures",
-            "type": "select",
-            "values": [
-              { 
-                "Low flow fixtures, House": {
-                  "flow": 175
-                },
-                "Standard fixtures, House": {
-                  "flow": 225
-                },
-                "Low flow fixtures, MURB": {
-                  "flow": 90
-                },
-                "Standard fixtures, MURB": {
-                  "flow": 140
-                }
-              }
-            ],
-            "unit": "L/day",
-            "required": true
-          },
-          "lighting": {
-            "label": "Lighting",
-            "type": "select",
-            "values": [
-              { "LED Lighting": 0.6 },
-              { "Standard Lighting, House": 2.6 },
-              { "Standard Lighting, MURB": 1.7}
-            ],
-            "unit": "kWh/day",
-            "required": true
-          },
-          "appliances": {
-            "label": "Appliances",
-            "type": "select",
-            "values": [
-              { "EnergyStar Appliances, House": 5.3 },
-              { "Standard Appliances, House": 6.3 },
-              { "EnergyStar Appliances, MURB": 4.2 },
-              { "Standard Appliances, MURB": 5.2 }
-            ],
-            "unit": "kWh/day",
-            "required": true
-          },
-          "plugLoads": {
-            "label": "Plug Loads",
-            "type": "select",
-            "values": [
-              { "Fixed plug loads, House": 9.7 },
-              { "Fixed plug loads, MURB": 4.4 }
-            ],
-            "unit": "kWh/day",
-            "required": true
-          }
+        "length": {
+          "label": "Length (facing east)",
+          "type": "float",
+          "required": true,
+          "unit": "m"
         },
-        "energyPrices": {
-          "annualEnergyCosts": {
-            "label": "Annual Energy Costs",
-            "type": "label"
-          },
-          "spaceHeatingFuelType": {
-            "label": "Space Heating Fuel Type",
-            "type": "select",
-            "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
-            ],
-            "unit": "$",
-            "required": true
-          },
-          "hotWaterFuelType": {
-            "label": "Hot Water Fuel Type",
-            "type": "select",
-            "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
-            ],
-            "unit": "$",
-            "required": true
-          },
-          "lightsAppliancesPlugsFuelType": {
-            "label": "Lights, Appliances, Plugs Fuel Type",
-            "type": "select",
-            "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
-            ],
-            "unit": "$",
-            "required": true
-          },
-          "gap": {
-            "type": "gap"
-          },
-          "energy": {
-            "label": "Energy Prices",
-            "type": "label"
-          },
-          "carbonPrice": {
-            "label": "Carbon Price",
-            "type": "float",
-            "unit": "$/tonne",
-            "required": true,
-            "default": 103
-          },
-          "electrityPrice": {
-            "label": "Electricity Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.150
-          },
-          "electrityCarbon": {
-            "label": "Electricity Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.6
-          },
-          "cleanElectricityPrice": {
-            "label": "Clean Electricity Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.150
-          },
-          "cleanElectrityCarbon": {
-            "label": "Clean Electricity Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0
-          },
-          "naturalGasFossilPrice": {
-            "label": "Natural Gas (Fossil) Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.022
-          },
-          "naturalGasFossilCarbon": {
-            "label": "Natural Gas (Fossil) Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.25
-          },
-          "cleanGasPrice": {
-            "label": "Clean Gas Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.063
-          },
-          "cleanGasCarbon": {
-            "label": "Clean Gas Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0
-          },
-          "propanePrice": {
-            "label": "Propane Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.127
-          },
-          "propaneCarbon": {
-            "label": "Propane Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.27
-          },
-          "woodPelletsPrice": {
-            "label": "Wood Pellets Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.075
-          },
-          "woodPelletsCarbon": {
-            "label": "Wood Pellets Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.27
-          }
-        }
-      }
-    },
-    "financing": {
-      "label": "Financing the Net-zero Upgrade",
-      "content": "Lorem ipsum",
-      "fields": {
-        "improvementsSection1": {
-          "improvementsSection1": {
-            "label": "Improvements",
-            "type": "label"
-          },
-          "designCost": {
-            "label": "Design Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$",
-            "required": "true",
-            "default": 0
-          },
-          "designQuantity": {
-            "label": "Design Quantity",
-            "type": "float",
-            "required": "true",
-            "default": 1
-          },
-          "airtightnessCost": {
-            "label": "Airtightness Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$/m² of envelope",
-            "required": "true",
-            "default": 10
-          },
-          "airtightnessQuantity": {
-            "label": "Airtightness Quantity",
-            "type": "float",
-            "required": "true"
-          },
-          "windowsCost": {
-            "label": "Windows Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$/m² of window",
-            "required": "true",
-            "default": 400
-          },
-          "windowsQuantity": {
-            "label": "Windows Quantity",
-            "type": "float",
-            "required": "true"
-          },
-          "insulationCost": {
-            "label": "Insulation Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$/m² of envelope",
-            "required": "true",
-            "default": 25
-          },
-          "insulationQuantity": {
-            "label": "Insulation Quantity",
-            "type": "float",
-            "required": "true"
-          }
+        "width": {
+          "label": "Width (facing south)",
+          "type": "float",
+          "required": true,
+          "unit": "m"
         },
-        "improvementsSection2": {
-          "improvementsSection2": {
-            "label": "Improvements",
-            "type": "label"
-          },
-          "ventilationCost": {
-            "label": "Ventilation with Energy Recovery (ERV/HRV) Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$",
-            "required": "true",
-            "default": 4000
-          },
-          "ventilationQuantity": {
-            "label": "Ventilation with Energy Recovery (ERV/HRV) Quantity",
-            "type": "float",
-            "required": "true",
-            "default": 1
-          },
-          "heatPumpCost": {
-            "label": "Heat Pump Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$/m² of envelope",
-            "required": "true",
-            "default": 5000
-          },
-          "heatPumpQuantity": {
-            "label": "Heat Pump Quantity",
-            "type": "float",
-            "required": "true",
-            "default": 1
-          },
-          "waterHeaterCost": {
-            "label": "Water Heater, Drain Water Heat Recovery Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$/m² of window",
-            "required": "true",
-            "default": 2000
-          },
-          "waterHeaterQuantity": {
-            "label": "Water Heater, Drain Water Heat Recovery Quantity",
-            "type": "float",
-            "required": "true",
-            "default": 1
-          }
+        "height": {
+          "label": "Height above grade",
+          "type": "float",
+          "required": true,
+          "unit": "m"
         },
-        "improvementsSection3": {
-          "improvementsSection2": {
-            "label": "Improvements",
-            "type": "label"
-          },
-          "solarCost": {
-            "label": "Solar PV 13.3 kW Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$",
-            "required": "true",
-            "default": 412
-          },
-          "solarQuantity": {
-            "label": "Solar PV 13.3 kW Quantity",
-            "type": "float",
-            "unit": "$/m² of solar",
-            "required": "true"
-          },
-          "batteryCost": {
-            "label": "Battery Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$/m² of solar",
-            "required": "true",
-            "default": 0
-          },
-          "batteryQuantity": {
-            "label": "Battery Quantity",
-            "type": "float",
-            "required": "true"
-          },
-          "energyMonitorCost": {
-            "label": "Energy Monitor Unit Cost (Installed)",
-            "type": "float",
-            "unit": "$",
-            "required": "true",
-            "default": 300
-          },
-          "energyMonitorQuantity": {
-            "label": "Energy Monitor Quantity",
-            "type": "float",
-            "required": "true",
-            "default": 1
-          }
-        }
-      }
-    },
-    "business": {
-      "label": "Business Case",
-      "content": "Lorem ipsum",
-      "fields": {
-        "paceLoanTerm": {
-          "label": "PACE Loan Term",
-          "unit": "years",
+        "depth": {
+          "label": "Length (facing east)",
+          "type": "float",
+          "required": true,
+          "unit": "m"
+        },
+        "gap1": {
+          "type": "gap"
+        },
+        "interiorFloorArea": {
+          "label": "Interior Floor Area",
+          "type": "float",
+          "unit": "m²"
+        },
+        "people": {
+          "label": "People",
           "type": "integer",
-          "default": 20,
+          "unit": "#"
+        },
+        "units": {
+          "label": "Units",
+          "type": "integer",
+          "unit": "#"
+        },
+        "gap2": {
+          "type": "gap"
+        },
+        "roofArea": {
+          "label": "Roof Area",
+          "type": "float",
+          "unit": "m²"
+        },
+        "floorArea": {
+          "label": "Floor Area (footprint)",
+          "type": "float",
+          "unit": "m²"
+        }
+      },
+      "solar": {
+        "solar": {
+          "label": "Solar",
+          "type": "label"
+        },
+        "availableSolarArea": {
+          "label": "Available Solar Area",
+          "type": "float",
+          "unit": "m²",
           "required": true
         },
-        "interest": {
-          "label": "Interest",
-          "unit": "%",
-          "default": 4,
+        "gap1": {
+          "type": "gap"
+        },
+        "totalWindowAndGlassDoorsArea": {
+          "label": "Total Window & Glass Doors Area",
+          "type": "label"
+        },
+        "north": {
+          "label": "North",
+          "type": "float",
+          "unit": "m²",
           "required": true
+        },
+        "east": {
+          "label": "East",
+          "type": "float",
+          "unit": "m²",
+          "required": true
+        },
+        "south": {
+          "label": "South",
+          "type": "float",
+          "unit": "m²",
+          "required": true
+        },
+        "west": {
+          "label": "West",
+          "type": "float",
+          "unit": "m²",
+          "required": true
+        },
+        "gap2": {
+          "type": "gap"
+        },
+        "exterialSolidDoorArea": {
+          "label": "Exterior Solid Door Area",
+          "type": "float",
+          "unit": "m²",
+          "required": true
+        },
+        "buildingVolume": {
+          "label": "Building Volume",
+          "type": "float",
+          "unit": "m²"
+        }
+      },
+      "location": {
+        "location": {
+          "label": "Location",
+          "type": "text"
+        },
+        "heatingDegreeDays": {
+          "label": "Heating Degree Days",
+          "type": "integer",
+          "unit": "HDD18"
+        },
+        "heatingDegreeHours": {
+          "label": "Heating Degree Hours",
+          "type": "float",
+          "unit": "kKh/a"
         }
       }
     }
+  },
+  "parameters": {
+    "label": "Parameters - Model A",
+    "labelB": "Parameters - Model B",
+    "content": "How is the existing home built?",
+    "contentB": "What improvements would you like to consider?",
+    "fields": {
+      "build": {
+        "airtightness": {
+          "label": "Airtightness",
+          "type": "select",
+          "values": [
+            { "0.6 (Passivhaus)": {
+              "annualEnergy": 0.0522074784276127,
+              "heatingLoad": 0.130518696069032
+            } },
+            { "0.8": {
+              "annualEnergy": 0.0696099712368169,
+              "heatingLoad": 0.174024928092042
+            } },
+            { "1.0 (Net-zero)": {
+              "annualEnergy": 0.0870124640460211,
+              "heatingLoad": 0.217531160115053
+            } },
+            { "1.5": {
+              "annualEnergy": 0.130518696069032,
+              "heatingLoad": 0.326296740172579
+            } },
+            { "2.5 (NBC)": {
+              "annualEnergy": 0.218,
+              "heatingLoad": 0.544
+            } },
+            { "3": {
+              "annualEnergy": 0.261037392138063,
+              "heatingLoad": 0.652593480345158
+            } },
+            { "5": {
+              "annualEnergy": 0.435062320230105,
+              "heatingLoad": 1.08765580057526
+            } },
+            { "10 (100 years old)": {
+              "annualEnergy": 0.870124640460211,
+              "heatingLoad": 2.17531160115053
+            } }
+          ],
+          "unit": "ACH @50 Pa",
+          "required": true
+        },
+        "gap1": {
+          "type": "gap"
+        },
+        "insulation": {
+          "label": "Insulation",
+          "type": "label"
+        },
+        "wallAboveGrade": {
+          "label": "Wall Above Grade",
+          "type": "select",
+          "values": [
+            { "R1 - Uninsulated": {
+              "u": 4.527
+            } },
+            { "R10 - 2x4 w Batt": {
+              "u": 0.553
+            } },
+            { "R15 - 2x6 w Batt": {
+              "u": 0.379
+            } },
+            { "R17 - NBC": {
+              "u": 0.337
+            } },
+            { "R19 - 2x8 w Batt": {
+              "u": 0.298
+            } },
+            { "R21 - 2x4 + 3\" Rigid": {
+              "u": 0.273
+            } },
+            { "R31 - 2x4 + 6\" Rigid": {
+              "u": 0.183
+            } },
+            { "R35 - 2x4 + 2x8 w Batt": {
+              "u": 0.162
+            } },
+            { "R42 - 2x4 + 9.5\" I-joist": {
+              "u": 0.136
+            } },
+            { "R50 - 2x4 + 12\" I-joist": {
+              "u": 0.113
+            } },
+            { "R26 - 2x6 + 3\" Rigid": {
+              "u": 0.220
+            } },
+            { "R55 - 2x6 +12\" I-joist": {
+              "u": 0.103
+            } },
+            { "R75 - 2x6 + 16\" I-joist": {
+              "u": 0.076
+            } }
+          ],
+          "unit": "W/m²K",
+          "required": true
+        },
+        "wallBelowGrade": {
+          "label": "Wall Below Grade",
+          "type": "select",
+          "values": [
+            { "R6 - Concrete Uninsulated": {
+              "u": 1.000
+            } },
+            { "R13 - Conc. + 3\" Rigid": {
+              "u": 0.437
+            }  },
+            { "R17 - NBC": {
+              "u": 0.336
+            }  },
+            { "R25 - Conc. + 6\" Rigid": {
+              "u": 0.228
+            }  },
+            { "R37 - Conc. + 9\" Rigid": {
+              "u": 0.154
+            }  },
+            { "R9 - 2x4 + Conc.": {
+              "u": 0.601
+            }  },
+            { "R14 - 2x6 + Conc.": {
+              "u": 0.401
+            }  },
+            { "R30 - 2x4 + 5.5\" Batt + Conc.": {
+              "u": 0.192
+            }  }
+          ],
+          "unit": "W/m²K",
+          "required": true
+        },
+        "roof": {
+          "label": "Roof",
+          "type": "select",
+          "values": [
+            { "R1 - Uninsulated": {
+              "u": 3.987
+            } },
+            { "R20 - 6\"": {
+              "u": 0.284
+            } },
+            { "R40 - 12\"": {
+              "u": 0.142
+            } },
+            { "R50 - NBC": {
+              "u": 0.115
+            } },
+            { "R60 - 18\"": {
+              "u": 0.095
+            } },
+            { "R80 - 24\"": {
+              "u": 0.071
+            } },
+            { "R100 - 30\"": {
+              "u": 0.057
+            } }
+          ],
+          "unit": "W/m²K",
+          "required": true
+        },
+        "floor": {
+          "label": "Floor",
+          "type": "Select",
+          "values": [
+            { "R6 - Uninsulated [NBC Below Frost]": {
+              "u": 1.00
+            } },
+            { "R11 - NBC Above Frost Line": {
+              "u": 0.51
+            } },
+            { "R13 - 3\" Rigid": {
+              "u": 0.43
+            } },
+            { "R16 - NBC Heated Floor or Slab On Grade": {
+              "u": 0.35
+            } },
+            { "R25 - 6\" Rigid": {
+              "u": 0.23
+            } },
+            { "R37 - 9\" Rigid": {
+              "u": 0.15
+            } }
+          ],
+          "unit": "W/m²K",
+          "required": true
+        },
+        "gap": {
+          "type": "gap"
+        },
+        "windows": {
+          "label": "Windows",
+          "type": "select",
+          "values": [
+            { "Single Pane": {
+              "u": 5.8,
+              "shgc": 0.8
+            } },
+            { "Double Pane": {
+              "u": 2.9,
+              "shgc": 0.7
+            } },
+            { "NBC": {
+              "u": 1.6,
+              "shgc": 0.4
+            } },
+            { "Improved Double Pane (Argon, Low-E)": {
+              "u": 1.5,
+              "shgc": 0.5
+            } },
+            { "Triple Pane (PVC, uninsulated)": {
+              "u": 1.2,
+              "shgc": 0.5
+            } },
+            { "Triple Pane (High Performance) - High SHGC": {
+              "u": 1.0,
+              "shgc": 0.5
+            } },
+            { "Triple Pane (High Performance) - Low SHGC": {
+              "u": 1.0,
+              "shgc": 0.37
+            } },
+            { "Triple Pane (Passivhaus)": {
+              "u": 0.85,
+              "shgc": 0.5
+            } },
+            { "Quad Pane (or Passivhaus Cold Climate)": {
+              "u": 0.65,
+              "shgc": 0.5
+            } }
+          ],
+          "unit": "W/m²K",
+          "required": true
+        },
+        "solidDoor": {
+          "label": "Solid Door",
+          "type": "select",
+          "values": [
+            { "Uninsulated": {
+              "u": 5.882
+            } },
+            { "Insulated (R10)": {
+              "u": 0.568
+            } }
+          ],
+          "unit": "W/m²K",
+          "required": true
+        }
+      },
+      "mechanical": {
+        "mechanical": {
+          "label": "Mechanical Equipment - Seasonal Average Efficiency",
+          "type": "label"
+        },
+        "ventilation": {
+          "label": "Ventilation",
+          "type": "select",
+          "values": [
+            { "Exhaust Only": {
+              "efficiency": 0
+            } },
+            { "Minimum Efficiency NECB": {
+              "efficiency": 0.5
+            } },
+            { "Minimum Efficiency NBC 9.36": {
+              "efficiency": 0.6
+            } },
+            { "75%": {
+              "efficiency": 0.75
+            } },
+            { "80%": {
+              "efficiency": 0.8
+            } },
+            { "85%": {
+              "efficiency": 0.85
+            } },
+            { "90%": {
+              "efficiency": 0.9
+            } }
+          ],
+          "unit": "%",
+          "required": true
+        },
+        "heating": {
+          "label": "Heating",
+          "type": "select",
+          "values": [
+            { "Mid Eff. Furnace / Boiler": {
+              "efficiency": 0.8,
+              "dhwFuelType": "Natural Gas"
+            } },
+            { "High Eff. Furnace / Boiler": {
+              "efficiency": 0.95,
+              "dhwFuelType": "Natural Gas"
+            } },
+            { "Electric Heat": {
+              "efficiency": 1,
+              "dhwFuelType": "Electricity"
+            } },
+            { "Air Source Heat Pump": {
+              "efficiency": 2,
+              "dhwFuelType": "Electricity"
+            } },
+            { "Ground Source Heat Pump": {
+              "efficiency": 3,
+              "dhwFuelType": "Electricity" 
+            } }
+          ],
+          "unit": "%",
+          "required": true
+        },
+        "cooling": {
+          "label": "Cooling",
+          "type": "select",
+          "values": [
+            { "None": {
+              "efficiency": 0
+            } },
+            { "Minimum Efficiency AC Unit": {
+              "efficiency": 3.81
+            } },
+            { "Ground Source Heat Pump": {
+              "efficiency": 4.69
+            } },
+            { "Air Source Heat Pump": {
+              "efficiency": 5.87
+            } }
+          ],
+          "unit": "%",
+          "required": true
+        },
+        "hotWaterHeater": {
+          "label": "Hot Water Heating",
+          "type": "select",
+          "values": [
+            { "Mid Eff. Water Heater / Boiler": {
+              "efficiency": 0.8,
+              "dhwFuelType": "Natural Gas"
+            } },
+            { "High Eff. Water Heater / Boiler": {
+              "efficiency": 0.95,
+              "dhwFuelType": "Natural Gas"
+            } },
+            { "Electric Water Heater": {
+              "efficiency": 1,
+              "dhwFuelType": "Electricity"
+            } },
+            { "Heat Pump Water Heater": {
+              "efficiency": 2.3,
+              "dhwFuelType": "Electricity"
+            } },
+            { "Ground Source Heat Pump": {
+              "efficiency": 3,
+              "dhwFuelType": "Electricity" 
+            } }
+          ],
+          "unit": "%",
+          "required": true
+        },
+        "hotWaterHeaterStorage": {
+          "label": "Hot Water Heater Storage",
+          "type": "select",
+          "values": [
+            { "On Demand": 50 },
+            { "Tank": 800 }
+          ],
+          "required": true
+        },
+        "drainWaterHeatRecovery": {
+          "label": "Drain Water Heat Recovery",
+          "type": "select",
+          "values": [
+            { "No": {
+              "efficiency": 0.8,
+              "dhwFuelType": "Natural Gas"
+            } },
+            { "Yes": {
+              "efficiency": 0.8,
+              "dhwFuelType": "Natural Gas"
+            } }
+          ],
+          "unit": "%",
+          "required": true
+        },
+        "gap": {
+          "type": "gap"
+        },
+        "hotWaterFixturesLightingAndAppliances": {
+          "label": "Hot Water Fixtures, Lighting and Appliances",
+          "type": "label"
+        },
+        "hotWaterFixtures": {
+          "label": "Hot Water Fixtures",
+          "type": "select",
+          "values": [
+            { 
+              "Low flow fixtures, House": {
+                "flow": 175
+              },
+              "Standard fixtures, House": {
+                "flow": 225
+              },
+              "Low flow fixtures, MURB": {
+                "flow": 90
+              },
+              "Standard fixtures, MURB": {
+                "flow": 140
+              }
+            }
+          ],
+          "unit": "L/day",
+          "required": true
+        },
+        "lighting": {
+          "label": "Lighting",
+          "type": "select",
+          "values": [
+            { "LED Lighting": 0.6 },
+            { "Standard Lighting, House": 2.6 },
+            { "Standard Lighting, MURB": 1.7}
+          ],
+          "unit": "kWh/day",
+          "required": true
+        },
+        "appliances": {
+          "label": "Appliances",
+          "type": "select",
+          "values": [
+            { "EnergyStar Appliances, House": 5.3 },
+            { "Standard Appliances, House": 6.3 },
+            { "EnergyStar Appliances, MURB": 4.2 },
+            { "Standard Appliances, MURB": 5.2 }
+          ],
+          "unit": "kWh/day",
+          "required": true
+        },
+        "plugLoads": {
+          "label": "Plug Loads",
+          "type": "select",
+          "values": [
+            { "Fixed plug loads, House": 9.7 },
+            { "Fixed plug loads, MURB": 4.4 }
+          ],
+          "unit": "kWh/day",
+          "required": true
+        }
+      },
+      "energyPrices": {
+        "annualEnergyCosts": {
+          "label": "Annual Energy Costs",
+          "type": "label"
+        },
+        "spaceHeatingFuelType": {
+          "label": "Space Heating Fuel Type",
+          "type": "select",
+          "values": [
+            { "Electricity": {} },
+            { "Clean Electricity": {} },
+            { "Natural Gass (Fossil)": {} },
+            { "Clean Gas": {} },
+            { "Propane": {} },
+            { "Wood Pellets": {} }
+          ],
+          "unit": "$",
+          "required": true
+        },
+        "hotWaterFuelType": {
+          "label": "Hot Water Fuel Type",
+          "type": "select",
+          "values": [
+            { "Electricity": {} },
+            { "Clean Electricity": {} },
+            { "Natural Gass (Fossil)": {} },
+            { "Clean Gas": {} },
+            { "Propane": {} },
+            { "Wood Pellets": {} }
+          ],
+          "unit": "$",
+          "required": true
+        },
+        "lightsAppliancesPlugsFuelType": {
+          "label": "Lights, Appliances, Plugs Fuel Type",
+          "type": "select",
+          "values": [
+            { "Electricity": {} },
+            { "Clean Electricity": {} },
+            { "Natural Gass (Fossil)": {} },
+            { "Clean Gas": {} },
+            { "Propane": {} },
+            { "Wood Pellets": {} }
+          ],
+          "unit": "$",
+          "required": true
+        },
+        "gap": {
+          "type": "gap"
+        },
+        "energy": {
+          "label": "Energy Prices",
+          "type": "label"
+        },
+        "carbonPrice": {
+          "label": "Carbon Price",
+          "type": "float",
+          "unit": "$/tonne",
+          "required": true,
+          "default": 103
+        },
+        "electrityPrice": {
+          "label": "Electricity Price",
+          "type": "float",
+          "unit": "$/kWh",
+          "required": true,
+          "default": 0.150
+        },
+        "electrityCarbon": {
+          "label": "Electricity Carbon",
+          "type": "float",
+          "unit": "kg/kWh",
+          "required": true,
+          "default": 0.6
+        },
+        "cleanElectricityPrice": {
+          "label": "Clean Electricity Price",
+          "type": "float",
+          "unit": "$/kWh",
+          "required": true,
+          "default": 0.150
+        },
+        "cleanElectrityCarbon": {
+          "label": "Clean Electricity Carbon",
+          "type": "float",
+          "unit": "kg/kWh",
+          "required": true,
+          "default": 0
+        },
+        "naturalGasFossilPrice": {
+          "label": "Natural Gas (Fossil) Price",
+          "type": "float",
+          "unit": "$/kWh",
+          "required": true,
+          "default": 0.022
+        },
+        "naturalGasFossilCarbon": {
+          "label": "Natural Gas (Fossil) Carbon",
+          "type": "float",
+          "unit": "kg/kWh",
+          "required": true,
+          "default": 0.25
+        },
+        "cleanGasPrice": {
+          "label": "Clean Gas Price",
+          "type": "float",
+          "unit": "$/kWh",
+          "required": true,
+          "default": 0.063
+        },
+        "cleanGasCarbon": {
+          "label": "Clean Gas Carbon",
+          "type": "float",
+          "unit": "kg/kWh",
+          "required": true,
+          "default": 0
+        },
+        "propanePrice": {
+          "label": "Propane Price",
+          "type": "float",
+          "unit": "$/kWh",
+          "required": true,
+          "default": 0.127
+        },
+        "propaneCarbon": {
+          "label": "Propane Carbon",
+          "type": "float",
+          "unit": "kg/kWh",
+          "required": true,
+          "default": 0.27
+        },
+        "woodPelletsPrice": {
+          "label": "Wood Pellets Price",
+          "type": "float",
+          "unit": "$/kWh",
+          "required": true,
+          "default": 0.075
+        },
+        "woodPelletsCarbon": {
+          "label": "Wood Pellets Carbon",
+          "type": "float",
+          "unit": "kg/kWh",
+          "required": true,
+          "default": 0.27
+        }
+      }
+    }
+  },
+  "financing": {
+    "label": "Financing the Net-zero Upgrade",
+    "content": "Lorem ipsum",
+    "navigation": "Financing",
+    "fields": {
+      "improvementsSection1": {
+        "improvementsSection1": {
+          "label": "Improvements",
+          "type": "label"
+        },
+        "designCost": {
+          "label": "Design Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$",
+          "required": "true",
+          "default": 0
+        },
+        "designQuantity": {
+          "label": "Design Quantity",
+          "type": "float",
+          "required": "true",
+          "default": 1
+        },
+        "airtightnessCost": {
+          "label": "Airtightness Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$/m² of envelope",
+          "required": "true",
+          "default": 10
+        },
+        "airtightnessQuantity": {
+          "label": "Airtightness Quantity",
+          "type": "float",
+          "required": "true"
+        },
+        "windowsCost": {
+          "label": "Windows Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$/m² of window",
+          "required": "true",
+          "default": 400
+        },
+        "windowsQuantity": {
+          "label": "Windows Quantity",
+          "type": "float",
+          "required": "true"
+        },
+        "insulationCost": {
+          "label": "Insulation Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$/m² of envelope",
+          "required": "true",
+          "default": 25
+        },
+        "insulationQuantity": {
+          "label": "Insulation Quantity",
+          "type": "float",
+          "required": "true"
+        }
+      },
+      "improvementsSection2": {
+        "improvementsSection2": {
+          "label": "Improvements",
+          "type": "label"
+        },
+        "ventilationCost": {
+          "label": "Ventilation with Energy Recovery (ERV/HRV) Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$",
+          "required": "true",
+          "default": 4000
+        },
+        "ventilationQuantity": {
+          "label": "Ventilation with Energy Recovery (ERV/HRV) Quantity",
+          "type": "float",
+          "required": "true",
+          "default": 1
+        },
+        "heatPumpCost": {
+          "label": "Heat Pump Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$/m² of envelope",
+          "required": "true",
+          "default": 5000
+        },
+        "heatPumpQuantity": {
+          "label": "Heat Pump Quantity",
+          "type": "float",
+          "required": "true",
+          "default": 1
+        },
+        "waterHeaterCost": {
+          "label": "Water Heater, Drain Water Heat Recovery Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$/m² of window",
+          "required": "true",
+          "default": 2000
+        },
+        "waterHeaterQuantity": {
+          "label": "Water Heater, Drain Water Heat Recovery Quantity",
+          "type": "float",
+          "required": "true",
+          "default": 1
+        }
+      },
+      "improvementsSection3": {
+        "improvementsSection2": {
+          "label": "Improvements",
+          "type": "label"
+        },
+        "solarCost": {
+          "label": "Solar PV 13.3 kW Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$",
+          "required": "true",
+          "default": 412
+        },
+        "solarQuantity": {
+          "label": "Solar PV 13.3 kW Quantity",
+          "type": "float",
+          "unit": "$/m² of solar",
+          "required": "true"
+        },
+        "batteryCost": {
+          "label": "Battery Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$/m² of solar",
+          "required": "true",
+          "default": 0
+        },
+        "batteryQuantity": {
+          "label": "Battery Quantity",
+          "type": "float",
+          "required": "true"
+        },
+        "energyMonitorCost": {
+          "label": "Energy Monitor Unit Cost (Installed)",
+          "type": "float",
+          "unit": "$",
+          "required": "true",
+          "default": 300
+        },
+        "energyMonitorQuantity": {
+          "label": "Energy Monitor Quantity",
+          "type": "float",
+          "required": "true",
+          "default": 1
+        }
+      }
+    }
+  },
+  "business": {
+    "label": "Business Case",
+    "content": "Lorem ipsum",
+    "navigation": "Business Case",
+    "fields": {
+      "paceLoanTerm": {
+        "label": "PACE Loan Term",
+        "unit": "years",
+        "type": "integer",
+        "default": 20,
+        "required": true
+      },
+      "interest": {
+        "label": "Interest",
+        "unit": "%",
+        "default": 4,
+        "required": true
+      }
+    }
   }
-]
+}
