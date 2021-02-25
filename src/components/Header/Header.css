@@ -1,0 +1,20 @@
+.Header {
+  padding: 2rem 0;
+}
+
+.Header h1 {
+  margin-bottom: 0;
+}
+
+.Header h1 a {
+  text-decoration: none;
+}
+
+.Header h1 a:hover {
+  text-decoration: underline;
+}
+
+.Header h3 {
+  margin: 0;
+  font-weight: normal;
+}
