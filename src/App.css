@@ -51,3 +51,16 @@ a {
 *:after {
   box-sizing: border-box;
 }
+
+button {
+  background: none;
+  border: 0;
+  font-size: 18px;
+  padding: 0;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+button:hover {
+  text-decoration: underline;
+}

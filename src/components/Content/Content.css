@@ -1,4 +1,23 @@
 .Content {
   background-color: white;
   padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Navigation {
+  width: 25%;
+}
+
+.Navigation button {
+  margin-bottom: 1rem;
+}
+
+.Fields {
+  width: 75%;
+  padding-right: 4rem;
+}
+
+.Fields h2 {
+  margin-top: 0;
 }
