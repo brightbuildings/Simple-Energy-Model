@@ -5,7 +5,10 @@ import "./Header.css";
 function Header() {
   return (
     <div className="Header">
-      Bright Buildings
+      <div className="centered">
+        <h1><a href="https://brightbuildings.tumblr.com/">Bright Buildings</a></h1>
+        <h3>Simple Energy Model</h3>
+      </div>
     </div>
   );
 }
