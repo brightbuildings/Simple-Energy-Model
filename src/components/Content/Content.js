@@ -11,9 +11,6 @@ const formatSections = (data, activeSection) => {
     const key = section[0];
     const value = section[1];
 
-    console.log(section);
-
-
     // If Parameters, export both A and B
     if (key === "parameters") {
       const parametersA = [key+"-a", value];
@@ -51,10 +48,9 @@ const formatSection = (section, activeSection) => {
         const value = field[1];
 
         return (
-          <section key={key}>
-            <h3>{key}</h3>
-            {Object.entries(value).map(input => {
-              return formatQuestion(input);
+          <section key={key} className="Questions">
+            {Object.entries(value).map(question => {
+              return formatQuestion(question);
             })}
           </section>
           );
@@ -93,14 +89,15 @@ const formatNavigation = (data, setActiveSection) => {
 };
 
 const formatQuestion = question => {
+  const value = question[1];
 
-  switch (question.type) {
+  switch (value.type) {
     case "float":
-      break;
+      return <p>Float</p>
     case "integer":
-      break;
+      return <p>Integer</p>;
     case "text":
-      break;
+      return <p>Text</p>;
     case "gap":
       return <br />;
     default:
