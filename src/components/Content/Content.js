@@ -64,7 +64,7 @@ const formatNavigation = (data, setActiveSection) => {
 };
 
 function Content() {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState("introduction");
   const data = DataService.load();
   console.log(Object.entries(data));
 

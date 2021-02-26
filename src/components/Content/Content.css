@@ -21,3 +21,16 @@
 .Fields h2 {
   margin-top: 0;
 }
+
+.fieldset {
+  z-index: 0;
+  opacity: 0;
+  transition: all 0.2s;
+  position: absolute;
+}
+
+.fieldset.active {
+  z-index: 1;
+  opacity: 1;
+  transition: all 0.2s;
+}
