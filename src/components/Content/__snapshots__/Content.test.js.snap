@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Content 1`] = `
+<div
+  className="centered-narrow"
+>
+  <div
+    className="Content"
+  >
+    <div
+      className="Fields"
+    >
+      <section
+        className="fieldset"
+      >
+        <h2>
+          Introduction
+        </h2>
+        <p>
+          Lorem ipsum
+        </p>
+      </section>
+      <section
+        className="fieldset"
+      >
+        <h2>
+          Parameters - Model A
+        </h2>
+        <p>
+          How is the existing home built?
+        </p>
+      </section>
+      <section
+        className="fieldset"
+      >
+        <h2>
+          Parameters - Model B
+        </h2>
+        <p>
+          What improvements would you like to consider?
+        </p>
+      </section>
+      <section
+        className="fieldset"
+      >
+        <h2>
+          Financing the Net-zero Upgrade
+        </h2>
+        <p>
+          Lorem ipsum
+        </p>
+      </section>
+      <section
+        className="fieldset"
+      >
+        <h2>
+          Business Case
+        </h2>
+        <p>
+          Lorem ipsum
+        </p>
+      </section>
+    </div>
+    <div
+      className="Navigation"
+    >
+      <button>
+        introduction
+      </button>
+      <br />
+      <button>
+        Parameters A
+      </button>
+      <br />
+      <button>
+        Parameters B
+      </button>
+      <br />
+      <button>
+        financing
+      </button>
+      <br />
+      <button>
+        business
+      </button>
+      <br />
+    </div>
+  </div>
+</div>
+`;

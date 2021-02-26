@@ -4,13 +4,16 @@ import DataService from "../../services/DataService";
 import "./Content.css";
 
 const formatSections = data => {
+  if (data == null) {
+    return;
+  }
   return Object.entries(data).map(section => {
     let key = section[0];
 
     // If Parameters, export both A and B
     if (key === "parameters") {
       return (
-        <>
+        <React.Fragment key="parameters">
           <section key={section[0]+"a"} className="fieldset">
             <h2>{section[1].label}</h2>
             <p>{section[1].content}</p>
@@ -19,7 +22,7 @@ const formatSections = data => {
             <h2>{section[1].labelB}</h2>
             <p>{section[1].contentB}</p>
           </section>
-        </>
+        </React.Fragment>
       )
     } else {
       return (
@@ -33,25 +36,28 @@ const formatSections = data => {
 };
 
 const formatNavigation = data => {
+  if (data == null) {
+    return;
+  }
   return Object.entries(data).map(section => {
     let key = section[0];
 
     // If Parameters, export both A and B
     if (key === "parameters") {
       return (
-        <>
+        <React.Fragment key="parameters">
           <button key={section[0]+"a"}>Parameters A</button>
           <br />
           <button key={section[0]+"b"}>Parameters B</button>
           <br />
-        </>
+        </React.Fragment>
       )
     } else {
       return (
-        <>
-          <button key={section[0]}>{section[0]}</button>
+        <React.Fragment key={section[0]}>
+          <button>{section[0]}</button>
           <br />
-        </>
+        </React.Fragment>
       );
     }
   });
@@ -75,4 +81,8 @@ function Content() {
   );
 }
 
-export default Content;
+export {
+  Content,
+  formatSections,
+  formatNavigation
+};
