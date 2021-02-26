@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DataService from "../../services/DataService";
+import { Form, FormGroup, Label, Input, InputGroup, InputGroupText } from "reactstrap";
 
 import "./Content.css";
 
@@ -40,7 +41,7 @@ const formatSection = (section, activeSection) => {
   }
   
   return (
-    <section key={key} className={`fieldset ${activeSection === key ? "active" : ""}`}>
+    <FormGroup key={key} className={`fieldset ${activeSection === key ? "active" : ""}`}>
       <h2>{value[labelKey]}</h2>
       <p>{value[contentKey]}</p>
       {Object.entries(value.fields).map(field => {
@@ -56,7 +57,7 @@ const formatSection = (section, activeSection) => {
           );
         })
       }
-    </section>
+    </FormGroup>
   );
 }
 
@@ -89,17 +90,52 @@ const formatNavigation = (data, setActiveSection) => {
 };
 
 const formatQuestion = question => {
+  const key = question[0];
   const value = question[1];
 
+  let required = false;
+  if (value.required === true) {
+    required = true;
+  }
+
   switch (value.type) {
-    case "float":
-      return <p>Float</p>
+    case "float": // fall through
     case "integer":
-      return <p>Integer</p>;
+      return (
+        <InputGroup>
+          <Label for={key}>{value.label}</Label>
+          <Input 
+            type="number" 
+            required={required}
+            name={value.key}
+            value={value.key}
+          />
+          {value.unit && (
+            <inputGroupAddon addonType="append">
+              <InputGroupText>{value.unit}</InputGroupText>
+            </inputGroupAddon>
+          )}
+        </InputGroup>
+      );
     case "text":
-      return <p>Text</p>;
+      return (
+        <InputGroup>
+          <Label for={key}>{value.label}</Label>
+          <Input 
+            type="text" 
+            required={required}
+            name={value.key}
+            value={value.key}
+          />
+          {value.unit && (
+            <inputGroupAddon addonType="append">
+              <InputGroupText>{value.unit}</InputGroupText>
+            </inputGroupAddon>
+          )}
+        </InputGroup>
+      );
     case "gap":
-      return <br />;
+      return <div className="spacer">&nbsp;</div>;
     default:
       break;
   }
@@ -112,9 +148,9 @@ function Content() {
   return (
     <div className="centered-narrow">
       <div className="Content">
-        <div className="Fields">
+        <Form className="Fields">
           {formatSections(data, activeSection)}
-        </div>
+        </Form>
         <div className="Navigation">
           {formatNavigation(data, setActiveSection)}
         </div>
