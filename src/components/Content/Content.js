@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import DataService from "../../services/DataService";
 
 import "./Content.css";
 
-const formatSections = data => {
+const formatSections = (data, activeSection) => {
   if (data == null) {
     return;
   }
@@ -14,11 +14,11 @@ const formatSections = data => {
     if (key === "parameters") {
       return (
         <React.Fragment key="parameters">
-          <section key={section[0]+"a"} className="fieldset">
+          <section key={section[0]+"a"} className={`fieldset ${activeSection === section[0]+"a" ? "active" : ""}`}> 
             <h2>{section[1].label}</h2>
             <p>{section[1].content}</p>
           </section>
-          <section key={section[0]+"b"} className="fieldset">
+          <section key={section[0]+"b"} className={`fieldset ${activeSection === section[0]+"b" ? "active" : ""}`}>
             <h2>{section[1].labelB}</h2>
             <p>{section[1].contentB}</p>
           </section>
@@ -26,7 +26,7 @@ const formatSections = data => {
       )
     } else {
       return (
-        <section key={section[0]} className="fieldset">
+        <section key={section[0]} className={`fieldset ${activeSection === section[0] ? "active" : ""}`}>
           <h2>{section[1].label}</h2>
           <p>{section[1].content}</p>
         </section>
@@ -35,7 +35,7 @@ const formatSections = data => {
   });
 };
 
-const formatNavigation = data => {
+const formatNavigation = (data, setActiveSection) => {
   if (data == null) {
     return;
   }
@@ -46,16 +46,16 @@ const formatNavigation = data => {
     if (key === "parameters") {
       return (
         <React.Fragment key="parameters">
-          <button key={section[0]+"a"}>Parameters A</button>
+          <button key={section[0]+"a"} onClick={() => setActiveSection(section[0]+"a")}>Parameters A</button>
           <br />
-          <button key={section[0]+"b"}>Parameters B</button>
+          <button key={section[0]+"b"} onClick={() => setActiveSection(section[0]+"b")}>Parameters B</button>
           <br />
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment key={section[0]}>
-          <button>{section[0]}</button>
+          <button onClick={() => setActiveSection(section[0])}>{section[0]}</button>
           <br />
         </React.Fragment>
       );
@@ -64,6 +64,7 @@ const formatNavigation = data => {
 };
 
 function Content() {
+  const [activeSection, setActiveSection] = useState(null);
   const data = DataService.load();
   console.log(Object.entries(data));
 
@@ -71,10 +72,10 @@ function Content() {
     <div className="centered-narrow">
       <div className="Content">
         <div className="Fields">
-          {formatSections(data)}
+          {formatSections(data, activeSection)}
         </div>
         <div className="Navigation">
-          {formatNavigation(data)}
+          {formatNavigation(data, setActiveSection)}
         </div>
       </div>
     </div>
