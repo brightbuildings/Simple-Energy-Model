@@ -26,25 +26,25 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            introduction
+            Introduction
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            dimensions
+            Dimensions
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            solar
+            Solar
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            location
+            Location
           </button>
         </div>
         <div
@@ -67,19 +67,19 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            build
+            Build
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            mechanical
+            Mechanical
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            energyPrices
+            Energy Prices
           </button>
         </div>
         <div
@@ -102,19 +102,19 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            build
+            Build
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            mechanical
+            Mechanical
           </button>
           <button
             className=""
             onClick={[Function]}
           >
-            energyPrices
+            Energy Prices
           </button>
         </div>
         <div
@@ -137,19 +137,7 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            improvementsSection1
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            improvementsSection2
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            improvementsSection3
+            Improvements
           </button>
         </div>
         <div
@@ -172,13 +160,7 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            paceLoanTerm
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            interest
+            Business
           </button>
         </div>
         <div
@@ -241,6 +223,9 @@ exports[`renders formatQuestion with float question 1`] = `
   </label>
   <input
     className="form-control"
+    id="questionFloat"
+    name="questionFloat"
+    onChange={[Function]}
     required={true}
     type="number"
   />
@@ -267,6 +252,9 @@ exports[`renders formatQuestion with integer question 1`] = `
   </label>
   <input
     className="form-control"
+    id="question2Key"
+    name="question2Key"
+    onChange={[Function]}
     required={false}
     type="number"
   />
@@ -294,6 +282,9 @@ exports[`renders formatQuestion with text question 1`] = `
   </label>
   <input
     className="form-control"
+    id="question3Key"
+    name="question3Key"
+    onChange={[Function]}
     required={true}
     type="text"
   />

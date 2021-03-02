@@ -9,6 +9,10 @@ const json = {
   }
 };
 
+const variables = {};
+
+const setVariables = jest.fn();
+
 const questionFloat = [
   "questionFloat",
   {
@@ -67,42 +71,42 @@ test("runs formatQuestion with empty question", () => {
 });
 
 test("runs formatQuestion with float question", () => {
-  const result = formatQuestion(questionFloat);
+  const result = formatQuestion(questionFloat, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
 test("runs formatQuestion with integer question", () => {
-  const result = formatQuestion(questionInteger);
+  const result = formatQuestion(questionInteger, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
 test("runs formatQuestion with text question", () => {
-  const result = formatQuestion(questionText);
+  const result = formatQuestion(questionText, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
 test("runs formatQuestion with gap question", () => {
-  const result = formatQuestion(questionGap);
+  const result = formatQuestion(questionGap, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
 test("renders formatQuestion with float question", () => {
-  const result = renderer.create(formatQuestion(questionFloat));
+  const result = renderer.create(formatQuestion(questionFloat, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
 test("renders formatQuestion with integer question", () => {
-  const result = renderer.create(formatQuestion(questionInteger));
+  const result = renderer.create(formatQuestion(questionInteger, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
 test("renders formatQuestion with text question", () => {
-  const result = renderer.create(formatQuestion(questionText));
+  const result = renderer.create(formatQuestion(questionText, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
 test("renders formatQuestion with gap question", () => {
-  const result = renderer.create(formatQuestion(questionGap));
+  const result = renderer.create(formatQuestion(questionGap, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
