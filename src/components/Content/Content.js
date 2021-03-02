@@ -61,7 +61,7 @@ const formatSection = (section, activeSection) => {
   );
 }
 
-const formatNavigation = (data, setActiveSection) => {
+const formatNavigation = (data, activeSection, setActiveSection) => {
   if (data == null) {
     return;
   }
@@ -72,16 +72,33 @@ const formatNavigation = (data, setActiveSection) => {
     if (key === "parameters") {
       return (
         <React.Fragment key="parameters">
-          <button key={section[0]+"a"} onClick={() => setActiveSection(section[0]+"-a")}>Parameters A</button>
+          <button 
+            className={`${section[0]}-a` === activeSection ? "active" : "" } 
+            key={section[0]+"a"} 
+            onClick={() => setActiveSection(section[0]+"-a")}
+          >
+            Parameters A
+          </button>
           <br />
-          <button key={section[0]+"b"} onClick={() => setActiveSection(section[0]+"-b")}>Parameters B</button>
+          <button 
+            className={`${section[0]}-b` === activeSection ? "active" : "" } 
+            key={section[0]+"b"} 
+            onClick={() => setActiveSection(section[0]+"-b")}
+          >
+            Parameters B
+          </button>
           <br />
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment key={section[0]}>
-          <button onClick={() => setActiveSection(section[0])}>{section[0]}</button>
+          <button
+            className={section[0] === activeSection ? "active" : "" } 
+            onClick={() => setActiveSection(section[0])}
+          >
+            {section[0]}
+          </button>
           <br />
         </React.Fragment>
       );
@@ -155,7 +172,7 @@ function Content() {
           {formatSections(data, activeSection)}
         </Form>
         <div className="Navigation">
-          {formatNavigation(data, setActiveSection)}
+          {formatNavigation(data, activeSection, setActiveSection)}
         </div>
       </div>
     </div>
