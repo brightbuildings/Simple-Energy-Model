@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DataService from "../../services/DataService";
-import { Form, FormGroup, Label, Input, InputGroup, InputGroupText } from "reactstrap";
+import { Form, FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 
 import "./Content.css";
 
@@ -90,19 +90,22 @@ const formatNavigation = (data, setActiveSection) => {
 };
 
 const formatQuestion = question => {
+  if (question == null) {
+    return;
+  }
   const key = question[0];
   const value = question[1];
 
   let required = false;
-  if (value.required === true) {
+  if (value?.required === true) {
     required = true;
   }
 
-  switch (value.type) {
+  switch (value?.type) {
     case "float": // fall through
     case "integer":
       return (
-        <InputGroup>
+        <InputGroup key={key}>
           <Label for={key}>{value.label}</Label>
           <Input 
             type="number" 
@@ -111,15 +114,15 @@ const formatQuestion = question => {
             value={value.key}
           />
           {value.unit && (
-            <inputGroupAddon addonType="append">
+            <InputGroupAddon addonType="append">
               <InputGroupText>{value.unit}</InputGroupText>
-            </inputGroupAddon>
+            </InputGroupAddon>
           )}
         </InputGroup>
       );
     case "text":
       return (
-        <InputGroup>
+        <InputGroup key={key}>
           <Label for={key}>{value.label}</Label>
           <Input 
             type="text" 
@@ -128,16 +131,16 @@ const formatQuestion = question => {
             value={value.key}
           />
           {value.unit && (
-            <inputGroupAddon addonType="append">
+            <InputGroupAddon addonType="append">
               <InputGroupText>{value.unit}</InputGroupText>
-            </inputGroupAddon>
+            </InputGroupAddon>
           )}
         </InputGroup>
       );
     case "gap":
-      return <div className="spacer">&nbsp;</div>;
+      return <div key={key} className="spacer">&nbsp;</div>;
     default:
-      break;
+      return;
   }
 };
 
@@ -162,5 +165,6 @@ function Content() {
 export {
   Content,
   formatSections,
-  formatNavigation
+  formatNavigation,
+  formatQuestion
 };
