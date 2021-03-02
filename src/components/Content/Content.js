@@ -45,32 +45,41 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
       <p>{value[contentKey]}</p>
 
       <div className="subNavigation">
-        {Object.entries(value.fields).map(field => {
+        {Object.entries(value.fields).map((field, index) => {
           const key = field[0];
+          const navTitle = field[1].navigation;
+          console.log(field);
+
+          let activeKey = activeSubsection;
+          if (index === 0 && activeSubsection === "") {
+            activeKey = key;
+          }
 
           return (
             <button 
               key={key}
               onClick={() => setActiveSubsection(key)}
-              className={key === activeSubsection ? "active" : "" } 
+              className={key === activeKey ? "active" : "" } 
             >
-              {key}
+              {navTitle}
             </button>
           );
         })}
       </div>
       <div className="subNavigationContent">
-        {Object.entries(value.fields).map(field => {
+        {Object.entries(value.fields).map((field, index) => {
           const key = field[0];
           const value = field[1];
 
-          if (activeSubsection !== key) {
+          if (index === 0 && activeSubsection === "") {
+            // display this entry
+          } else if (activeSubsection !== key) {
             return null;
           }
 
           return (
             <section key={key} className="Questions">
-              {Object.entries(value).map(question => {
+              {Object.entries(value.fields).map(question => {
                 return formatQuestion(question, variables, setVariables);
               })}
             </section>
@@ -82,7 +91,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
   );
 }
 
-const formatNavigation = (data, activeSection, setActiveSection) => {
+const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsection) => {
   if (data == null) {
     return;
   }
@@ -95,8 +104,11 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
         <React.Fragment key="parameters">
           <button 
             className={`${section[0]}-a` === activeSection ? "active" : "" } 
-            key={section[0]+"a"} 
-            onClick={() => setActiveSection(section[0]+"-a")}
+            key={section[0]+"a"}
+            onClick={() => {
+              setActiveSubsection("");
+              setActiveSection(section[0]+"-a")
+            }}
           >
             Parameters A
           </button>
@@ -104,7 +116,10 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
           <button 
             className={`${section[0]}-b` === activeSection ? "active" : "" } 
             key={section[0]+"b"} 
-            onClick={() => setActiveSection(section[0]+"-b")}
+            onClick={() => {
+              setActiveSubsection("");
+              setActiveSection(section[0]+"-b")
+            }}
           >
             Parameters B
           </button>
@@ -116,7 +131,10 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
         <React.Fragment key={section[0]}>
           <button
             className={section[0] === activeSection ? "active" : "" } 
-            onClick={() => setActiveSection(section[0])}
+            onClick={() => {
+              setActiveSubsection("");
+              setActiveSection(section[0]);
+            }}
           >
             {section[0]}
           </button>
@@ -199,7 +217,7 @@ function Content() {
           {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables)}
         </div>
         <div className="Navigation">
-          {formatNavigation(data, activeSection, setActiveSection)}
+          {formatNavigation(data, activeSection, setActiveSection, setActiveSubsection)}
         </div>
       </div>
     </div>
