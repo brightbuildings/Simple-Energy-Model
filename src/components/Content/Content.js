@@ -4,7 +4,7 @@ import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } 
 
 import "./Content.css";
 
-const formatSections = (data, activeSection, activeSubsection, setActiveSubsection) => {
+const formatSections = (data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables) => {
   if (data == null) {
     return;
   }
@@ -19,17 +19,17 @@ const formatSections = (data, activeSection, activeSubsection, setActiveSubsecti
 
       return (
         <React.Fragment key="parameters">
-          {formatSection(parametersA, activeSection, activeSubsection, setActiveSubsection)}
-          {formatSection(parametersB, activeSection, activeSubsection, setActiveSubsection)}
+          {formatSection(parametersA, activeSection, activeSubsection, setActiveSubsection, variables, setVariables)}
+          {formatSection(parametersB, activeSection, activeSubsection, setActiveSubsection, variables, setVariables)}
         </React.Fragment>
       );
     } else {
-      return formatSection(section, activeSection, activeSubsection, setActiveSubsection);
+      return formatSection(section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables);
     }
   });
 };
 
-const formatSection = (section, activeSection, activeSubsection, setActiveSubsection) => {
+const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables) => {
   const key = section[0];
   const value = section[1];
 
@@ -39,7 +39,6 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
     labelKey = "labelB";
     contentKey = "contentB";
   }
-  
   return (
     <FormGroup key={key} className={`fieldset ${activeSection === key ? "active" : ""}`}>
       <h2>{value[labelKey]}</h2>
@@ -72,7 +71,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
           return (
             <section key={key} className="Questions">
               {Object.entries(value).map(question => {
-                return formatQuestion(question);
+                return formatQuestion(question, variables, setVariables);
               })}
             </section>
             );
@@ -128,7 +127,7 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
   });
 };
 
-const formatQuestion = question => {
+const formatQuestion = (question, variables, setVariables) => {
   if (question == null) {
     return;
   }
@@ -149,8 +148,10 @@ const formatQuestion = question => {
           <Input 
             type="number" 
             required={required}
-            name={value.key}
-            value={value.key}
+            name={key}
+            id={key}
+            defaultValue={variables[key]}
+            onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           />
           {value.unit && (
             <InputGroupAddon addonType="append">
@@ -166,8 +167,10 @@ const formatQuestion = question => {
           <Input 
             type="text" 
             required={required}
-            name={value.key}
-            value={value.key}
+            name={key}
+            id={key}
+            defaultValue={variables[key]}
+            onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           />
           {value.unit && (
             <InputGroupAddon addonType="append">
@@ -186,13 +189,14 @@ const formatQuestion = question => {
 function Content() {
   const [activeSection, setActiveSection] = useState("introduction");
   const [activeSubsection, setActiveSubsection] = useState(null);
+  const [variables, setVariables] = useState({});
   const data = DataService.load();
 
   return (
     <div className="centered-narrow">
       <div className="Content">
         <div className="Fields">
-          {formatSections(data, activeSection, activeSubsection, setActiveSubsection)}
+          {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables)}
         </div>
         <div className="Navigation">
           {formatNavigation(data, activeSection, setActiveSection)}
