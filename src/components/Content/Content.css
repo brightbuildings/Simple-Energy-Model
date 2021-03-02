@@ -17,6 +17,20 @@
   font-weight: bold;
 }
 
+.subNavigation {
+  display: flex-start;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.subNavigation button {
+  padding: 1rem;
+}
+
+.subNavigation button.active {
+  font-weight: bold;
+}
+
 .Fields {
   width: 75%;
   padding-right: 4rem;

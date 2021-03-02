@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import DataService from "../../services/DataService";
-import { Form, FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
+import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 
 import "./Content.css";
 
-const formatSections = (data, activeSection) => {
+const formatSections = (data, activeSection, activeSubsection, setActiveSubsection) => {
   if (data == null) {
     return;
   }
@@ -19,17 +19,17 @@ const formatSections = (data, activeSection) => {
 
       return (
         <React.Fragment key="parameters">
-          {formatSection(parametersA, activeSection)}
-          {formatSection(parametersB, activeSection)}
+          {formatSection(parametersA, activeSection, activeSubsection, setActiveSubsection)}
+          {formatSection(parametersB, activeSection, activeSubsection, setActiveSubsection)}
         </React.Fragment>
       );
     } else {
-      return formatSection(section, activeSection);
+      return formatSection(section, activeSection, activeSubsection, setActiveSubsection);
     }
   });
 };
 
-const formatSection = (section, activeSection) => {
+const formatSection = (section, activeSection, activeSubsection, setActiveSubsection) => {
   const key = section[0];
   const value = section[1];
 
@@ -44,19 +44,41 @@ const formatSection = (section, activeSection) => {
     <FormGroup key={key} className={`fieldset ${activeSection === key ? "active" : ""}`}>
       <h2>{value[labelKey]}</h2>
       <p>{value[contentKey]}</p>
-      {Object.entries(value.fields).map(field => {
-        const key = field[0];
-        const value = field[1];
 
-        return (
-          <section key={key} className="Questions">
-            {Object.entries(value).map(question => {
-              return formatQuestion(question);
-            })}
-          </section>
+      <div className="subNavigation">
+        {Object.entries(value.fields).map(field => {
+          const key = field[0];
+
+          return (
+            <button 
+              key={key}
+              onClick={() => setActiveSubsection(key)}
+              className={key === activeSubsection ? "active" : "" } 
+            >
+              {key}
+            </button>
           );
-        })
-      }
+        })}
+      </div>
+      <div className="subNavigationContent">
+        {Object.entries(value.fields).map(field => {
+          const key = field[0];
+          const value = field[1];
+
+          if (activeSubsection !== key) {
+            return null;
+          }
+
+          return (
+            <section key={key} className="Questions">
+              {Object.entries(value).map(question => {
+                return formatQuestion(question);
+              })}
+            </section>
+            );
+          })
+        }
+      </div>
     </FormGroup>
   );
 }
@@ -163,14 +185,15 @@ const formatQuestion = question => {
 
 function Content() {
   const [activeSection, setActiveSection] = useState("introduction");
+  const [activeSubsection, setActiveSubsection] = useState(null);
   const data = DataService.load();
 
   return (
     <div className="centered-narrow">
       <div className="Content">
-        <Form className="Fields">
-          {formatSections(data, activeSection)}
-        </Form>
+        <div className="Fields">
+          {formatSections(data, activeSection, activeSubsection, setActiveSubsection)}
+        </div>
         <div className="Navigation">
           {formatNavigation(data, activeSection, setActiveSection)}
         </div>
