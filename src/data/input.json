@@ -903,18 +903,21 @@
     "content": "Lorem ipsum",
     "navigation": "Business Case",
     "fields": {
-      "paceLoanTerm": {
-        "label": "PACE Loan Term",
-        "unit": "years",
-        "type": "integer",
-        "default": 20,
-        "required": true
-      },
-      "interest": {
-        "label": "Interest",
-        "unit": "%",
-        "default": 4,
-        "required": true
+      "business": {
+        "paceLoanTerm": {
+          "label": "PACE Loan Term",
+          "unit": "years",
+          "type": "integer",
+          "default": 20,
+          "required": true
+        },
+        "interest": {
+          "label": "Interest",
+          "type": "integer",
+          "unit": "%",
+          "default": 4,
+          "required": true
+        }
       }
     }
   }
