@@ -9,8 +9,7 @@ const formatSections = (data, activeSection, activeSubsection, setActiveSubsecti
     return;
   }
   return Object.entries(data).map(section => {
-    const key = section[0];
-    const value = section[1];
+    const [key, value] = section;
 
     // If Parameters, export both A and B
     if (key === "parameters") {
@@ -30,8 +29,7 @@ const formatSections = (data, activeSection, activeSubsection, setActiveSubsecti
 };
 
 const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables) => {
-  const key = section[0];
-  const value = section[1];
+  const [key, value] = section;
 
   let labelKey = "label";
   let contentKey = "content";
@@ -61,8 +59,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
       </div>
       <div className="subNavigationContent">
         {Object.entries(value.fields).map(field => {
-          const key = field[0];
-          const value = field[1];
+          const [key, value] = field;
 
           if (activeSubsection !== key) {
             return null;
@@ -131,8 +128,7 @@ const formatQuestion = (question, variables, setVariables) => {
   if (question == null) {
     return;
   }
-  const key = question[0];
-  const value = question[1];
+  const [key, value] = question;
 
   let required = false;
   if (value?.required === true) {
