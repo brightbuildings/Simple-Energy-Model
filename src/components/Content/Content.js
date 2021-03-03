@@ -46,7 +46,6 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
         {Object.entries(value.fields).map((field, index) => {
           const key = field[0];
           const navTitle = field[1].navigation;
-          console.log(field);
 
           let activeKey = activeSubsection;
           if (index === 0 && activeSubsection === "") {
@@ -88,7 +87,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
   );
 }
 
-const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsection) => {
+const formatNavigation = (data, activeSection, setActiveSection) => {
   if (data == null) {
     return;
   }
@@ -189,7 +188,7 @@ const formatQuestion = (question, variables, setVariables) => {
 
 function Content() {
   const [activeSection, setActiveSection] = useState("introduction");
-  const [activeSubsection, setActiveSubsection] = useState(null);
+  const [activeSubsection, setActiveSubsection] = useState("");
   const [variables, setVariables] = useState({});
   const data = DataService.load();
 
