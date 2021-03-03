@@ -89,17 +89,17 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
       return (
         <React.Fragment key="parameters">
           <button 
-            className={`${section[0]}-a` === activeSection ? "active" : "" } 
-            key={section[0]+"a"} 
-            onClick={() => setActiveSection(section[0]+"-a")}
+            className={`${key}-a` === activeSection ? "active" : "" } 
+            key={key+"a"} 
+            onClick={() => setActiveSection(key+"-a")}
           >
             Parameters A
           </button>
           <br />
           <button 
-            className={`${section[0]}-b` === activeSection ? "active" : "" } 
-            key={section[0]+"b"} 
-            onClick={() => setActiveSection(section[0]+"-b")}
+            className={`${key}-b` === activeSection ? "active" : "" } 
+            key={key+"b"} 
+            onClick={() => setActiveSection(key+"-b")}
           >
             Parameters B
           </button>
@@ -108,12 +108,12 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
       )
     } else {
       return (
-        <React.Fragment key={section[0]}>
+        <React.Fragment key={key}>
           <button
-            className={section[0] === activeSection ? "active" : "" } 
-            onClick={() => setActiveSection(section[0])}
+            className={key === activeSection ? "active" : "" } 
+            onClick={() => setActiveSection(key)}
           >
-            {section[0]}
+            {key}
           </button>
           <br />
         </React.Fragment>
