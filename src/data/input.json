@@ -773,7 +773,7 @@
       "build": {
         "navigation": "Build",
         "fields": {
-          "airtightness": {
+          "airtightnessB": {
             "label": "Airtightness",
             "type": "select",
             "values": [
@@ -813,14 +813,14 @@
             "unit": "ACH @50 Pa",
             "required": true
           },
-          "gap1": {
+          "gap1B": {
             "type": "gap"
           },
-          "insulation": {
+          "insulationB": {
             "label": "Insulation",
             "type": "label"
           },
-          "wallAboveGrade": {
+          "wallAboveGradeB": {
             "label": "Wall Above Grade",
             "type": "select",
             "values": [
@@ -867,7 +867,7 @@
             "unit": "W/m²K",
             "required": true
           },
-          "wallBelowGrade": {
+          "wallBelowGradeB": {
             "label": "Wall Below Grade",
             "type": "select",
             "values": [
@@ -899,7 +899,7 @@
             "unit": "W/m²K",
             "required": true
           },
-          "roof": {
+          "roofB": {
             "label": "Roof",
             "type": "select",
             "values": [
@@ -928,7 +928,7 @@
             "unit": "W/m²K",
             "required": true
           },
-          "floor": {
+          "floorB": {
             "label": "Floor",
             "type": "Select",
             "values": [
@@ -957,7 +957,7 @@
           "gap": {
             "type": "gap"
           },
-          "windows": {
+          "windowsB": {
             "label": "Windows",
             "type": "select",
             "values": [
@@ -1001,7 +1001,7 @@
             "unit": "W/m²K",
             "required": true
           },
-          "solidDoor": {
+          "solidDoorB": {
             "label": "Solid Door",
             "type": "select",
             "values": [
@@ -1020,11 +1020,11 @@
       "mechanical": {
         "navigation": "Mechanical",
         "fields": {
-          "mechanical": {
+          "mechanicalB": {
             "label": "Mechanical Equipment - Seasonal Average Efficiency",
             "type": "label"
           },
-          "ventilation": {
+          "ventilationB": {
             "label": "Ventilation",
             "type": "select",
             "values": [
@@ -1053,7 +1053,7 @@
             "unit": "%",
             "required": true
           },
-          "heating": {
+          "heatingB": {
             "label": "Heating",
             "type": "select",
             "values": [
@@ -1081,7 +1081,7 @@
             "unit": "%",
             "required": true
           },
-          "cooling": {
+          "coolingB": {
             "label": "Cooling",
             "type": "select",
             "values": [
@@ -1101,7 +1101,7 @@
             "unit": "%",
             "required": true
           },
-          "hotWaterHeater": {
+          "hotWaterHeaterB": {
             "label": "Hot Water Heating",
             "type": "select",
             "values": [
@@ -1129,7 +1129,7 @@
             "unit": "%",
             "required": true
           },
-          "hotWaterHeaterStorage": {
+          "hotWaterHeaterStorageB": {
             "label": "Hot Water Heater Storage",
             "type": "select",
             "values": [
@@ -1138,7 +1138,7 @@
             ],
             "required": true
           },
-          "drainWaterHeatRecovery": {
+          "drainWaterHeatRecoveryB": {
             "label": "Drain Water Heat Recovery",
             "type": "select",
             "values": [
@@ -1157,11 +1157,11 @@
           "gap": {
             "type": "gap"
           },
-          "hotWaterFixturesLightingAndAppliances": {
+          "hotWaterFixturesLightingAndAppliancesB": {
             "label": "Hot Water Fixtures, Lighting and Appliances",
             "type": "label"
           },
-          "hotWaterFixtures": {
+          "hotWaterFixturesB": {
             "label": "Hot Water Fixtures",
             "type": "select",
             "values": [
@@ -1183,7 +1183,7 @@
             "unit": "L/day",
             "required": true
           },
-          "lighting": {
+          "lightingB": {
             "label": "Lighting",
             "type": "select",
             "values": [
@@ -1194,7 +1194,7 @@
             "unit": "kWh/day",
             "required": true
           },
-          "appliances": {
+          "appliancesB": {
             "label": "Appliances",
             "type": "select",
             "values": [
@@ -1206,7 +1206,7 @@
             "unit": "kWh/day",
             "required": true
           },
-          "plugLoads": {
+          "plugLoadsB": {
             "label": "Plug Loads",
             "type": "select",
             "values": [
@@ -1218,7 +1218,7 @@
           }
         }
       },
-      "energyPrices": {
+      "energyPricesB": {
         "navigation": "Energy Prices",
         "fields": {
           "annualEnergyCosts": {
@@ -1267,98 +1267,98 @@
             "unit": "$",
             "required": true
           },
-          "gap": {
+          "gapB": {
             "type": "gap"
           },
-          "energy": {
+          "energyB": {
             "label": "Energy Prices",
             "type": "label"
           },
-          "carbonPrice": {
+          "carbonPriceB": {
             "label": "Carbon Price",
             "type": "float",
             "unit": "$/tonne",
             "required": true,
             "default": 103
           },
-          "electrityPrice": {
+          "electrityPriceB": {
             "label": "Electricity Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.150
           },
-          "electrityCarbon": {
+          "electrityCarbonB": {
             "label": "Electricity Carbon",
             "type": "float",
             "unit": "kg/kWh",
             "required": true,
             "default": 0.6
           },
-          "cleanElectricityPrice": {
+          "cleanElectricityPriceB": {
             "label": "Clean Electricity Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.150
           },
-          "cleanElectrityCarbon": {
+          "cleanElectrityCarbonB": {
             "label": "Clean Electricity Carbon",
             "type": "float",
             "unit": "kg/kWh",
             "required": true,
             "default": 0
           },
-          "naturalGasFossilPrice": {
+          "naturalGasFossilPriceB": {
             "label": "Natural Gas (Fossil) Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.022
           },
-          "naturalGasFossilCarbon": {
+          "naturalGasFossilCarbonB": {
             "label": "Natural Gas (Fossil) Carbon",
             "type": "float",
             "unit": "kg/kWh",
             "required": true,
             "default": 0.25
           },
-          "cleanGasPrice": {
+          "cleanGasPriceB": {
             "label": "Clean Gas Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.063
           },
-          "cleanGasCarbon": {
+          "cleanGasCarbonB": {
             "label": "Clean Gas Carbon",
             "type": "float",
             "unit": "kg/kWh",
             "required": true,
             "default": 0
           },
-          "propanePrice": {
+          "propanePriceB": {
             "label": "Propane Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.127
           },
-          "propaneCarbon": {
+          "propaneCarbonB": {
             "label": "Propane Carbon",
             "type": "float",
             "unit": "kg/kWh",
             "required": true,
             "default": 0.27
           },
-          "woodPelletsPrice": {
+          "woodPelletsPriceB": {
             "label": "Wood Pellets Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.075
           },
-          "woodPelletsCarbon": {
+          "woodPelletsCarbonB": {
             "label": "Wood Pellets Carbon",
             "type": "float",
             "unit": "kg/kWh",
