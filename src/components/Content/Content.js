@@ -66,7 +66,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
   );
 }
 
-const formatNavigation = (data, activeSection, setActiveSection) => {
+const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsection) => {
   if (data == null) {
     return;
   }
@@ -77,7 +77,10 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
       <React.Fragment key={key}>
         <button
           className={key === activeSection ? "active" : "" } 
-          onClick={() => setActiveSection(key)}
+          onClick={() => {
+            setActiveSubsection("");
+            setActiveSection(key);
+          }}
         >
           {value.label}
         </button>
