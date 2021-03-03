@@ -1,4 +1,65 @@
 .Content {
   background-color: white;
   padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Navigation {
+  width: 25%;
+}
+
+.Navigation button {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.Navigation button.active {
+  font-weight: bold;
+}
+
+.subNavigation {
+  display: flex-start;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.subNavigation button {
+  padding: 1rem;
+}
+
+.subNavigation button.active {
+  font-weight: bold;
+}
+
+.Fields {
+  width: 75%;
+  padding-right: 4rem;
+}
+
+.Fields h2 {
+  margin-top: 0;
+}
+
+.fieldset {
+  display: none;
+}
+
+.fieldset.active {
+  display: initial;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  width: 100%;
+  margin-bottom: 0;
+  font-weight: 600;
+  margin-left: 0.75rem;
+}
+
+.spacer {
+  height: 40px;
 }
