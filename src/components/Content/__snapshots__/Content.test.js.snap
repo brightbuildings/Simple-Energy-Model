@@ -23,7 +23,7 @@ exports[`renders Content 1`] = `
           className="subNavigation"
         >
           <button
-            className=""
+            className="active"
             onClick={[Function]}
           >
             Introduction
@@ -49,7 +49,48 @@ exports[`renders Content 1`] = `
         </div>
         <div
           className="subNavigationContent"
-        />
+        >
+          <section
+            className="Questions"
+          >
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="buildingOwner"
+              >
+                Building Owner
+              </label>
+              <input
+                className="form-control"
+                id="buildingOwner"
+                name="buildingOwner"
+                onChange={[Function]}
+                required={true}
+                type="text"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="address"
+              >
+                Address
+              </label>
+              <input
+                className="form-control"
+                id="address"
+                name="address"
+                onChange={[Function]}
+                required={true}
+                type="text"
+              />
+            </div>
+          </section>
+        </div>
       </div>
       <div
         className="fieldset  form-group"
@@ -64,7 +105,7 @@ exports[`renders Content 1`] = `
           className="subNavigation"
         >
           <button
-            className=""
+            className="active"
             onClick={[Function]}
           >
             Build
@@ -84,7 +125,325 @@ exports[`renders Content 1`] = `
         </div>
         <div
           className="subNavigationContent"
-        />
+        >
+          <section
+            className="Questions"
+          >
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="airtightness"
+              >
+                Airtightness
+              </label>
+              <select
+                className="form-control"
+                id="airtightness"
+                name="airtightness"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  0.6 (Passivhaus)
+                </option>
+                <option>
+                  0.8
+                </option>
+                <option>
+                  1.0 (Net-zero)
+                </option>
+                <option>
+                  1.5
+                </option>
+                <option>
+                  2.5 (NBC)
+                </option>
+                <option>
+                  3
+                </option>
+                <option>
+                  5
+                </option>
+                <option>
+                  10 (100 years old)
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  ACH @50 Pa
+                </span>
+              </div>
+            </div>
+            <div
+              className="spacer"
+            >
+               
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="wallAboveGrade"
+              >
+                Wall Above Grade
+              </label>
+              <select
+                className="form-control"
+                id="wallAboveGrade"
+                name="wallAboveGrade"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  R1 - Uninsulated
+                </option>
+                <option>
+                  R10 - 2x4 w Batt
+                </option>
+                <option>
+                  R15 - 2x6 w Batt
+                </option>
+                <option>
+                  R17 - NBC
+                </option>
+                <option>
+                  R19 - 2x8 w Batt
+                </option>
+                <option>
+                  R21 - 2x4 + 3" Rigid
+                </option>
+                <option>
+                  R31 - 2x4 + 6" Rigid
+                </option>
+                <option>
+                  R35 - 2x4 + 2x8 w Batt
+                </option>
+                <option>
+                  R42 - 2x4 + 9.5" I-joist
+                </option>
+                <option>
+                  R50 - 2x4 + 12" I-joist
+                </option>
+                <option>
+                  R26 - 2x6 + 3" Rigid
+                </option>
+                <option>
+                  R55 - 2x6 +12" I-joist
+                </option>
+                <option>
+                  R75 - 2x6 + 16" I-joist
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="wallBelowGrade"
+              >
+                Wall Below Grade
+              </label>
+              <select
+                className="form-control"
+                id="wallBelowGrade"
+                name="wallBelowGrade"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  R6 - Concrete Uninsulated
+                </option>
+                <option>
+                  R13 - Conc. + 3" Rigid
+                </option>
+                <option>
+                  R17 - NBC
+                </option>
+                <option>
+                  R25 - Conc. + 6" Rigid
+                </option>
+                <option>
+                  R37 - Conc. + 9" Rigid
+                </option>
+                <option>
+                  R9 - 2x4 + Conc.
+                </option>
+                <option>
+                  R14 - 2x6 + Conc.
+                </option>
+                <option>
+                  R30 - 2x4 + 5.5" Batt + Conc.
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="roof"
+              >
+                Roof
+              </label>
+              <select
+                className="form-control"
+                id="roof"
+                name="roof"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  R1 - Uninsulated
+                </option>
+                <option>
+                  R20 - 6"
+                </option>
+                <option>
+                  R40 - 12"
+                </option>
+                <option>
+                  R50 - NBC
+                </option>
+                <option>
+                  R60 - 18"
+                </option>
+                <option>
+                  R80 - 24"
+                </option>
+                <option>
+                  R100 - 30"
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="spacer"
+            >
+               
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="windows"
+              >
+                Windows
+              </label>
+              <select
+                className="form-control"
+                id="windows"
+                name="windows"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  Single Pane
+                </option>
+                <option>
+                  Double Pane
+                </option>
+                <option>
+                  NBC
+                </option>
+                <option>
+                  Improved Double Pane (Argon, Low-E)
+                </option>
+                <option>
+                  Triple Pane (PVC, uninsulated)
+                </option>
+                <option>
+                  Triple Pane (High Performance) - High SHGC
+                </option>
+                <option>
+                  Triple Pane (High Performance) - Low SHGC
+                </option>
+                <option>
+                  Triple Pane (Passivhaus)
+                </option>
+                <option>
+                  Quad Pane (or Passivhaus Cold Climate)
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="solidDoor"
+              >
+                Solid Door
+              </label>
+              <select
+                className="form-control"
+                id="solidDoor"
+                name="solidDoor"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  Uninsulated
+                </option>
+                <option>
+                  Insulated (R10)
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
       <div
         className="fieldset  form-group"
@@ -99,7 +458,7 @@ exports[`renders Content 1`] = `
           className="subNavigation"
         >
           <button
-            className=""
+            className="active"
             onClick={[Function]}
           >
             Build
@@ -119,7 +478,325 @@ exports[`renders Content 1`] = `
         </div>
         <div
           className="subNavigationContent"
-        />
+        >
+          <section
+            className="Questions"
+          >
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="airtightnessB"
+              >
+                Airtightness
+              </label>
+              <select
+                className="form-control"
+                id="airtightnessB"
+                name="airtightnessB"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  0.6 (Passivhaus)
+                </option>
+                <option>
+                  0.8
+                </option>
+                <option>
+                  1.0 (Net-zero)
+                </option>
+                <option>
+                  1.5
+                </option>
+                <option>
+                  2.5 (NBC)
+                </option>
+                <option>
+                  3
+                </option>
+                <option>
+                  5
+                </option>
+                <option>
+                  10 (100 years old)
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  ACH @50 Pa
+                </span>
+              </div>
+            </div>
+            <div
+              className="spacer"
+            >
+               
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="wallAboveGradeB"
+              >
+                Wall Above Grade
+              </label>
+              <select
+                className="form-control"
+                id="wallAboveGradeB"
+                name="wallAboveGradeB"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  R1 - Uninsulated
+                </option>
+                <option>
+                  R10 - 2x4 w Batt
+                </option>
+                <option>
+                  R15 - 2x6 w Batt
+                </option>
+                <option>
+                  R17 - NBC
+                </option>
+                <option>
+                  R19 - 2x8 w Batt
+                </option>
+                <option>
+                  R21 - 2x4 + 3" Rigid
+                </option>
+                <option>
+                  R31 - 2x4 + 6" Rigid
+                </option>
+                <option>
+                  R35 - 2x4 + 2x8 w Batt
+                </option>
+                <option>
+                  R42 - 2x4 + 9.5" I-joist
+                </option>
+                <option>
+                  R50 - 2x4 + 12" I-joist
+                </option>
+                <option>
+                  R26 - 2x6 + 3" Rigid
+                </option>
+                <option>
+                  R55 - 2x6 +12" I-joist
+                </option>
+                <option>
+                  R75 - 2x6 + 16" I-joist
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="wallBelowGradeB"
+              >
+                Wall Below Grade
+              </label>
+              <select
+                className="form-control"
+                id="wallBelowGradeB"
+                name="wallBelowGradeB"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  R6 - Concrete Uninsulated
+                </option>
+                <option>
+                  R13 - Conc. + 3" Rigid
+                </option>
+                <option>
+                  R17 - NBC
+                </option>
+                <option>
+                  R25 - Conc. + 6" Rigid
+                </option>
+                <option>
+                  R37 - Conc. + 9" Rigid
+                </option>
+                <option>
+                  R9 - 2x4 + Conc.
+                </option>
+                <option>
+                  R14 - 2x6 + Conc.
+                </option>
+                <option>
+                  R30 - 2x4 + 5.5" Batt + Conc.
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="roofB"
+              >
+                Roof
+              </label>
+              <select
+                className="form-control"
+                id="roofB"
+                name="roofB"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  R1 - Uninsulated
+                </option>
+                <option>
+                  R20 - 6"
+                </option>
+                <option>
+                  R40 - 12"
+                </option>
+                <option>
+                  R50 - NBC
+                </option>
+                <option>
+                  R60 - 18"
+                </option>
+                <option>
+                  R80 - 24"
+                </option>
+                <option>
+                  R100 - 30"
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="spacer"
+            >
+               
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="windowsB"
+              >
+                Windows
+              </label>
+              <select
+                className="form-control"
+                id="windowsB"
+                name="windowsB"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  Single Pane
+                </option>
+                <option>
+                  Double Pane
+                </option>
+                <option>
+                  NBC
+                </option>
+                <option>
+                  Improved Double Pane (Argon, Low-E)
+                </option>
+                <option>
+                  Triple Pane (PVC, uninsulated)
+                </option>
+                <option>
+                  Triple Pane (High Performance) - High SHGC
+                </option>
+                <option>
+                  Triple Pane (High Performance) - Low SHGC
+                </option>
+                <option>
+                  Triple Pane (Passivhaus)
+                </option>
+                <option>
+                  Quad Pane (or Passivhaus Cold Climate)
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="solidDoorB"
+              >
+                Solid Door
+              </label>
+              <select
+                className="form-control"
+                id="solidDoorB"
+                name="solidDoorB"
+                onChange={[Function]}
+                required={true}
+              >
+                <option>
+                  Uninsulated
+                </option>
+                <option>
+                  Insulated (R10)
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
       <div
         className="fieldset  form-group"
@@ -134,7 +811,7 @@ exports[`renders Content 1`] = `
           className="subNavigation"
         >
           <button
-            className=""
+            className="active"
             onClick={[Function]}
           >
             Improvements
@@ -142,7 +819,471 @@ exports[`renders Content 1`] = `
         </div>
         <div
           className="subNavigationContent"
-        />
+        >
+          <section
+            className="Questions"
+          >
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="designCost"
+              >
+                Design Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="designCost"
+                name="designCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="designQuantity"
+              >
+                Design Quantity
+              </label>
+              <input
+                className="form-control"
+                id="designQuantity"
+                name="designQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="airtightnessCost"
+              >
+                Airtightness Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="airtightnessCost"
+                name="airtightnessCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of envelope
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="airtightnessQuantity"
+              >
+                Airtightness Quantity
+              </label>
+              <input
+                className="form-control"
+                id="airtightnessQuantity"
+                name="airtightnessQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="windowsCost"
+              >
+                Windows Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="windowsCost"
+                name="windowsCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of window
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="windowsQuantity"
+              >
+                Windows Quantity
+              </label>
+              <input
+                className="form-control"
+                id="windowsQuantity"
+                name="windowsQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="insulationCost"
+              >
+                Insulation Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="insulationCost"
+                name="insulationCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of envelope
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="insulationQuantity"
+              >
+                Insulation Quantity
+              </label>
+              <input
+                className="form-control"
+                id="insulationQuantity"
+                name="insulationQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="ventilationCost"
+              >
+                Ventilation with Energy Recovery (ERV/HRV) Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="ventilationCost"
+                name="ventilationCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="ventilationQuantity"
+              >
+                Ventilation with Energy Recovery (ERV/HRV) Quantity
+              </label>
+              <input
+                className="form-control"
+                id="ventilationQuantity"
+                name="ventilationQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="heatPumpCost"
+              >
+                Heat Pump Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="heatPumpCost"
+                name="heatPumpCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of envelope
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="heatPumpQuantity"
+              >
+                Heat Pump Quantity
+              </label>
+              <input
+                className="form-control"
+                id="heatPumpQuantity"
+                name="heatPumpQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="waterHeaterCost"
+              >
+                Water Heater, Drain Water Heat Recovery Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="waterHeaterCost"
+                name="waterHeaterCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of window
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="waterHeaterQuantity"
+              >
+                Water Heater, Drain Water Heat Recovery Quantity
+              </label>
+              <input
+                className="form-control"
+                id="waterHeaterQuantity"
+                name="waterHeaterQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="solarCost"
+              >
+                Solar PV 13.3 kW Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="solarCost"
+                name="solarCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="solarQuantity"
+              >
+                Solar PV 13.3 kW Quantity
+              </label>
+              <input
+                className="form-control"
+                id="solarQuantity"
+                name="solarQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of solar
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="batteryCost"
+              >
+                Battery Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="batteryCost"
+                name="batteryCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $/m² of solar
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="batteryQuantity"
+              >
+                Battery Quantity
+              </label>
+              <input
+                className="form-control"
+                id="batteryQuantity"
+                name="batteryQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="energyMonitorCost"
+              >
+                Energy Monitor Unit Cost (Installed)
+              </label>
+              <input
+                className="form-control"
+                id="energyMonitorCost"
+                name="energyMonitorCost"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  $
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="energyMonitorQuantity"
+              >
+                Energy Monitor Quantity
+              </label>
+              <input
+                className="form-control"
+                id="energyMonitorQuantity"
+                name="energyMonitorQuantity"
+                onChange={[Function]}
+                required={false}
+                type="number"
+              />
+            </div>
+          </section>
+        </div>
       </div>
       <div
         className="fieldset  form-group"
@@ -157,7 +1298,7 @@ exports[`renders Content 1`] = `
           className="subNavigation"
         >
           <button
-            className=""
+            className="active"
             onClick={[Function]}
           >
             Business
@@ -165,7 +1306,66 @@ exports[`renders Content 1`] = `
         </div>
         <div
           className="subNavigationContent"
-        />
+        >
+          <section
+            className="Questions"
+          >
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="paceLoanTerm"
+              >
+                PACE Loan Term
+              </label>
+              <input
+                className="form-control"
+                id="paceLoanTerm"
+                name="paceLoanTerm"
+                onChange={[Function]}
+                required={true}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  years
+                </span>
+              </div>
+            </div>
+            <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="interest"
+              >
+                Interest
+              </label>
+              <input
+                className="form-control"
+                id="interest"
+                name="interest"
+                onChange={[Function]}
+                required={true}
+                type="number"
+              />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  %
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
     <div
@@ -175,35 +1375,35 @@ exports[`renders Content 1`] = `
         className="active"
         onClick={[Function]}
       >
-        introduction
+        Introduction
       </button>
       <br />
       <button
         className=""
         onClick={[Function]}
       >
-        Parameters A
+        Parameters - Model A
       </button>
       <br />
       <button
         className=""
         onClick={[Function]}
       >
-        Parameters B
+        Parameters - Model B
       </button>
       <br />
       <button
         className=""
         onClick={[Function]}
       >
-        financing
+        Financing the Net-zero Upgrade
       </button>
       <br />
       <button
         className=""
         onClick={[Function]}
       >
-        business
+        Business Case
       </button>
       <br />
     </div>
@@ -258,6 +1458,54 @@ exports[`renders formatQuestion with integer question 1`] = `
     required={false}
     type="number"
   />
+  <div
+    className="input-group-append"
+  >
+    <span
+      className="input-group-text"
+    >
+      IBU
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders formatQuestion with select question 1`] = `
+<div
+  className="input-group"
+>
+  <label
+    className=""
+    htmlFor="question5Key"
+  >
+    Select
+  </label>
+  <select
+    className="form-control"
+    id="question5Key"
+    name="question5Key"
+    onChange={[Function]}
+    required={false}
+  >
+    <option>
+      Electricity
+    </option>
+    <option>
+      Clean Electricity
+    </option>
+    <option>
+      Natural Gass (Fossil)
+    </option>
+    <option>
+      Clean Gas
+    </option>
+    <option>
+      Propane
+    </option>
+    <option>
+      Wood Pellets
+    </option>
+  </select>
   <div
     className="input-group-append"
   >

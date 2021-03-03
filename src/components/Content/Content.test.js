@@ -48,6 +48,24 @@ const questionGap = [
   }
 ];
 
+const questionSelect = [
+  "question5Key",
+  {
+    "required": false,
+    "type": "select",
+    "label": "Select",
+    "unit": "IBU",
+    "values": [
+      { "Electricity": {} },
+      { "Clean Electricity": {} },
+      { "Natural Gass (Fossil)": {} },
+      { "Clean Gas": {} },
+      { "Propane": {} },
+      { "Wood Pellets": {} }
+    ]
+  }
+]
+
 test("runs formatSection with empty json", () => {
   expect(formatSections()).toBeUndefined();
 });
@@ -107,6 +125,11 @@ test("renders formatQuestion with text question", () => {
 
 test("renders formatQuestion with gap question", () => {
   const result = renderer.create(formatQuestion(questionGap, variables, setVariables));
+  expect(result).toMatchSnapshot();
+});
+
+test("renders formatQuestion with select question", () => {
+  const result = renderer.create(formatQuestion(questionSelect, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
