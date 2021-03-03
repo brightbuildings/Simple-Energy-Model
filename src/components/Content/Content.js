@@ -136,7 +136,29 @@ const formatQuestion = (question, variables, setVariables) => {
         </InputGroup>
       );
     case "select":
-      return "TODO";
+      return (
+        <InputGroup key={key}>
+          <Label for={key}>{value.label}</Label>
+          <Input 
+            type="select" 
+            required={required}
+            name={key}
+            id={key}
+            defaultValue={variables[key]}
+            onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
+          >
+            {value.values.map(optionKey => {
+              const entries = Object.entries(optionKey);
+              return <option key={entries[0][0]}>{entries[0][0]}</option>
+            })}
+          </Input>
+          {value.unit && (
+            <InputGroupAddon addonType="append">
+              <InputGroupText>{value.unit}</InputGroupText>
+            </InputGroupAddon>
+          )}
+        </InputGroup>
+      )
     case "gap":
       return <div key={key} className="spacer">&nbsp;</div>;
     default:
