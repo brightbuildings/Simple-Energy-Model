@@ -12,6 +12,7 @@
 
 .Header h1 a:hover {
   text-decoration: underline;
+  color: black;
 }
 
 .Header h3 {
