@@ -9,8 +9,7 @@ const formatSections = (data, activeSection, activeSubsection, setActiveSubsecti
     return;
   }
   return Object.entries(data).map(section => {
-    const key = section[0];
-    const value = section[1];
+    const [key, value] = section;
 
     // If Parameters, export both A and B
     if (key === "parameters") {
@@ -30,8 +29,7 @@ const formatSections = (data, activeSection, activeSubsection, setActiveSubsecti
 };
 
 const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables) => {
-  const key = section[0];
-  const value = section[1];
+  const [key, value] = section;
 
   let labelKey = "label";
   let contentKey = "content";
@@ -68,8 +66,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
       </div>
       <div className="subNavigationContent">
         {Object.entries(value.fields).map((field, index) => {
-          const key = field[0];
-          const value = field[1];
+          const [key, value] = field;
 
           if (index === 0 && activeSubsection === "") {
             // display this entry
@@ -95,31 +92,24 @@ const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsec
   if (data == null) {
     return;
   }
-  return Object.entries(data).map(section => {
-    let key = section[0];
+  return Object.keys(data).map(key => {
 
     // If Parameters, export both A and B
     if (key === "parameters") {
       return (
         <React.Fragment key="parameters">
           <button 
-            className={`${section[0]}-a` === activeSection ? "active" : "" } 
-            key={section[0]+"a"}
-            onClick={() => {
-              setActiveSubsection("");
-              setActiveSection(section[0]+"-a")
-            }}
+            className={`${key}-a` === activeSection ? "active" : "" } 
+            key={key+"a"} 
+            onClick={() => setActiveSection(key+"-a")}
           >
             Parameters A
           </button>
           <br />
           <button 
-            className={`${section[0]}-b` === activeSection ? "active" : "" } 
-            key={section[0]+"b"} 
-            onClick={() => {
-              setActiveSubsection("");
-              setActiveSection(section[0]+"-b")
-            }}
+            className={`${key}-b` === activeSection ? "active" : "" } 
+            key={key+"b"} 
+            onClick={() => setActiveSection(key+"-b")}
           >
             Parameters B
           </button>
@@ -128,15 +118,12 @@ const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsec
       )
     } else {
       return (
-        <React.Fragment key={section[0]}>
+        <React.Fragment key={key}>
           <button
-            className={section[0] === activeSection ? "active" : "" } 
-            onClick={() => {
-              setActiveSubsection("");
-              setActiveSection(section[0]);
-            }}
+            className={key === activeSection ? "active" : "" } 
+            onClick={() => setActiveSection(key)}
           >
-            {section[0]}
+            {key}
           </button>
           <br />
         </React.Fragment>
@@ -149,13 +136,9 @@ const formatQuestion = (question, variables, setVariables) => {
   if (question == null) {
     return;
   }
-  const key = question[0];
-  const value = question[1];
+  const [key, value] = question;
 
-  let required = false;
-  if (value?.required === true) {
-    required = true;
-  }
+  const required = value?.required === true;
 
   switch (value?.type) {
     case "float": // fall through
