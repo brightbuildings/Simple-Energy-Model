@@ -43,8 +43,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
       <p>{value[contentKey]}</p>
 
       <div className="subNavigation">
-        {Object.entries(value.fields).map(field => {
-          const key = field[0];
+        {Object.keys(value.fields).map(key => {
 
           return (
             <button 
@@ -83,8 +82,7 @@ const formatNavigation = (data, activeSection, setActiveSection) => {
   if (data == null) {
     return;
   }
-  return Object.entries(data).map(section => {
-    let key = section[0];
+  return Object.keys(data).map(key => {
 
     // If Parameters, export both A and B
     if (key === "parameters") {
