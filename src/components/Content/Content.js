@@ -128,10 +128,7 @@ const formatQuestion = (question, variables, setVariables) => {
   }
   const [key, value] = question;
 
-  let required = false;
-  if (value?.required === true) {
-    required = true;
-  }
+  const required = value?.required === true;
 
   switch (value?.type) {
     case "float": // fall through
