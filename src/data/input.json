@@ -129,7 +129,7 @@
           "gap2": {
             "type": "gap"
           },
-          "exterialSolidDoorArea": {
+          "exteriorSolidDoorArea": {
             "label": "Exterior Solid Door Area",
             "type": "float",
             "unit": "m²",
@@ -327,7 +327,7 @@
           },
           "floor": {
             "label": "Floor",
-            "type": "Select",
+            "type": "select",
             "values": [
               { "R6 - Uninsulated [NBC Below Frost]": {
                 "u": 1.00
