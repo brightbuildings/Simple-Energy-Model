@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DataService from "../../services/DataService";
+import CalculationService from "../../services/CalculationService";
 import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 
 import "./Content.css";
@@ -147,9 +148,10 @@ const formatQuestion = (question, variables, setVariables) => {
             required={required}
             name={key}
             id={key}
-            defaultValue={variables[key]}
+            value={variables[key] || "disabled"}
             onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           >
+            <option key="disabled" value="disabled" disabled="disabled">Select an option</option>
             {value.values.map(optionKey => {
               const entries = Object.entries(optionKey);
               return <option key={entries[0][0]}>{entries[0][0]}</option>
@@ -174,6 +176,8 @@ function Content() {
   const [activeSubsection, setActiveSubsection] = useState("");
   const [variables, setVariables] = useState({});
   const data = DataService.load();
+  const optionObjects = DataService.getAllOptionsObjects();
+  const output = CalculationService.run(variables, optionObjects);
 
   return (
     <div className="centered-narrow">
@@ -183,6 +187,20 @@ function Content() {
         </div>
         <div className="Navigation">
           {formatNavigation(data, activeSection, setActiveSection, setActiveSubsection)}
+        </div>
+      </div>
+      <div className="DevResults" style={{ padding: "1rem", backgroundColor: "white" }}>
+        <div>
+          <h3>Input</h3>
+          <pre>
+            {JSON.stringify(variables, undefined, 2)}
+          </pre>
+        </div>
+        <div>
+          <h3>Output</h3>
+          <pre>
+            {JSON.stringify(output, undefined, 2)}
+          </pre>
         </div>
       </div>
     </div>
