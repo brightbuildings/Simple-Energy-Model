@@ -67,3 +67,11 @@ label {
 .Outputs {
   margin-top: 2rem;
 }
+
+.DevResults {
+  display: flex;
+}
+
+.DevResults > div {
+  padding: 1rem;
+}
