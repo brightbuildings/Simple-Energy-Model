@@ -298,10 +298,6 @@ const getOption = (key, subkey, variables, optionObjects) => {
   return !!option ? option[variables[key]][subkey] : null;
 };
 
-const getLookup = (key, subkey, variables, optionObjects) => {
-
-}
-
 module.exports = {
   run,
 };
