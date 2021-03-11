@@ -129,7 +129,7 @@ const formatQuestion = (question, variables, setVariables) => {
             required={required}
             name={key}
             id={key}
-            defaultValue={variables[key]}
+            defaultValue={variables[key] || value.default}
             onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           />
           {value.unit && (
@@ -171,11 +171,30 @@ const formatQuestion = (question, variables, setVariables) => {
   }
 };
 
+const setDefaultVariables = data => {
+  const variables = {};
+  Object.entries(data).forEach(i => {
+    if (i[1].fields != null) {
+      Object.entries(i[1].fields).forEach(j => {
+        if (j[1].fields != null) {
+          Object.entries(j[1].fields).forEach(k => {
+            const [key, value] = k;
+            if (value.default) {
+              variables[key] = value.default;
+            }
+          });
+        }
+      });
+    }
+  });
+  return variables;
+};
+
 function Content() {
+  const data = DataService.load();
   const [activeSection, setActiveSection] = useState("introduction");
   const [activeSubsection, setActiveSubsection] = useState("");
-  const [variables, setVariables] = useState({});
-  const data = DataService.load();
+  const [variables, setVariables] = useState(setDefaultVariables(data));
   const optionObjects = DataService.getAllOptionsObjects();
   const output = CalculationService.run(variables, optionObjects);
 
