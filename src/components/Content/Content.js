@@ -129,7 +129,7 @@ const formatQuestion = (question, variables, setVariables) => {
             required={required}
             name={key}
             id={key}
-            defaultValue={variables[key] || value.default}
+            defaultValue={variables[key]}
             onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           />
           {value.unit && (
@@ -179,9 +179,7 @@ const setDefaultVariables = data => {
         if (j[1].fields != null) {
           Object.entries(j[1].fields).forEach(k => {
             const [key, value] = k;
-            if (value.default) {
-              variables[key] = value.default;
-            }
+            variables[key] = value.default;
           });
         }
       });
