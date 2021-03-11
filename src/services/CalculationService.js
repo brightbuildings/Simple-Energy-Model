@@ -135,7 +135,6 @@ const heatingAndCooling = (variables, optionObjects) => {
   return {
     totalHeatingQ,
     totalCoolingQ,
-    northU
   };
 };
 
@@ -236,10 +235,26 @@ const annualSpaceHeating = (variables, optionObjects) => {
   };
 };
 
+const output = (variables, optionObjects) => {
+
+};
+
 const run = (variables, optionObjects) => {
+  const variablesB = {
+    ventilation: variables.ventilationB,
+    airtightness: variables.airtightnessB
+  };
+  const heatingAndCoolingA = heatingAndCooling(variables, optionObjects);
+  const annualSpaceHeatingA = annualSpaceHeating(variables, optionObjects);
+  const heatingAndCoolingB = heatingAndCooling(variablesB, optionObjects);
+  const annualSpaceHeatingB = annualSpaceHeating(variablesB, optionObjects);
+
+
   return {
-    heatingAndCoolingA: heatingAndCooling(variables, optionObjects),
-    annualSpaceHeatingA: annualSpaceHeating(variables, optionObjects),
+    heatingAndCoolingA,
+    annualSpaceHeatingA,
+    heatingAndCoolingB,
+    annualSpaceHeatingB
   };
 };
 
