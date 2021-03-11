@@ -530,8 +530,12 @@
             "label": "Hot Water Heater Storage",
             "type": "select",
             "values": [
-              { "On Demand": 50 },
-              { "Tank": 800 }
+              { "On Demand": {
+                "value": 50
+              } },
+              { "Tank": {
+                "value": 800
+              } }
             ],
             "required": true
           },
@@ -584,9 +588,15 @@
             "label": "Lighting",
             "type": "select",
             "values": [
-              { "LED Lighting": 0.6 },
-              { "Standard Lighting, House": 2.6 },
-              { "Standard Lighting, MURB": 1.7}
+              { "LED Lighting": {
+                "value": 0.6
+              } },
+              { "Standard Lighting, House": {
+                "value": 2.6
+              } },
+              { "Standard Lighting, MURB": {
+                "value": 1.7
+              } }
             ],
             "unit": "kWh/day",
             "required": true
@@ -595,10 +605,18 @@
             "label": "Appliances",
             "type": "select",
             "values": [
-              { "EnergyStar Appliances, House": 5.3 },
-              { "Standard Appliances, House": 6.3 },
-              { "EnergyStar Appliances, MURB": 4.2 },
-              { "Standard Appliances, MURB": 5.2 }
+              { "EnergyStar Appliances, House": {
+                "value": 5.3
+              } },
+              { "Standard Appliances, House": {
+                "value": 6.3
+              } },
+              { "EnergyStar Appliances, MURB": {
+                "value": 4.2
+              } },
+              { "Standard Appliances, MURB": {
+                "value": 5.2
+              } }
             ],
             "unit": "kWh/day",
             "required": true
@@ -607,8 +625,12 @@
             "label": "Plug Loads",
             "type": "select",
             "values": [
-              { "Fixed plug loads, House": 9.7 },
-              { "Fixed plug loads, MURB": 4.4 }
+              { "Fixed plug loads, House": {
+                "value": 9.7
+              } },
+              { "Fixed plug loads, MURB": {
+                "value": 4.4
+              } }
             ],
             "unit": "kWh/day",
             "required": true
@@ -626,12 +648,24 @@
             "label": "Space Heating Fuel Type",
             "type": "select",
             "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
+              { "Electricity": { 
+                "priceKey": "electricityPrice"
+               } },
+              { "Clean Electricity": { 
+                "priceKey": "cleanElectricityPrice"
+               } },
+              { "Natural Gass (Fossil)": { 
+                "priceKey": "naturalGasFossilPrice"
+               } },
+              { "Clean Gas": { 
+                "priceKey": "cleanGasPrice"
+               } },
+              { "Propane": { 
+                "priceKey": "propanePrice"
+               } },
+              { "Wood Pellets": { 
+                "priceKey": "woodPelletsPrice"
+               } }
             ],
             "unit": "$",
             "required": true
@@ -640,12 +674,24 @@
             "label": "Hot Water Fuel Type",
             "type": "select",
             "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
+              { "Electricity": { 
+                "priceKey": "electricityPrice"
+               } },
+              { "Clean Electricity": { 
+                "priceKey": "cleanElectricityPrice"
+               } },
+              { "Natural Gass (Fossil)": { 
+                "priceKey": "naturalGasFossilPrice"
+               } },
+              { "Clean Gas": { 
+                "priceKey": "cleanGasPrice"
+               } },
+              { "Propane": { 
+                "priceKey": "propanePrice"
+               } },
+              { "Wood Pellets": { 
+                "priceKey": "woodPelletsPrice"
+               } }
             ],
             "unit": "$",
             "required": true
@@ -654,12 +700,24 @@
             "label": "Lights, Appliances, Plugs Fuel Type",
             "type": "select",
             "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
+              { "Electricity": { 
+                "priceKey": "electricityPrice"
+               } },
+              { "Clean Electricity": { 
+                "priceKey": "cleanElectricityPrice"
+               } },
+              { "Natural Gass (Fossil)": { 
+                "priceKey": "naturalGasFossilPrice"
+               } },
+              { "Clean Gas": { 
+                "priceKey": "cleanGasPrice"
+               } },
+              { "Propane": { 
+                "priceKey": "propanePrice"
+               } },
+              { "Wood Pellets": { 
+                "priceKey": "woodPelletsPrice"
+               } }
             ],
             "unit": "$",
             "required": true
@@ -1133,8 +1191,12 @@
             "label": "Hot Water Heater Storage",
             "type": "select",
             "values": [
-              { "On Demand": 50 },
-              { "Tank": 800 }
+              { "On Demand": {
+                "value": 50
+              } },
+              { "Tank": {
+                "value": 800
+              } }
             ],
             "required": true
           },
@@ -1187,9 +1249,15 @@
             "label": "Lighting",
             "type": "select",
             "values": [
-              { "LED Lighting": 0.6 },
-              { "Standard Lighting, House": 2.6 },
-              { "Standard Lighting, MURB": 1.7}
+              { "LED Lighting": {
+                "value": 0.6
+              } },
+              { "Standard Lighting, House": {
+                "value": 2.6
+              } },
+              { "Standard Lighting, MURB": {
+                "value": 1.7
+              } }
             ],
             "unit": "kWh/day",
             "required": true
@@ -1198,10 +1266,18 @@
             "label": "Appliances",
             "type": "select",
             "values": [
-              { "EnergyStar Appliances, House": 5.3 },
-              { "Standard Appliances, House": 6.3 },
-              { "EnergyStar Appliances, MURB": 4.2 },
-              { "Standard Appliances, MURB": 5.2 }
+              { "EnergyStar Appliances, House": {
+                "value": 5.3
+              } },
+              { "Standard Appliances, House": {
+                "value": 6.3
+              } },
+              { "EnergyStar Appliances, MURB": {
+                "value": 4.2
+              } },
+              { "Standard Appliances, MURB": {
+                "value": 5.2
+              } }
             ],
             "unit": "kWh/day",
             "required": true
@@ -1210,8 +1286,12 @@
             "label": "Plug Loads",
             "type": "select",
             "values": [
-              { "Fixed plug loads, House": 9.7 },
-              { "Fixed plug loads, MURB": 4.4 }
+              { "Fixed plug loads, House": {
+                "value": 9.7
+              } },
+              { "Fixed plug loads, MURB": {
+                "value": 4.4
+              } }
             ],
             "unit": "kWh/day",
             "required": true
