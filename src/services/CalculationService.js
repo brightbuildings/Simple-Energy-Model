@@ -7,7 +7,7 @@ const inputs = {
   "summerDesignWB": 21.0,
 };
 
-const heatingAndCooling = (variables, optionObjects) => {
+const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
 
   // Inputs
   const heatingDeltaT = inputs.winterSetpoint - inputs.winterDesignTemperature;
@@ -17,9 +17,9 @@ const heatingAndCooling = (variables, optionObjects) => {
   const coolingDeltaHRaw = summerDesignEnthalpy - summerSetpointEnthalpy; // kJ/kg
   const coolingDeltaH = coolingDeltaHRaw / 3.6; // Wh/kg
   const airDensity = 1/0.87;
-  const ventilationEfficiency = getOption("ventilation", "efficiency", variables, optionObjects);
-  const infiltrationAnnualEnergy = getOption("airtightness", "annualEnergy", variables, optionObjects);
-  const infiltrationHeatingLoad = getOption("airtightness", "heatingLoad", variables, optionObjects);
+  const ventilationEfficiency = getOption("ventilation", "efficiency", variables, optionObjects, isAlternate);
+  const infiltrationAnnualEnergy = getOption("airtightness", "annualEnergy", variables, optionObjects, isAlternate);
+  const infiltrationHeatingLoad = getOption("airtightness", "heatingLoad", variables, optionObjects, isAlternate);
   const ventilation = 0.3;
   const infiltrationAnnualEnergyAirflowRate = parseFloat(variables.buildingVolume) * infiltrationAnnualEnergy;
   const infiltrationHeatingLoadAirflowRate = parseFloat(variables.buildingVolume) * infiltrationHeatingLoad;
@@ -28,11 +28,11 @@ const heatingAndCooling = (variables, optionObjects) => {
   // Calculations
   // Opaque Assemblies
   // U Value (W/m2K)
-  const wallAboveGradeU = getOption("wallAboveGrade", "u", variables, optionObjects);
-  const wallBelowGradeU = getOption("wallBelowGrade", "u", variables, optionObjects);
-  const roofU = getOption("roof", "u", variables, optionObjects);
-  const floorU = getOption("floor", "u", variables, optionObjects);
-  const doorU = getOption("solidDoor", "u", variables, optionObjects);
+  const wallAboveGradeU = getOption("wallAboveGrade", "u", variables, optionObjects, isAlternate);
+  const wallBelowGradeU = getOption("wallBelowGrade", "u", variables, optionObjects, isAlternate);
+  const roofU = getOption("roof", "u", variables, optionObjects, isAlternate);
+  const floorU = getOption("floor", "u", variables, optionObjects, isAlternate);
+  const doorU = getOption("solidDoor", "u", variables, optionObjects, isAlternate);
   // Area (m2)
   const height = parseFloat(variables.height);
   const length = parseFloat(variables.length);
@@ -92,14 +92,14 @@ const heatingAndCooling = (variables, optionObjects) => {
   const equipment = equipmentWm2 * variables.interiorFloorArea;
 
   // Transparent Assemblies
-  const northU = getOption('windows', 'u', variables, optionObjects);
-  const eastU = getOption('windows', 'u', variables, optionObjects);
-  const southU = getOption('windows', 'u', variables, optionObjects);
-  const westU = getOption('windows', 'u', variables, optionObjects);
-  const northSHGC = getOption('windows', 'shgc', variables, optionObjects);
-  const eastSHGC = getOption('windows', 'shgc', variables, optionObjects);
-  const southSHGC = getOption('windows', 'shgc', variables, optionObjects);
-  const westSHGC = getOption('windows', 'shgc', variables, optionObjects);
+  const northU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const eastU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const southU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const westU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const northSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
+  const eastSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
+  const southSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
+  const westSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
   const northGlazingArea = north * 0.75;
   const eastGlazingArea = east * 0.75;
   const southGlazingArea = south * 0.75;
@@ -138,7 +138,7 @@ const heatingAndCooling = (variables, optionObjects) => {
   };
 };
 
-const annualSpaceHeating = (variables, optionObjects) => {
+const annualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
   const groundReductionFactor = 0.5;
   // Transmission Losses
   const height = parseFloat(variables.height);
@@ -150,10 +150,10 @@ const annualSpaceHeating = (variables, optionObjects) => {
   const west = parseFloat(variables.west);
   const depth = parseFloat(variables.depth);
   const exteriorSolidDoorArea = parseFloat(variables.exteriorSolidDoorArea);
-  const northU = getOption('windows', 'u', variables, optionObjects);
-  const eastU = getOption('windows', 'u', variables, optionObjects);
-  const southU = getOption('windows', 'u', variables, optionObjects);
-  const westU = getOption('windows', 'u', variables, optionObjects);
+  const northU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const eastU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const southU = getOption('windows', 'u', variables, optionObjects, isAlternate);
+  const westU = getOption('windows', 'u', variables, optionObjects, isAlternate);
   const wallAboveGradeArea = 2 * (length * height) +
                              2 * (width * height) -
                              (north + east + south + west + exteriorSolidDoorArea);
@@ -163,11 +163,11 @@ const annualSpaceHeating = (variables, optionObjects) => {
   const floorArea = parseFloat(variables.floorArea);
   const doorArea = exteriorSolidDoorArea;
   const windowArea = north + east + south + west;
-  const wallAboveGradeU = getOption("wallAboveGrade", "u", variables, optionObjects);
-  const wallBelowGradeU = getOption("wallBelowGrade", "u", variables, optionObjects);
-  const roofU = getOption("roof", "u", variables, optionObjects);
-  const floorU = getOption("floor", "u", variables, optionObjects);
-  const doorU = getOption("solidDoor", "u", variables, optionObjects);
+  const wallAboveGradeU = getOption("wallAboveGrade", "u", variables, optionObjects, isAlternate);
+  const wallBelowGradeU = getOption("wallBelowGrade", "u", variables, optionObjects, isAlternate);
+  const roofU = getOption("roof", "u", variables, optionObjects, isAlternate);
+  const floorU = getOption("floor", "u", variables, optionObjects, isAlternate);
+  const doorU = getOption("solidDoor", "u", variables, optionObjects, isAlternate);
   const windowsU = (northU + eastU + southU + westU) / 4;
   const heatingDegreeHours = parseFloat(variables.heatingDegreeHours);
   const wallAboveGradeG1 = heatingDegreeHours;
@@ -186,9 +186,9 @@ const annualSpaceHeating = (variables, optionObjects) => {
 
   // Ventilation + Infiltration Losses
   const ventilationRaw = 0.3;
-  const ventilationEfficiency = getOption("ventilation", "efficiency", variables, optionObjects);
+  const ventilationEfficiency = getOption("ventilation", "efficiency", variables, optionObjects, isAlternate);
   const ventilationLoss = ventilationRaw * (1 - ventilationEfficiency);
-  const infiltrationLoss = getOption("airtightness", "annualEnergy", variables, optionObjects);
+  const infiltrationLoss = getOption("airtightness", "annualEnergy", variables, optionObjects, isAlternate);
   const totalLoss = parseFloat(ventilationLoss) + parseFloat(infiltrationLoss);
   const ventilationVolume = variables.interiorFloorArea * 2.5;
   const infiltrationVolume = variables.interiorFloorArea * 2.5;
@@ -204,10 +204,10 @@ const annualSpaceHeating = (variables, optionObjects) => {
   const eastWinterShadingFactor = 0.75 * 0.95 * 0.85 * 0.75;
   const southWinterShadingFactor = 0.75 * 0.95 * 0.85 * 0.75;
   const westWinterShadingFactor = 0.75 * 0.95 * 0.85 * 0.75;
-  const northSHGC = getOption('windows', 'shgc', variables, optionObjects);
-  const eastSHGC = getOption('windows', 'shgc', variables, optionObjects);
-  const southSHGC = getOption('windows', 'shgc', variables, optionObjects);
-  const westSHGC = getOption('windows', 'shgc', variables, optionObjects);
+  const northSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
+  const eastSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
+  const southSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
+  const westSHGC = getOption('windows', 'shgc', variables, optionObjects, isAlternate);
   const northRadiation = 133.0;
   const eastRadiation = 374.0;
   const southRadiation = 790.0;
@@ -235,24 +235,24 @@ const annualSpaceHeating = (variables, optionObjects) => {
   };
 };
 
-const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating) => {
+const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating, isAlternate) => {
   const dhwDistributionLosses = 300.0;
   const heatingLoad = heatingAndCooling.totalHeatingQ / 1000 * 1.1;
   const coolingLoad = heatingAndCooling.totalCoolingQ / 1000;
-  const spaceHeating = annualSpaceHeating.annualHeatingDemand / getOption("heating", "efficiency", variables, optionObjects);
+  const spaceHeating = annualSpaceHeating.annualHeatingDemand / getOption("heating", "efficiency", variables, optionObjects, isAlternate);
   const hotWater = (
-                    25.0 * getOption("hotWaterFixtures", "flow", variables, optionObjects) + 
-                    getOption("hotWaterHeaterStorage", "value", variables, optionObjects) +
+                    25.0 * getOption("hotWaterFixtures", "flow", variables, optionObjects, isAlternate) + 
+                    getOption("hotWaterHeaterStorage", "value", variables, optionObjects, isAlternate) +
                     dhwDistributionLosses
-                  ) / getOption("hotWaterHeater", "efficiency",variables, optionObjects) *
-                  (1.0 - getOption("drainWaterHeatRecovery", "efficiency", variables, optionObjects)) *
+                  ) / getOption("hotWaterHeater", "efficiency",variables, optionObjects, isAlternate) *
+                  (1.0 - getOption("drainWaterHeatRecovery", "efficiency", variables, optionObjects, isAlternate)) *
                   parseFloat(variables.units);
-  const lightsAppliancesPlugs = (getOption("lighting", "value", variables, optionObjects) + getOption("appliances", "value", variables, optionObjects) + getOption("plugLoads", "value", variables, optionObjects)) * 365 * parseFloat(variables.units);
+  const lightsAppliancesPlugs = (getOption("lighting", "value", variables, optionObjects, isAlternate) + getOption("appliances", "value", variables, optionObjects, isAlternate) + getOption("plugLoads", "value", variables, optionObjects, isAlternate)) * 365 * parseFloat(variables.units);
   const totalEnergyConsumption = spaceHeating + hotWater + lightsAppliancesPlugs;
   const spaceHeatingDemand = annualSpaceHeating.spaceHeatingDemand;
-  const spaceHeatingCost = variables[getOption("spaceHeatingFuelType", "priceKey", variables, optionObjects)];
-  const hotWaterCost = variables[getOption("hotWaterFuelType", "priceKey", variables, optionObjects)];
-  const lightsAppliancesPlugsCost = variables[getOption("lightsAppliancesPlugsFuelType", "priceKey", variables, optionObjects)];
+  const spaceHeatingCost = variables[getOption("spaceHeatingFuelType", "priceKey", variables, optionObjects, isAlternate)];
+  const hotWaterCost = variables[getOption("hotWaterFuelType", "priceKey", variables, optionObjects, isAlternate)];
+  const lightsAppliancesPlugsCost = variables[getOption("lightsAppliancesPlugsFuelType", "priceKey", variables, optionObjects, isAlternate)];
   const totalEnergyCosts = spaceHeatingCost + hotWaterCost + lightsAppliancesPlugsCost;
 
   return {
@@ -271,17 +271,13 @@ const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating)
 };
 
 const run = (variables, optionObjects) => {
-  const variablesB = {
-    ...variables,
-    ventilation: variables.ventilationB,
-    airtightness: variables.airtightnessB
-  };
+  const isAlternate = true;
   const heatingAndCoolingA = heatingAndCooling(variables, optionObjects);
+  const heatingAndCoolingB = heatingAndCooling(variables, optionObjects, isAlternate);
   const annualSpaceHeatingA = annualSpaceHeating(variables, optionObjects);
-  const heatingAndCoolingB = heatingAndCooling(variablesB, optionObjects);
-  const annualSpaceHeatingB = annualSpaceHeating(variablesB, optionObjects);
+  const annualSpaceHeatingB = annualSpaceHeating(variables, optionObjects, isAlternate);
   const outputA = output(variables, optionObjects, heatingAndCoolingA, annualSpaceHeatingA);
-  const outputB = output(variablesB, optionObjects, heatingAndCoolingB, annualSpaceHeatingB);
+  const outputB = output(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
 
   return {
     heatingAndCoolingA,
@@ -293,9 +289,11 @@ const run = (variables, optionObjects) => {
   };
 };
 
-const getOption = (key, subkey, variables, optionObjects) => {
-  const option = optionObjects[key].values.find(el => { return !!el[variables[key]]; });
-  return !!option ? option[variables[key]][subkey] : null;
+const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
+  const optionKey = isAlternate ? key + "B" : key;
+  const options = optionObjects[optionKey] || optionObjects[key];
+  const option = options.values.find(el => { return !!el[variables[optionKey]]; });
+  return !!option ? option[variables[optionKey]][subkey] : null;
 };
 
 module.exports = {
