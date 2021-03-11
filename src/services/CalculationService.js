@@ -69,17 +69,72 @@ const heatingAndCooling = (variables, optionObjects) => {
   // Infiltration (W)
   const wallAboveGradeInfiltration = infiltrationHeatingLoadAirflowRate * heatingDeltaT * 0.33;
   // Ventilation (W)
-  const wallAboveGradeVentilation = ventilationAirflowRate * heatingDeltaT * 0.33 * (1 - ventilationEfficiency);
-  const totalQ = wallAboveGradeTransmission + wallBelowGradeTransmission + roofTransmission + floorTransmission + doorTransmission + wallAboveGradeInfiltration + wallAboveGradeVentilation;
+  const wallAboveGradeVentilation = ventilationAirflowRate * heatingDeltaT * 0.33 * (1.0 - ventilationEfficiency);
+  const totalHeatingQ = wallAboveGradeTransmission + wallBelowGradeTransmission + roofTransmission + floorTransmission + doorTransmission + wallAboveGradeInfiltration + wallAboveGradeVentilation;
+  // Solar Gains
+  // Window Shading Faator
+  const windowShadingFactor = 0.75 * 0.95 * 0.85 * 0.75;
+
+  // Cooling (Delta T C)
+  const wallAboveGradeCoolingDeltaT = coolingDeltaT;
+  const roofCoolingDeltaT = coolingDeltaT;
+  const doorCoolingDeltaT = coolingDeltaT;
+  const wallAboveGradeCoolingTransmission = wallAboveGradeU * wallAboveGradeArea * wallAboveGradeCoolingDeltaT;
+  const roofCoolingTransmission = roofU * roofArea * roofCoolingDeltaT;
+  const doorCoolingTransmission = doorU * doorArea * doorCoolingDeltaT;
+  const coolingInfiltration = airDensity * infiltrationHeatingLoadAirflowRate * coolingDeltaH;
+  const coolingVentilation = airDensity * ventilationAirflowRate * coolingDeltaT * (1.0 - ventilationEfficiency);
+  const peopleWPer = 130;
+  const lightingWm2 = 5;
+  const equipmentWm2 = 5;
+  const people = peopleWPer * variables.people;
+  const lighting = lightingWm2 * variables.interiorFloorArea;
+  const equipment = equipmentWm2 * variables.interiorFloorArea;
+  const totalCoolingQ = "Todo after transparent assemblies";
+
+  // Transparent Assemblies
+  const northU = getOption('windows', 'u', variables, optionObjects);
+  const eastU = getOption('windows', 'u', variables, optionObjects);
+  const southU = getOption('windows', 'u', variables, optionObjects);
+  const westU = getOption('windows', 'u', variables, optionObjects);
+  const northSHGC = getOption('windows', 'shgc', variables, optionObjects);
+  const eastSHGC = getOption('windows', 'shgc', variables, optionObjects);
+  const southSHGC = getOption('windows', 'shgc', variables, optionObjects);
+  const westSHGC = getOption('windows', 'shgc', variables, optionObjects);
+  const northGlazingArea = north * 0.75;
+  const eastGlazingArea = east * 0.75;
+  const southGlazingArea = south * 0.75;
+  const westGlazingArea = west * 0.75;
+  const summerShadingFactor = 0.60;
+  const northDirection = 360;
+  const eastDirection = 90
+  const southDirection = 180;
+  const westDirection = 270;
+  const northSolarGains = 93;
+  const eastSolarGains = 285;
+  const southSolarGains = 108;
+  const westSolarGains = 285;
+  const northHeatingLoad = northU * north * (inputs.winterSetpoint - inputs.winterDesignTemperature);
+  const eastHeatingLoad = eastU * east * (inputs.winterSetpoint - inputs.winterDesignTemperature);
+  const southHeatingLoad = southU * south * (inputs.winterSetpoint - inputs.winterDesignTemperature);
+  const westHeatingLoad = westU * west * (inputs.winterSetpoint - inputs.winterDesignTemperature);
+  const northCoolingLoadConduction = northU * north * (inputs.summerDesignDB - inputs.summerSetpoint);
+  const eastCoolingLoadConduction = eastU * east * (inputs.summerDesignDB - inputs.summerSetpoint);
+  const southCoolingLoadConduction = southU * south * (inputs.summerDesignDB - inputs.summerSetpoint);
+  const westCoolingLoadConduction = westU * west * (inputs.summerDesignDB - inputs.summerSetpoint);
+
+
 
   return {
-    totalQ
+    totalHeatingQ,
+    totalCoolingQ,
+    northU
   };
 };
 
 const run = (variables, optionObjects) => {
   return {
-    heatingAndCooling: heatingAndCooling(variables, optionObjects),
+    heatingAndCoolingA: heatingAndCooling(variables, optionObjects),
   };
 };
 
