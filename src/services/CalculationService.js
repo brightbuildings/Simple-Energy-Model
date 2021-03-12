@@ -382,7 +382,7 @@ const run = (variables, optionObjects) => {
   };
 };
 
-module.exports = {
+const CalculationService = {
   run,
   getOption,
   output,
@@ -390,3 +390,5 @@ module.exports = {
   heatingAndCooling,
   annualSpaceHeating,
 };
+
+export default CalculationService;

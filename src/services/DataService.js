@@ -24,7 +24,9 @@ function getAllOptionsObjects() {
   return optionObjects;
 }
 
-module.exports = {
+const DataService = {
   load,
   getAllOptionsObjects,
 };
+
+export default DataService;
