@@ -228,5 +228,6 @@ export {
   Content,
   formatSections,
   formatNavigation,
-  formatQuestion
+  formatQuestion,
+  setDefaultVariables,
 };
