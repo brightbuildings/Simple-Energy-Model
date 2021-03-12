@@ -296,6 +296,9 @@ const run = (variables, optionObjects) => {
 const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
   const optionKey = isAlternate ? key + "B" : key;
   const options = optionObjects[optionKey] || optionObjects[key];
+  if (options == null) {
+    return null;
+  }
   const option = options.values.find(el => { 
     const elArray = Object.entries(el);
     return elArray[0][0] === variables[key];
@@ -307,4 +310,8 @@ const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
 
 module.exports = {
   run,
+  getOption,
+  output,
+  heatingAndCooling,
+  annualSpaceHeating,
 };
