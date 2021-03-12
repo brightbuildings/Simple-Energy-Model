@@ -13,6 +13,7 @@ test("run executes with empty inputs", () => {
 });
 
 // Meatier tests can come later
+test.todo("getEconomics");
 test.todo("run executes with filled inputs");
 test.todo("getOption");
 test.todo("output");

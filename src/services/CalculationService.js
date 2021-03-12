@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+import { IRR, PMT } from "./FinancialService";
+
 const inputs = {
   "winterSetpoint": 20.0,
   "summerSetpoint": 25.0,
@@ -274,23 +276,74 @@ const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating,
   };
 };
 
-const run = (variables, optionObjects) => {
-  const isAlternate = true;
-  const heatingAndCoolingA = heatingAndCooling(variables, optionObjects);
-  const heatingAndCoolingB = heatingAndCooling(variables, optionObjects, isAlternate);
-  const annualSpaceHeatingA = annualSpaceHeating(variables, optionObjects);
-  const annualSpaceHeatingB = annualSpaceHeating(variables, optionObjects, isAlternate);
-  const outputA = output(variables, optionObjects, heatingAndCoolingA, annualSpaceHeatingA);
-  const outputB = output(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
+const getEconomics = (variables, outputA, outputB) => {
+  const designCost = parseFloat(variables.designCost);
+  const designQuantity = parseFloat(variables.designQuantity);
+  const airtightnessCost = parseFloat(variables.airtightnessCost)
+  const airtightnessQuantity = parseFloat(variables.airtightnessQuantity);
+  const windowsCost = parseFloat(variables.windowsCost);
+  const windowsQuantity = parseFloat(variables.windowsQuantity);
+  const insulationCost = parseFloat(variables.insulationCost);
+  const insulationQuantity = parseFloat(variables.insulationQuantity);
+  const ventilationCost = parseFloat(variables.ventilationCost);
+  const ventilationQuantity = parseFloat(variables.ventilationQuantity);
+  const heatPumpCost = parseFloat(variables.heatPumpCost);
+  const heatPumpQuantity = parseFloat(variables.heatPumpQuantity);
+  const waterHeaterCost = parseFloat(variables.waterHeaterCost);
+  const waterHeaterQuantity = parseFloat(variables.waterHeaterQuantity);
+  const solarCost = parseFloat(variables.solarCost);
+  const solarQuantity = parseFloat(variables.solarQuantity);
+  const batteryCost = parseFloat(variables.batteryCost);
+  const batteryQuantity = parseFloat(variables.batteryQuantity);
+  const energyMonitorCost = parseFloat(variables.energyMonitorCost);
+  const energyMonitorQuantity = parseFloat(variables.energyMonitorQuantity);
+
+  const design = designCost * designQuantity;
+  const airtightness = airtightnessCost * airtightnessQuantity;
+  const windows = windowsCost * windowsQuantity;
+  const insulation = insulationCost * insulationQuantity;
+  const ventilation = ventilationCost * ventilationQuantity;
+  const heatPump = heatPumpCost * heatPumpQuantity;
+  const waterHeater = waterHeaterCost * waterHeaterQuantity;
+  const solar = solarCost * solarQuantity;
+  const battery = batteryCost * batteryQuantity;
+  const energyMonitor = energyMonitorCost * energyMonitorQuantity;
+  const total = design + airtightness + windows + insulation + ventilation + heatPump + waterHeater + solar + battery + energyMonitor;
+
+  // Business Case
+  const investment = total;
+  const annualSavings = outputA.totalEnergyCosts;
+  const payback = total / annualSavings;
+  const guess = 0.06;
+  const years = [];
+  const numberOfYears = 21;
+  const startingYear = 1;
+  const energyInflation = 0.02;
+  let accumulation = null;
+  let accumulationSum = 0;
+  let netSavings = 0;
+  for (let year = startingYear; year <= numberOfYears; year++) {
+    accumulation = year === startingYear ? investment : accumulation - annualSavings;
+    netSavings += year === startingYear ? -investment : annualSavings;
+    accumulationSum += accumulation;
+  }
+  const irr = IRR(accumulationSum, 0.06);
+  const paceLoanTerm = parseInt(variables.paceLoanTerm);
+  const interest = parseFloat(variables.interest);
+  const monthsInYear = 12;
+  const monthlyPayments = -PMT(interest/monthsInYear, paceLoanTerm * monthsInYear, investment);
+  const monthlySavings = annualSavings / monthsInYear;
+  const monthlyNetSavings = monthlySavings - monthlyPayments;
 
   return {
-    heatingAndCoolingA,
-    annualSpaceHeatingA,
-    heatingAndCoolingB,
-    annualSpaceHeatingB,
-    outputA,
-    outputB,
-  };
+    annualSavings,
+    accumulationSum,
+    investment,
+    irr,
+    monthlyPayments,
+    monthlySavings,
+    monthlyNetSavings
+  }
 };
 
 const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
@@ -306,6 +359,27 @@ const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
 
   const variable = variables?.[key];
   return option?.[variable]?.[subkey];
+};
+
+const run = (variables, optionObjects) => {
+  const isAlternate = true;
+  const heatingAndCoolingA = heatingAndCooling(variables, optionObjects);
+  const heatingAndCoolingB = heatingAndCooling(variables, optionObjects, isAlternate);
+  const annualSpaceHeatingA = annualSpaceHeating(variables, optionObjects);
+  const annualSpaceHeatingB = annualSpaceHeating(variables, optionObjects, isAlternate);
+  const outputA = output(variables, optionObjects, heatingAndCoolingA, annualSpaceHeatingA);
+  const outputB = output(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
+  const economics = getEconomics(variables, outputA, outputB);
+
+  return {
+    heatingAndCoolingA,
+    annualSpaceHeatingA,
+    heatingAndCoolingB,
+    annualSpaceHeatingB,
+    outputA,
+    outputB,
+    economics,
+  };
 };
 
 module.exports = {
