@@ -144,7 +144,14 @@ exports[`renders Content 1`] = `
                 name="airtightness"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   0.6 (Passivhaus)
                 </option>
@@ -200,7 +207,14 @@ exports[`renders Content 1`] = `
                 name="wallAboveGrade"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   R1 - Uninsulated
                 </option>
@@ -266,7 +280,14 @@ exports[`renders Content 1`] = `
                 name="wallBelowGrade"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   R6 - Concrete Uninsulated
                 </option>
@@ -317,7 +338,14 @@ exports[`renders Content 1`] = `
                 name="roof"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   R1 - Uninsulated
                 </option>
@@ -351,6 +379,58 @@ exports[`renders Content 1`] = `
               </div>
             </div>
             <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="floor"
+              >
+                Floor
+              </label>
+              <select
+                className="form-control"
+                id="floor"
+                name="floor"
+                onChange={[Function]}
+                required={true}
+                value="disabled"
+              >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
+                <option>
+                  R6 - Uninsulated [NBC Below Frost]
+                </option>
+                <option>
+                  R11 - NBC Above Frost Line
+                </option>
+                <option>
+                  R13 - 3" Rigid
+                </option>
+                <option>
+                  R16 - NBC Heated Floor or Slab On Grade
+                </option>
+                <option>
+                  R25 - 6" Rigid
+                </option>
+                <option>
+                  R37 - 9" Rigid
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
               className="spacer"
             >
                
@@ -370,7 +450,14 @@ exports[`renders Content 1`] = `
                 name="windows"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   Single Pane
                 </option>
@@ -424,7 +511,14 @@ exports[`renders Content 1`] = `
                 name="solidDoor"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   Uninsulated
                 </option>
@@ -497,7 +591,14 @@ exports[`renders Content 1`] = `
                 name="airtightnessB"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   0.6 (Passivhaus)
                 </option>
@@ -553,7 +654,14 @@ exports[`renders Content 1`] = `
                 name="wallAboveGradeB"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   R1 - Uninsulated
                 </option>
@@ -619,7 +727,14 @@ exports[`renders Content 1`] = `
                 name="wallBelowGradeB"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   R6 - Concrete Uninsulated
                 </option>
@@ -670,7 +785,14 @@ exports[`renders Content 1`] = `
                 name="roofB"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   R1 - Uninsulated
                 </option>
@@ -723,7 +845,14 @@ exports[`renders Content 1`] = `
                 name="windowsB"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   Single Pane
                 </option>
@@ -777,7 +906,14 @@ exports[`renders Content 1`] = `
                 name="solidDoorB"
                 onChange={[Function]}
                 required={true}
+                value="disabled"
               >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
                 <option>
                   Uninsulated
                 </option>
@@ -834,6 +970,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={0}
                 id="designCost"
                 name="designCost"
                 onChange={[Function]}
@@ -861,6 +998,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={1}
                 id="designQuantity"
                 name="designQuantity"
                 onChange={[Function]}
@@ -879,6 +1017,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={10}
                 id="airtightnessCost"
                 name="airtightnessCost"
                 onChange={[Function]}
@@ -924,6 +1063,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={400}
                 id="windowsCost"
                 name="windowsCost"
                 onChange={[Function]}
@@ -969,6 +1109,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={25}
                 id="insulationCost"
                 name="insulationCost"
                 onChange={[Function]}
@@ -1014,6 +1155,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={4000}
                 id="ventilationCost"
                 name="ventilationCost"
                 onChange={[Function]}
@@ -1041,6 +1183,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={1}
                 id="ventilationQuantity"
                 name="ventilationQuantity"
                 onChange={[Function]}
@@ -1059,6 +1202,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={5000}
                 id="heatPumpCost"
                 name="heatPumpCost"
                 onChange={[Function]}
@@ -1086,6 +1230,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={1}
                 id="heatPumpQuantity"
                 name="heatPumpQuantity"
                 onChange={[Function]}
@@ -1104,6 +1249,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={2000}
                 id="waterHeaterCost"
                 name="waterHeaterCost"
                 onChange={[Function]}
@@ -1131,6 +1277,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={1}
                 id="waterHeaterQuantity"
                 name="waterHeaterQuantity"
                 onChange={[Function]}
@@ -1149,6 +1296,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={412}
                 id="solarCost"
                 name="solarCost"
                 onChange={[Function]}
@@ -1203,6 +1351,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={0}
                 id="batteryCost"
                 name="batteryCost"
                 onChange={[Function]}
@@ -1248,6 +1397,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={300}
                 id="energyMonitorCost"
                 name="energyMonitorCost"
                 onChange={[Function]}
@@ -1275,6 +1425,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={1}
                 id="energyMonitorQuantity"
                 name="energyMonitorQuantity"
                 onChange={[Function]}
@@ -1321,6 +1472,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={20}
                 id="paceLoanTerm"
                 name="paceLoanTerm"
                 onChange={[Function]}
@@ -1348,6 +1500,7 @@ exports[`renders Content 1`] = `
               </label>
               <input
                 className="form-control"
+                defaultValue={4}
                 id="interest"
                 name="interest"
                 onChange={[Function]}
@@ -1406,6 +1559,119 @@ exports[`renders Content 1`] = `
         Business Case
       </button>
       <br />
+    </div>
+  </div>
+  <div
+    className="DevResults"
+    style={
+      Object {
+        "backgroundColor": "white",
+        "padding": "1rem",
+      }
+    }
+  >
+    <div>
+      <h3>
+        Input
+      </h3>
+      <pre>
+        {
+  "carbonPrice": 103,
+  "electrityPrice": 0.15,
+  "electrityCarbon": 0.6,
+  "cleanElectricityPrice": 0.15,
+  "cleanElectrityCarbon": 0,
+  "naturalGasFossilPrice": 0.022,
+  "naturalGasFossilCarbon": 0.25,
+  "cleanGasPrice": 0.063,
+  "cleanGasCarbon": 0,
+  "propanePrice": 0.127,
+  "propaneCarbon": 0.27,
+  "woodPelletsPrice": 0.075,
+  "woodPelletsCarbon": 0.27,
+  "carbonPriceB": 103,
+  "electrityPriceB": 0.15,
+  "electrityCarbonB": 0.6,
+  "cleanElectricityPriceB": 0.15,
+  "cleanElectrityCarbonB": 0,
+  "naturalGasFossilPriceB": 0.022,
+  "naturalGasFossilCarbonB": 0.25,
+  "cleanGasPriceB": 0.063,
+  "cleanGasCarbonB": 0,
+  "propanePriceB": 0.127,
+  "propaneCarbonB": 0.27,
+  "woodPelletsPriceB": 0.075,
+  "woodPelletsCarbonB": 0.27,
+  "designCost": 0,
+  "designQuantity": 1,
+  "airtightnessCost": 10,
+  "windowsCost": 400,
+  "insulationCost": 25,
+  "ventilationCost": 4000,
+  "ventilationQuantity": 1,
+  "heatPumpCost": 5000,
+  "heatPumpQuantity": 1,
+  "waterHeaterCost": 2000,
+  "waterHeaterQuantity": 1,
+  "solarCost": 412,
+  "batteryCost": 0,
+  "energyMonitorCost": 300,
+  "energyMonitorQuantity": 1,
+  "paceLoanTerm": 20,
+  "interest": 4
+}
+      </pre>
+    </div>
+    <div>
+      <h3>
+        Output
+      </h3>
+      <pre>
+        {
+  "heatingAndCoolingA": {
+    "totalHeatingQ": null,
+    "totalCoolingQ": null
+  },
+  "annualSpaceHeatingA": {
+    "totalG1kwha": null,
+    "ventilationkwha": null,
+    "infiltrationkwha": null,
+    "annualHeatingDemand": null,
+    "spaceHeatingDemand": null
+  },
+  "heatingAndCoolingB": {
+    "totalHeatingQ": null,
+    "totalCoolingQ": null
+  },
+  "annualSpaceHeatingB": {
+    "totalG1kwha": null,
+    "ventilationkwha": null,
+    "infiltrationkwha": null,
+    "annualHeatingDemand": null,
+    "spaceHeatingDemand": null
+  },
+  "outputA": {
+    "heatingLoad": null,
+    "coolingLoad": null,
+    "spaceHeating": null,
+    "hotWater": null,
+    "lightsAppliancesPlugs": null,
+    "totalEnergyConsumption": null,
+    "spaceHeatingDemand": null,
+    "totalEnergyCosts": null
+  },
+  "outputB": {
+    "heatingLoad": null,
+    "coolingLoad": null,
+    "spaceHeating": null,
+    "hotWater": null,
+    "lightsAppliancesPlugs": null,
+    "totalEnergyConsumption": null,
+    "spaceHeatingDemand": null,
+    "totalEnergyCosts": null
+  }
+}
+      </pre>
     </div>
   </div>
 </div>
@@ -1486,7 +1752,14 @@ exports[`renders formatQuestion with select question 1`] = `
     name="question5Key"
     onChange={[Function]}
     required={false}
+    value="disabled"
   >
+    <option
+      disabled="disabled"
+      value="disabled"
+    >
+      Select an option
+    </option>
     <option>
       Electricity
     </option>

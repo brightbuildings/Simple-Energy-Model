@@ -63,3 +63,16 @@ label {
 .spacer {
   height: 40px;
 }
+
+.Outputs {
+  margin-top: 2rem;
+}
+
+.DevResults {
+  display: flex;
+}
+
+.DevResults > div {
+  padding: 1rem;
+  width: 50%;
+}

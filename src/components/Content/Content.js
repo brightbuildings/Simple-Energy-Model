@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DataService from "../../services/DataService";
+import CalculationService from "../../services/CalculationService";
 import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 
 import "./Content.css";
@@ -147,9 +148,10 @@ const formatQuestion = (question, variables, setVariables) => {
             required={required}
             name={key}
             id={key}
-            defaultValue={variables[key]}
+            value={variables[key] || "disabled"}
             onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           >
+            <option key="disabled" value="disabled" disabled="disabled">Select an option</option>
             {value.values.map(optionKey => {
               const entries = Object.entries(optionKey);
               return <option key={entries[0][0]}>{entries[0][0]}</option>
@@ -169,11 +171,30 @@ const formatQuestion = (question, variables, setVariables) => {
   }
 };
 
+const setDefaultVariables = data => {
+  const variables = {};
+  Object.entries(data).forEach(i => {
+    if (i[1].fields != null) {
+      Object.entries(i[1].fields).forEach(j => {
+        if (j[1].fields != null) {
+          Object.entries(j[1].fields).forEach(k => {
+            const [key, value] = k;
+            variables[key] = value.default;
+          });
+        }
+      });
+    }
+  });
+  return variables;
+};
+
 function Content() {
+  const data = DataService.load();
   const [activeSection, setActiveSection] = useState("introduction");
   const [activeSubsection, setActiveSubsection] = useState("");
-  const [variables, setVariables] = useState({});
-  const data = DataService.load();
+  const [variables, setVariables] = useState(setDefaultVariables(data));
+  const optionObjects = DataService.getAllOptionsObjects();
+  const output = CalculationService.run(variables, optionObjects);
 
   return (
     <div className="centered-narrow">
@@ -185,6 +206,20 @@ function Content() {
           {formatNavigation(data, activeSection, setActiveSection, setActiveSubsection)}
         </div>
       </div>
+      <div className="DevResults" style={{ padding: "1rem", backgroundColor: "white" }}>
+        <div>
+          <h3>Input</h3>
+          <pre>
+            {JSON.stringify(variables, undefined, 2)}
+          </pre>
+        </div>
+        <div>
+          <h3>Output</h3>
+          <pre>
+            {JSON.stringify(output, undefined, 2)}
+          </pre>
+        </div>
+      </div>
     </div>
   );
 }
@@ -193,5 +228,6 @@ export {
   Content,
   formatSections,
   formatNavigation,
-  formatQuestion
+  formatQuestion,
+  setDefaultVariables,
 };

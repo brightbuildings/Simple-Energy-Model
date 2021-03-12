@@ -1,4 +1,4 @@
-import { Content, formatSections, formatNavigation, formatQuestion } from './Content';
+import { Content, formatSections, formatNavigation, formatQuestion, setDefaultVariables } from './Content';
 import renderer from "react-test-renderer";
 
 const json = {
@@ -131,6 +131,26 @@ test("renders formatQuestion with gap question", () => {
 test("renders formatQuestion with select question", () => {
   const result = renderer.create(formatQuestion(questionSelect, variables, setVariables));
   expect(result).toMatchSnapshot();
+});
+
+test("runs setDefaultVariables", () => {
+    const data = {
+    "parametersA": {
+      "fields": {
+        "build": {
+          "fields": {
+            "test": {
+              "type": "float",
+              "default": "test"
+            }
+          }
+        }
+      }
+    }
+  };
+  const result = {"test": "test"};
+
+  expect(setDefaultVariables(data)).toEqual(result);
 });
 
 test("renders Content", () => {
