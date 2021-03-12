@@ -58,9 +58,10 @@
   }
   
   // Return error if values does not contain at least one positive value and one negative value
-  if (!positive || !negative) return '#NUM!';
+  if (!positive || !negative) return null;
 
   // Initialize guess and resultRate
+  // eslint-disable-next-line
   var guess = (typeof guess === 'undefined') ? 0.1 : guess;
   var resultRate = guess;
   
@@ -82,7 +83,7 @@
     contLoop = (epsRate > epsMax) && (Math.abs(resultValue) > epsMax);
   } while(contLoop && (++iteration < iterMax));
 
-  if(contLoop) return '#NUM!';
+  if(contLoop) return null;
 
   // Return internal rate of return
   return resultRate;

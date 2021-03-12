@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { IRR, PMT } from "./FinancialService";
+const FinancialService = require("./FinancialService");
 
 const inputs = {
   "winterSetpoint": 20.0,
@@ -327,11 +327,11 @@ const getEconomics = (variables, outputA, outputB) => {
     netSavings += year === startingYear ? -investment : annualSavings;
     accumulationSum += accumulation;
   }
-  const irr = IRR(accumulationSum, 0.06);
+  const irr = FinancialService.IRR(accumulationSum, 0.06);
   const paceLoanTerm = parseInt(variables.paceLoanTerm);
   const interest = parseFloat(variables.interest);
   const monthsInYear = 12;
-  const monthlyPayments = -PMT(interest/monthsInYear, paceLoanTerm * monthsInYear, investment);
+  const monthlyPayments = -FinancialService.PMT(interest/monthsInYear, paceLoanTerm * monthsInYear, investment);
   const monthlySavings = annualSavings / monthsInYear;
   const monthlyNetSavings = monthlySavings - monthlyPayments;
 
@@ -386,6 +386,7 @@ module.exports = {
   run,
   getOption,
   output,
+  getEconomics,
   heatingAndCooling,
   annualSpaceHeating,
 };
