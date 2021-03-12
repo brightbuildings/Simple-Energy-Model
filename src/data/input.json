@@ -654,7 +654,7 @@
               { "Clean Electricity": { 
                 "priceKey": "cleanElectricityPrice"
                } },
-              { "Natural Gass (Fossil)": { 
+              { "Natural Gas (Fossil)": { 
                 "priceKey": "naturalGasFossilPrice"
                } },
               { "Clean Gas": { 
@@ -680,7 +680,7 @@
               { "Clean Electricity": { 
                 "priceKey": "cleanElectricityPrice"
                } },
-              { "Natural Gass (Fossil)": { 
+              { "Natural Gas (Fossil)": { 
                 "priceKey": "naturalGasFossilPrice"
                } },
               { "Clean Gas": { 
@@ -706,7 +706,7 @@
               { "Clean Electricity": { 
                 "priceKey": "cleanElectricityPrice"
                } },
-              { "Natural Gass (Fossil)": { 
+              { "Natural Gas (Fossil)": { 
                 "priceKey": "naturalGasFossilPrice"
                } },
               { "Clean Gas": { 
@@ -1305,44 +1305,80 @@
             "label": "Annual Energy Costs",
             "type": "label"
           },
-          "spaceHeatingFuelType": {
+          "spaceHeatingFuelTypeB": {
             "label": "Space Heating Fuel Type",
             "type": "select",
             "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
+              { "Electricity": { 
+                "priceKey": "electricityPrice"
+               } },
+              { "Clean Electricity": { 
+                "priceKey": "cleanElectricityPrice"
+               } },
+              { "Natural Gas (Fossil)": { 
+                "priceKey": "naturalGasFossilPrice"
+               } },
+              { "Clean Gas": { 
+                "priceKey": "cleanGasPrice"
+               } },
+              { "Propane": { 
+                "priceKey": "propanePrice"
+               } },
+              { "Wood Pellets": { 
+                "priceKey": "woodPelletsPrice"
+               } }
             ],
             "unit": "$",
             "required": true
           },
-          "hotWaterFuelType": {
+          "hotWaterFuelTypeB": {
             "label": "Hot Water Fuel Type",
             "type": "select",
             "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
+              { "Electricity": { 
+                "priceKey": "electricityPrice"
+               } },
+              { "Clean Electricity": { 
+                "priceKey": "cleanElectricityPrice"
+               } },
+              { "Natural Gas (Fossil)": { 
+                "priceKey": "naturalGasFossilPrice"
+               } },
+              { "Clean Gas": { 
+                "priceKey": "cleanGasPrice"
+               } },
+              { "Propane": { 
+                "priceKey": "propanePrice"
+               } },
+              { "Wood Pellets": { 
+                "priceKey": "woodPelletsPrice"
+               } }
             ],
             "unit": "$",
             "required": true
           },
-          "lightsAppliancesPlugsFuelType": {
+          "lightsAppliancesPlugsFuelTypeB": {
             "label": "Lights, Appliances, Plugs Fuel Type",
             "type": "select",
             "values": [
-              { "Electricity": {} },
-              { "Clean Electricity": {} },
-              { "Natural Gass (Fossil)": {} },
-              { "Clean Gas": {} },
-              { "Propane": {} },
-              { "Wood Pellets": {} }
+              { "Electricity": { 
+                "priceKey": "electricityPrice"
+               } },
+              { "Clean Electricity": { 
+                "priceKey": "cleanElectricityPrice"
+               } },
+              { "Natural Gas (Fossil)": { 
+                "priceKey": "naturalGasFossilPrice"
+               } },
+              { "Clean Gas": { 
+                "priceKey": "cleanGasPrice"
+               } },
+              { "Propane": { 
+                "priceKey": "propanePrice"
+               } },
+              { "Wood Pellets": { 
+                "priceKey": "woodPelletsPrice"
+               } }
             ],
             "unit": "$",
             "required": true
