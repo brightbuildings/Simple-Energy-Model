@@ -4,7 +4,7 @@ test("load() loads a file", () => {
   expect(load()).not.toBeFalsy();
 });
 
-test.todo("getAllOptionsObjects generates a result from a nested input");
+test.todo("getAllOptionsObjects generates a result from a nested input")
 // test("getAllOptionsObjects generates a result from a nested input", () => {
 //   const data = {
 //     "parametersA": {
