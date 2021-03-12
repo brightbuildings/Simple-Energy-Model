@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const inputs = {
   "winterSetpoint": 20.0,
   "summerSetpoint": 25.0,
@@ -230,6 +231,9 @@ const annualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
   const spaceHeatingDemand = annualHeatingDemand / variables.interiorFloorArea;
 
   return {
+    totalG1kwha,
+    ventilationkwha,
+    infiltrationkwha,
     annualHeatingDemand,
     spaceHeatingDemand
   };
@@ -292,8 +296,13 @@ const run = (variables, optionObjects) => {
 const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
   const optionKey = isAlternate ? key + "B" : key;
   const options = optionObjects[optionKey] || optionObjects[key];
-  const option = options.values.find(el => { return !!el[variables[optionKey]]; });
-  return !!option ? option[variables[optionKey]][subkey] : null;
+  const option = options.values.find(el => { 
+    const elArray = Object.entries(el);
+    return elArray[0][0] === variables[key];
+  });
+
+  const variable = variables?.[key];
+  return option?.[variable]?.[subkey];
 };
 
 module.exports = {
