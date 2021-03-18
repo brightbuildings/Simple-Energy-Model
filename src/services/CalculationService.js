@@ -310,7 +310,7 @@ const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating,
   };
 };
 
-const getEconomics = (variables, outputA, outputB) => {
+const getEconomics = (variables, outputA) => {
   const designCost = parseFloat(variables.designCost);
   const designQuantity = parseFloat(variables.designQuantity);
   const airtightnessCost = parseFloat(variables.airtightnessCost)
@@ -370,6 +370,16 @@ const getEconomics = (variables, outputA, outputB) => {
   const monthlyNetSavings = monthlySavings - monthlyPayments;
 
   return {
+    design,
+    airtightness,
+    windows,
+    insulation,
+    ventilation,
+    heatPump,
+    waterHeater,
+    solar,
+    battery,
+    energyMonitor,
     annualSavings,
     accumulationSum,
     investment,
@@ -403,7 +413,7 @@ const run = (variables, optionObjects) => {
   const annualSpaceHeatingB = annualSpaceHeating(variables, optionObjects, isAlternate);
   const outputA = output(variables, optionObjects, heatingAndCoolingA, annualSpaceHeatingA);
   const outputB = output(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
-  const economics = getEconomics(variables, outputA, outputB);
+  const economics = getEconomics(variables, outputA);
 
   return {
     heatingAndCoolingA,
