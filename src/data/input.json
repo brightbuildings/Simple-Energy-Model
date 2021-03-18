@@ -29,25 +29,29 @@
             "label": "Length (facing east)",
             "type": "float",
             "required": true,
-            "unit": "m"
+            "unit": "m",
+            "default": 10.56
           },
           "width": {
             "label": "Width (facing south)",
             "type": "float",
             "required": true,
-            "unit": "m"
+            "unit": "m",
+            "default": 6.09
           },
           "height": {
             "label": "Height above grade",
             "type": "float",
             "required": true,
-            "unit": "m"
+            "unit": "m",
+            "default": 7.59
           },
           "depth": {
             "label": "Length (facing east)",
             "type": "float",
             "required": true,
-            "unit": "m"
+            "unit": "m",
+            "default": 2.02
           },
           "gap1": {
             "type": "gap"
@@ -55,17 +59,20 @@
           "interiorFloorArea": {
             "label": "Interior Floor Area",
             "type": "float",
-            "unit": "m²"
+            "unit": "m²",
+            "default": 162.1
           },
           "people": {
             "label": "People",
             "type": "integer",
-            "unit": "#"
+            "unit": "#",
+            "default": 4
           },
           "units": {
             "label": "Units",
             "type": "integer",
-            "unit": "#"
+            "unit": "#",
+            "default": 1
           },
           "gap2": {
             "type": "gap"
@@ -73,12 +80,14 @@
           "roofArea": {
             "label": "Roof Area",
             "type": "float",
-            "unit": "m²"
+            "unit": "m²",
+            "default": 64.3
           },
           "floorArea": {
             "label": "Floor Area (footprint)",
             "type": "float",
-            "unit": "m²"
+            "unit": "m²",
+            "default": 64.3
           }
         }
       },
@@ -93,7 +102,8 @@
             "label": "Available Solar Area",
             "type": "float",
             "unit": "m²",
-            "required": true
+            "required": true,
+            "default": 64.3
           },
           "gap1": {
             "type": "gap"
@@ -106,25 +116,29 @@
             "label": "North",
             "type": "float",
             "unit": "m²",
-            "required": true
+            "required": true,
+            "default": 6.48
           },
           "east": {
             "label": "East",
             "type": "float",
             "unit": "m²",
-            "required": true
+            "required": true,
+            "default": 3.24
           },
           "south": {
             "label": "South",
             "type": "float",
             "unit": "m²",
-            "required": true
+            "required": true,
+            "default": 12.97
           },
           "west": {
             "label": "West",
             "type": "float",
             "unit": "m²",
-            "required": true
+            "required": true,
+            "default": 3.24
           },
           "gap2": {
             "type": "gap"
@@ -133,12 +147,14 @@
             "label": "Exterior Solid Door Area",
             "type": "float",
             "unit": "m²",
-            "required": true
+            "required": true,
+            "default": 2.1
           },
           "buildingVolume": {
             "label": "Building Volume",
             "type": "float",
-            "unit": "m²"
+            "unit": "m²",
+            "default": 618.0
           }
         }
       },
@@ -152,12 +168,14 @@
           "heatingDegreeDays": {
             "label": "Heating Degree Days",
             "type": "integer",
-            "unit": "HDD18"
+            "unit": "HDD18",
+            "default": 5700.0
           },
           "heatingDegreeHours": {
             "label": "Heating Degree Hours",
             "type": "float",
-            "unit": "kKh/a"
+            "unit": "kKh/a",
+            "default": 136.8
           }
         }
       }
