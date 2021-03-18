@@ -258,13 +258,13 @@ const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating,
   const dhwDistributionLosses = 300.0;
   const heatingLoad = Big(heatingAndCooling.totalHeatingQ).div(1000).times(1.1);
   const coolingLoad = Big(heatingAndCooling.totalCoolingQ).div(1000);
-  const spaceHeating = Big(annualSpaceHeating.annualHeatingDemand).div(getOption("heating", "efficiency", variables, optionObjects, isAlternate));
-  const a = Big(25.0).times(getOption("hotWaterFixtures", "flow", variables, optionObjects, isAlternate)).plus(getOption("hotWaterHeaterStorage", "value", variables, optionObjects, isAlternate)).plus(dhwDistributionLosses);
-  const b = Big(getOption("hotWaterHeater", "efficiency",variables, optionObjects, isAlternate)).times(Big(1).minus(getOption("drainWaterHeatRecovery", "efficiency", variables, optionObjects, isAlternate))).times(variables.units);
+  const spaceHeating = Big(annualSpaceHeating.annualHeatingDemand).div(getOption("heating", "efficiency", variables, optionObjects, isAlternate)).plus(850);
+  const a = Big(25.0).times(getOption("hotWaterFixtures", "flow", variables, optionObjects, isAlternate)).plus(getOption("hotWaterHeaterStorage", "value", variables, optionObjects, isAlternate)).plus(dhwDistributionLosses).times(Big(1).minus(getOption("drainWaterHeatRecovery", "efficiency", variables, optionObjects, isAlternate))).times(variables.units);;
+  const b = Big(getOption("hotWaterHeater", "efficiency",variables, optionObjects, isAlternate))
   const hotWater = a.div(b);
   const lightsAppliancesPlugs = (Big(getOption("lighting", "value", variables, optionObjects, isAlternate)).plus(getOption("appliances", "value", variables, optionObjects, isAlternate)).plus(getOption("plugLoads", "value", variables, optionObjects, isAlternate))).times(365).times(variables.units);
   const totalEnergyConsumption = Big(spaceHeating).plus(hotWater).plus(lightsAppliancesPlugs);
-  const spaceHeatingDemand = Big(annualSpaceHeating.spaceHeatingDemand).toFixed(0);
+  const spaceHeatingDemand = Big(annualSpaceHeating.spaceHeatingDemand);
 
   const carbonPrice = Big(variables.carbonPrice);
   const spaceHeatingFuelTypePriceKey = getOption("spaceHeatingFuelType", "priceKey", variables, optionObjects, isAlternate)
@@ -286,7 +286,7 @@ const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating,
   const hotWaterTotalPrice = Big(hotWaterPrice).plus(hotWaterCarbonCost);
   const lightsAppliancesPlugsTotalPrice = Big(lightsAppliancesPlugsPrice).plus(lightsAppliancesPlugsCarbonCost);
   let adjustmentAmount = 278.4;
-  if (variables.spaceHeatingFuelType === "Electricity" || variables.spaceHeatingFuelType === "Clean Electricity") {
+  if (spaceHeatingFuelTypeCarbonKey === "electricityCarbon" || spaceHeatingFuelTypeCarbonKey === "cleanElectricityCarbon") {
     adjustmentAmount = 0;
   }
   const spaceHeatingAnnualCost = Big(spaceHeatingTotalPrice).times(spaceHeating).plus(adjustmentAmount);
