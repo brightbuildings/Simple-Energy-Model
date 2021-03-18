@@ -226,7 +226,8 @@
               } }
             ],
             "unit": "ACH @50 Pa",
-            "required": true
+            "required": true,
+            "default": "10 (100 years old)"
           },
           "gap1": {
             "type": "gap"
@@ -280,7 +281,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R10 - 2x4 w Batt"
           },
           "wallBelowGrade": {
             "label": "Wall Below Grade",
@@ -312,7 +314,8 @@
               }  }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R6 - Concrete Uninsulated"
           },
           "roof": {
             "label": "Roof",
@@ -341,7 +344,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R20 - 6\""
           },
           "floor": {
             "label": "Floor",
@@ -367,7 +371,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R6 - Uninsulated [NBC Below Frost]"
           },
           "gap": {
             "type": "gap"
@@ -414,7 +419,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "Double Pane"
           },
           "solidDoor": {
             "label": "Solid Door",
@@ -428,7 +434,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "Uninsulated"
           }
         }
       },
@@ -466,7 +473,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Exhaust Only"
           },
           "heating": {
             "label": "Heating",
@@ -494,7 +502,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Mid Eff. Furnace / Boiler"
           },
           "cooling": {
             "label": "Cooling",
@@ -514,7 +523,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "None"
           },
           "hotWaterHeater": {
             "label": "Hot Water Heating",
@@ -542,7 +552,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Mid Eff. Furnace / Boiler"
           },
           "hotWaterHeaterStorage": {
             "label": "Hot Water Heater Storage",
@@ -555,7 +566,8 @@
                 "value": 800
               } }
             ],
-            "required": true
+            "required": true,
+            "default": "Tank"
           },
           "drainWaterHeatRecovery": {
             "label": "Drain Water Heat Recovery",
@@ -571,7 +583,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "No"
           },
           "gap": {
             "type": "gap"
@@ -598,7 +611,8 @@
               } }
             ],
             "unit": "L/day",
-            "required": true
+            "required": true,
+            "default": "Standard fixtures, House"
           },
           "lighting": {
             "label": "Lighting",
@@ -615,7 +629,8 @@
               } }
             ],
             "unit": "kWh/day",
-            "required": true
+            "required": true,
+            "default": "Standard Lighting, House"
           },
           "appliances": {
             "label": "Appliances",
@@ -635,7 +650,8 @@
               } }
             ],
             "unit": "kWh/day",
-            "required": true
+            "required": true,
+            "default": "Standard Appliances, House"
           },
           "plugLoads": {
             "label": "Plug Loads",
@@ -649,7 +665,8 @@
               } }
             ],
             "unit": "kWh/day",
-            "required": true
+            "required": true,
+            "default": "Fixed plug loads, House"
           }
         }
       },
@@ -684,7 +701,8 @@
                } }
             ],
             "unit": "$",
-            "required": true
+            "required": true,
+            "default": "Natural Gas (Fossil)"
           },
           "hotWaterFuelType": {
             "label": "Hot Water Fuel Type",
@@ -710,7 +728,8 @@
                } }
             ],
             "unit": "$",
-            "required": true
+            "required": true,
+            "default": "Natural Gas (Fossil)"
           },
           "lightsAppliancesPlugsFuelType": {
             "label": "Lights, Appliances, Plugs Fuel Type",
@@ -736,7 +755,8 @@
                } }
             ],
             "unit": "$",
-            "required": true
+            "required": true,
+            "default": "Electricity"
           },
           "gap": {
             "type": "gap"
@@ -885,7 +905,8 @@
               } }
             ],
             "unit": "ACH @50 Pa",
-            "required": true
+            "required": true,
+            "default": "1.0 (Net-zero)"
           },
           "gap1B": {
             "type": "gap"
@@ -939,7 +960,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R31 - 2x4 + 6\" Rigid"
           },
           "wallBelowGradeB": {
             "label": "Wall Below Grade",
@@ -971,7 +993,8 @@
               }  }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R25 - Conc. + 6\" Rigid"
           },
           "roofB": {
             "label": "Roof",
@@ -1000,7 +1023,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R80 - 24\""
           },
           "floorB": {
             "label": "Floor",
@@ -1026,7 +1050,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "R25 - 6\" Rigid"
           },
           "gap": {
             "type": "gap"
@@ -1073,7 +1098,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "Triple Pane (High Performance) - Low SHGC"
           },
           "solidDoorB": {
             "label": "Solid Door",
@@ -1087,7 +1113,8 @@
               } }
             ],
             "unit": "W/m²K",
-            "required": true
+            "required": true,
+            "default": "Insulated (R10)"
           }
         }
       },
@@ -1125,7 +1152,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "85%"
           },
           "heatingB": {
             "label": "Heating",
@@ -1153,7 +1181,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Air Source Heat Pump"
           },
           "coolingB": {
             "label": "Cooling",
@@ -1173,7 +1202,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Air Source Heat Pump"
           },
           "hotWaterHeaterB": {
             "label": "Hot Water Heating",
@@ -1201,7 +1231,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Heat Pump Water Heater"
           },
           "hotWaterHeaterStorageB": {
             "label": "Hot Water Heater Storage",
@@ -1214,7 +1245,8 @@
                 "value": 800
               } }
             ],
-            "required": true
+            "required": true,
+            "default": "Tank"
           },
           "drainWaterHeatRecoveryB": {
             "label": "Drain Water Heat Recovery",
@@ -1230,7 +1262,8 @@
               } }
             ],
             "unit": "%",
-            "required": true
+            "required": true,
+            "default": "Yes"
           },
           "gap": {
             "type": "gap"
@@ -1257,7 +1290,8 @@
               } }
             ],
             "unit": "L/day",
-            "required": true
+            "required": true,
+            "default": "Low flow fixtures, House"
           },
           "lightingB": {
             "label": "Lighting",
@@ -1274,7 +1308,8 @@
               } }
             ],
             "unit": "kWh/day",
-            "required": true
+            "required": true,
+            "default": "LED Lighting"
           },
           "appliancesB": {
             "label": "Appliances",
@@ -1294,7 +1329,8 @@
               } }
             ],
             "unit": "kWh/day",
-            "required": true
+            "required": true,
+            "default": "EnergyStar Appliances, House"
           },
           "plugLoadsB": {
             "label": "Plug Loads",
@@ -1308,7 +1344,8 @@
               } }
             ],
             "unit": "kWh/day",
-            "required": true
+            "required": true,
+            "default": "Fixed plug loads, House"
           }
         }
       },
@@ -1343,7 +1380,8 @@
                } }
             ],
             "unit": "$",
-            "required": true
+            "required": true,
+            "default": "Clean Electricity"
           },
           "hotWaterFuelTypeB": {
             "label": "Hot Water Fuel Type",
@@ -1369,7 +1407,8 @@
                } }
             ],
             "unit": "$",
-            "required": true
+            "required": true,
+            "default": "Clean Electricity"
           },
           "lightsAppliancesPlugsFuelTypeB": {
             "label": "Lights, Appliances, Plugs Fuel Type",
@@ -1395,7 +1434,8 @@
                } }
             ],
             "unit": "$",
-            "required": true
+            "required": true,
+            "default": "Clean Electricity"
           },
           "gapB": {
             "type": "gap"
