@@ -566,20 +566,18 @@
             "label": "Hot Water Fixtures",
             "type": "select",
             "values": [
-              { 
-                "Low flow fixtures, House": {
+              { "Low flow fixtures, House": {
                   "flow": 175
-                },
-                "Standard fixtures, House": {
-                  "flow": 225
-                },
-                "Low flow fixtures, MURB": {
-                  "flow": 90
-                },
-                "Standard fixtures, MURB": {
-                  "flow": 140
-                }
-              }
+              } },
+              { "Standard fixtures, House": {
+                "flow": 225
+              } },
+              { "Low flow fixtures, MURB": {
+                "flow": 90
+              } },
+              { "Standard fixtures, MURB": {
+                "flow": 140
+              } }
             ],
             "unit": "L/day",
             "required": true
@@ -1227,20 +1225,18 @@
             "label": "Hot Water Fixtures",
             "type": "select",
             "values": [
-              { 
-                "Low flow fixtures, House": {
+              { "Low flow fixtures, House": {
                   "flow": 175
-                },
-                "Standard fixtures, House": {
-                  "flow": 225
-                },
-                "Low flow fixtures, MURB": {
-                  "flow": 90
-                },
-                "Standard fixtures, MURB": {
-                  "flow": 140
-                }
-              }
+              } },
+              { "Standard fixtures, House": {
+                "flow": 225
+              } },
+              { "Low flow fixtures, MURB": {
+                "flow": 90
+              } },
+              { "Standard fixtures, MURB": {
+                "flow": 140
+              } }
             ],
             "unit": "L/day",
             "required": true
