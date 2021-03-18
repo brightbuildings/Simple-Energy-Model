@@ -88,7 +88,7 @@ const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
   const roofCoolingTransmission = Big(roofU).times(roofArea).times(roofCoolingDeltaT);
   const doorCoolingTransmission = Big(doorU).times(doorArea).times(doorCoolingDeltaT);
   const coolingInfiltration = Big(airDensity).times(infiltrationHeatingLoadAirflowRate).times(coolingDeltaH);
-  const coolingVentilation = Big(airDensity).times(ventilationAirflowRate).times(coolingDeltaT).times(Big(1.0).minus(ventilationEfficiency));
+  const coolingVentilation = Big(airDensity).times(ventilationAirflowRate).times(coolingDeltaH).times(Big(1.0).minus(ventilationEfficiency));
   const peopleWPer = Big(130);
   const lightingWm2 = Big(5);
   const equipmentWm2 = Big(5);
@@ -116,7 +116,7 @@ const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
   const westDirection = 270;
   const northSolarGains = 93;
   const eastSolarGains = 285;
-  const southSolarGains = 108;
+  const southSolarGains = 208;
   const westSolarGains = 285;
   const northHeatingLoad = Big(northU).times(north).times(Big(inputs.winterSetpoint).minus(inputs.winterDesignTemperature));
   const eastHeatingLoad = Big(eastU).times(east).times(Big(inputs.winterSetpoint).minus(inputs.winterDesignTemperature));
@@ -144,6 +144,16 @@ const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
     heatingDeltaT,
     wallAboveGradeInfiltration,
     wallAboveGradeVentilation,
+    roofCoolingTransmission,
+    doorCoolingTransmission,
+    coolingInfiltration,
+    coolingVentilation,
+    wallAboveGradeCoolingTransmission,
+    people,
+    lighting,
+    equipment,
+    southCoolingLoadConduction,
+    southCoolingSolarGain,
     totalHeatingQ,
     totalCoolingQ,
   };
