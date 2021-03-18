@@ -136,6 +136,13 @@ const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
   const totalCoolingQ = wallAboveGradeCoolingTransmission + roofCoolingTransmission + doorCoolingTransmission + 0 + 0 + coolingInfiltration + coolingVentilation + people + lighting + equipment + northTotalCoolingLoad + eastTotalCoolingLoad + southTotalCoolingLoad + westTotalCoolingLoad;
 
   return {
+    airDensity,
+    ventilationEfficiency,
+    infiltrationAnnualEnergy,
+    infiltrationHeatingLoad,
+    infiltrationAnnualEnergyAirflowRate,
+    infiltrationHeatingLoadAirflowRate,
+    ventilationAirflowRate,
     totalHeatingQ,
     totalCoolingQ,
   };
@@ -243,19 +250,19 @@ const annualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
 
 const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating, isAlternate) => {
   const dhwDistributionLosses = 300.0;
-  const heatingLoad = heatingAndCooling.totalHeatingQ / 1000 * 1.1;
-  const coolingLoad = heatingAndCooling.totalCoolingQ / 1000;
-  const spaceHeating = annualSpaceHeating.annualHeatingDemand / getOption("heating", "efficiency", variables, optionObjects, isAlternate);
-  const hotWater = (
-                    25.0 * getOption("hotWaterFixtures", "flow", variables, optionObjects, isAlternate) + 
-                    getOption("hotWaterHeaterStorage", "value", variables, optionObjects, isAlternate) +
+  const heatingLoad = (heatingAndCooling.totalHeatingQ / 1000 * 1.1).toFixed(1);
+  const coolingLoad = (heatingAndCooling.totalCoolingQ / 1000).toFixed(1);
+  const spaceHeating = -(annualSpaceHeating.annualHeatingDemand / getOption("heating", "efficiency", variables, optionObjects, isAlternate)).toFixed(0);
+  const hotWater = ((
+                    25.0 * parseFloat(getOption("hotWaterFixtures", "flow", variables, optionObjects, isAlternate)) + 
+                    parseFloat(getOption("hotWaterHeaterStorage", "value", variables, optionObjects, isAlternate)) +
                     dhwDistributionLosses
-                  ) / getOption("hotWaterHeater", "efficiency",variables, optionObjects, isAlternate) *
-                  (1.0 - getOption("drainWaterHeatRecovery", "efficiency", variables, optionObjects, isAlternate)) *
-                  parseFloat(variables.units);
+                  ) / parseFloat(getOption("hotWaterHeater", "efficiency",variables, optionObjects, isAlternate)) *
+                  (1.0 - parseFloat(getOption("drainWaterHeatRecovery", "efficiency", variables, optionObjects, isAlternate))) *
+                  parseFloat(variables.units)).toFixed(0);
   const lightsAppliancesPlugs = (getOption("lighting", "value", variables, optionObjects, isAlternate) + getOption("appliances", "value", variables, optionObjects, isAlternate) + getOption("plugLoads", "value", variables, optionObjects, isAlternate)) * 365 * parseFloat(variables.units);
-  const totalEnergyConsumption = spaceHeating + hotWater + lightsAppliancesPlugs;
-  const spaceHeatingDemand = annualSpaceHeating.spaceHeatingDemand;
+  const totalEnergyConsumption = parseFloat(spaceHeating) + parseFloat(hotWater) + parseFloat(lightsAppliancesPlugs);
+  const spaceHeatingDemand = (annualSpaceHeating.spaceHeatingDemand).toFixed(0);
   const spaceHeatingCost = variables[getOption("spaceHeatingFuelType", "priceKey", variables, optionObjects, isAlternate)];
   const hotWaterCost = variables[getOption("hotWaterFuelType", "priceKey", variables, optionObjects, isAlternate)];
   const lightsAppliancesPlugsCost = variables[getOption("lightsAppliancesPlugsFuelType", "priceKey", variables, optionObjects, isAlternate)];

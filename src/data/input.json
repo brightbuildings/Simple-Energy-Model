@@ -513,13 +513,13 @@
                 "efficiency": 0
               } },
               { "Minimum Efficiency AC Unit": {
-                "efficiency": 3.81
+                "efficiency": 3.8123167155
               } },
               { "Ground Source Heat Pump": {
-                "efficiency": 4.69
+                "efficiency": 4.6920821114
               } },
               { "Air Source Heat Pump": {
-                "efficiency": 5.87
+                "efficiency": 5.8651026393
               } }
             ],
             "unit": "%",
@@ -574,11 +574,11 @@
             "type": "select",
             "values": [
               { "No": {
-                "efficiency": 0.8,
+                "efficiency": 0,
                 "dhwFuelType": "Natural Gas"
               } },
               { "Yes": {
-                "efficiency": 0.8,
+                "efficiency": 0.25,
                 "dhwFuelType": "Natural Gas"
               } }
             ],
@@ -1192,13 +1192,13 @@
                 "efficiency": 0
               } },
               { "Minimum Efficiency AC Unit": {
-                "efficiency": 3.81
+                "efficiency": 3.8123167155
               } },
               { "Ground Source Heat Pump": {
-                "efficiency": 4.69
+                "efficiency": 4.6920821114
               } },
               { "Air Source Heat Pump": {
-                "efficiency": 5.87
+                "efficiency": 5.8651026393
               } }
             ],
             "unit": "%",
@@ -1253,11 +1253,11 @@
             "type": "select",
             "values": [
               { "No": {
-                "efficiency": 0.8,
+                "efficiency": 0,
                 "dhwFuelType": "Natural Gas"
               } },
               { "Yes": {
-                "efficiency": 0.8,
+                "efficiency": 0.25,
                 "dhwFuelType": "Natural Gas"
               } }
             ],
