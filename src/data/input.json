@@ -553,7 +553,7 @@
             ],
             "unit": "%",
             "required": true,
-            "default": "Mid Eff. Furnace / Boiler"
+            "default": "Mid Eff. Water Heater / Boiler"
           },
           "hotWaterHeaterStorage": {
             "label": "Hot Water Heater Storage",
@@ -671,7 +671,7 @@
         }
       },
       "energyPrices": {
-        "navigation": "Energy Prices",
+        "navigation": "Energy",
         "fields": {
           "annualEnergyCosts": {
             "label": "Annual Energy Costs",
@@ -682,22 +682,28 @@
             "type": "select",
             "values": [
               { "Electricity": { 
-                "priceKey": "electricityPrice"
+                "priceKey": "electricityPrice",
+                "carbonKey": "electricityCarbon"
                } },
               { "Clean Electricity": { 
-                "priceKey": "cleanElectricityPrice"
+                "priceKey": "cleanElectricityPrice",
+                "carbonKey": "cleanElectricityCarbon"
                } },
               { "Natural Gas (Fossil)": { 
-                "priceKey": "naturalGasFossilPrice"
+                "priceKey": "naturalGasFossilPrice",
+                "carbonKey": "naturalGasFossilCarbon"
                } },
               { "Clean Gas": { 
-                "priceKey": "cleanGasPrice"
+                "priceKey": "cleanGasPrice",
+                "carbonKey": "cleanGasCarbon"
                } },
               { "Propane": { 
-                "priceKey": "propanePrice"
+                "priceKey": "propanePrice",
+                "carbonKey": "propaneCarbon"
                } },
               { "Wood Pellets": { 
-                "priceKey": "woodPelletsPrice"
+                "priceKey": "woodPelletsPrice",
+                "carbonKey": "woodPelletsCarbon"
                } }
             ],
             "unit": "$",
@@ -709,22 +715,28 @@
             "type": "select",
             "values": [
               { "Electricity": { 
-                "priceKey": "electricityPrice"
+                "priceKey": "electricityPrice",
+                "carbonKey": "electricityCarbon"
                } },
               { "Clean Electricity": { 
-                "priceKey": "cleanElectricityPrice"
+                "priceKey": "cleanElectricityPrice",
+                "carbonKey": "cleanElectricityCarbon"
                } },
               { "Natural Gas (Fossil)": { 
-                "priceKey": "naturalGasFossilPrice"
+                "priceKey": "naturalGasFossilPrice",
+                "carbonKey": "naturalGasFossilCarbon"
                } },
               { "Clean Gas": { 
-                "priceKey": "cleanGasPrice"
+                "priceKey": "cleanGasPrice",
+                "carbonKey": "cleanGasCarbon"
                } },
               { "Propane": { 
-                "priceKey": "propanePrice"
+                "priceKey": "propanePrice",
+                "carbonKey": "propaneCarbon"
                } },
               { "Wood Pellets": { 
-                "priceKey": "woodPelletsPrice"
+                "priceKey": "woodPelletsPrice",
+                "carbonKey": "woodPelletsCarbon"
                } }
             ],
             "unit": "$",
@@ -736,22 +748,28 @@
             "type": "select",
             "values": [
               { "Electricity": { 
-                "priceKey": "electricityPrice"
+                "priceKey": "electricityPrice",
+                "carbonKey": "electricityCarbon"
                } },
               { "Clean Electricity": { 
-                "priceKey": "cleanElectricityPrice"
+                "priceKey": "cleanElectricityPrice",
+                "carbonKey": "cleanElectricityCarbon"
                } },
               { "Natural Gas (Fossil)": { 
-                "priceKey": "naturalGasFossilPrice"
+                "priceKey": "naturalGasFossilPrice",
+                "carbonKey": "nautralGasFossilCarbon"
                } },
               { "Clean Gas": { 
-                "priceKey": "cleanGasPrice"
+                "priceKey": "cleanGasPrice",
+                "carbonKey": "cleanGasCarbon"
                } },
               { "Propane": { 
-                "priceKey": "propanePrice"
+                "priceKey": "propanePrice",
+                "carbonKey": "propaneCarbon"
                } },
               { "Wood Pellets": { 
-                "priceKey": "woodPelletsPrice"
+                "priceKey": "woodPelletsPrice",
+                "carbonKey": "woodPelletsCarbon"
                } }
             ],
             "unit": "$",
@@ -772,14 +790,14 @@
             "required": true,
             "default": 103
           },
-          "electrityPrice": {
+          "electricityPrice": {
             "label": "Electricity Price",
             "type": "float",
             "unit": "$/kWh",
             "required": true,
             "default": 0.150
           },
-          "electrityCarbon": {
+          "electricityCarbon": {
             "label": "Electricity Carbon",
             "type": "float",
             "unit": "kg/kWh",
@@ -793,7 +811,7 @@
             "required": true,
             "default": 0.150
           },
-          "cleanElectrityCarbon": {
+          "cleanElectricityCarbon": {
             "label": "Clean Electricity Carbon",
             "type": "float",
             "unit": "kg/kWh",
@@ -1350,7 +1368,7 @@
         }
       },
       "energyPricesB": {
-        "navigation": "Energy Prices",
+        "navigation": "Energy",
         "fields": {
           "annualEnergyCosts": {
             "label": "Annual Energy Costs",
@@ -1361,22 +1379,28 @@
             "type": "select",
             "values": [
               { "Electricity": { 
-                "priceKey": "electricityPrice"
+                "priceKey": "electricityPrice",
+                "carbonKey": "electricityCarbon"
                } },
               { "Clean Electricity": { 
-                "priceKey": "cleanElectricityPrice"
+                "priceKey": "cleanElectricityPrice",
+                "carbonKey": "cleanElectricityCarbon"
                } },
               { "Natural Gas (Fossil)": { 
-                "priceKey": "naturalGasFossilPrice"
+                "priceKey": "naturalGasFossilPrice",
+                "carbonKey": "naturalGasFossilCarbon"
                } },
               { "Clean Gas": { 
-                "priceKey": "cleanGasPrice"
+                "priceKey": "cleanGasPrice",
+                "carbonKey": "cleanGasCarbon"
                } },
               { "Propane": { 
-                "priceKey": "propanePrice"
+                "priceKey": "propanePrice",
+                "carbonKey": "propaneCarbon"
                } },
               { "Wood Pellets": { 
-                "priceKey": "woodPelletsPrice"
+                "priceKey": "woodPelletsPrice",
+                "carbonKey": "woodPelletsCarbon"
                } }
             ],
             "unit": "$",
@@ -1388,22 +1412,28 @@
             "type": "select",
             "values": [
               { "Electricity": { 
-                "priceKey": "electricityPrice"
+                "priceKey": "electricityPrice",
+                "carbonKey": "electricityCarbon"
                } },
               { "Clean Electricity": { 
-                "priceKey": "cleanElectricityPrice"
+                "priceKey": "cleanElectricityPrice",
+                "carbonKey": "cleanElectricityCarbon"
                } },
               { "Natural Gas (Fossil)": { 
-                "priceKey": "naturalGasFossilPrice"
+                "priceKey": "naturalGasFossilPrice",
+                "carbonKey": "naturalGasFossilCarbon"
                } },
               { "Clean Gas": { 
-                "priceKey": "cleanGasPrice"
+                "priceKey": "cleanGasPrice",
+                "carbonKey": "cleanGasCarbon"
                } },
               { "Propane": { 
-                "priceKey": "propanePrice"
+                "priceKey": "propanePrice",
+                "carbonKey": "propaneCarbon"
                } },
               { "Wood Pellets": { 
-                "priceKey": "woodPelletsPrice"
+                "priceKey": "woodPelletsPrice",
+                "carbonKey": "woodPelletsCarbon"
                } }
             ],
             "unit": "$",
@@ -1415,125 +1445,33 @@
             "type": "select",
             "values": [
               { "Electricity": { 
-                "priceKey": "electricityPrice"
+                "priceKey": "electricityPrice",
+                "carbonKey": "electricityCarbon"
                } },
               { "Clean Electricity": { 
-                "priceKey": "cleanElectricityPrice"
+                "priceKey": "cleanElectricityPrice",
+                "carbonKey": "cleanElectricityCarbon"
                } },
               { "Natural Gas (Fossil)": { 
-                "priceKey": "naturalGasFossilPrice"
+                "priceKey": "naturalGasFossilPrice",
+                "carbonKey": "naturalGasFossilCarbon"
                } },
               { "Clean Gas": { 
-                "priceKey": "cleanGasPrice"
+                "priceKey": "cleanGasPrice",
+                "carbonKey": "cleanGasCarbon"
                } },
               { "Propane": { 
-                "priceKey": "propanePrice"
+                "priceKey": "propanePrice",
+                "carbonKey": "propaneCarbon"
                } },
               { "Wood Pellets": { 
-                "priceKey": "woodPelletsPrice"
+                "priceKey": "woodPelletsPrice",
+                "carbonKey": "woodPelletsCarbon"
                } }
             ],
             "unit": "$",
             "required": true,
             "default": "Clean Electricity"
-          },
-          "gapB": {
-            "type": "gap"
-          },
-          "energyB": {
-            "label": "Energy Prices",
-            "type": "label"
-          },
-          "carbonPriceB": {
-            "label": "Carbon Price",
-            "type": "float",
-            "unit": "$/tonne",
-            "required": true,
-            "default": 103
-          },
-          "electrityPriceB": {
-            "label": "Electricity Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.150
-          },
-          "electrityCarbonB": {
-            "label": "Electricity Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.6
-          },
-          "cleanElectricityPriceB": {
-            "label": "Clean Electricity Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.150
-          },
-          "cleanElectrityCarbonB": {
-            "label": "Clean Electricity Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0
-          },
-          "naturalGasFossilPriceB": {
-            "label": "Natural Gas (Fossil) Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.022
-          },
-          "naturalGasFossilCarbonB": {
-            "label": "Natural Gas (Fossil) Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.25
-          },
-          "cleanGasPriceB": {
-            "label": "Clean Gas Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.063
-          },
-          "cleanGasCarbonB": {
-            "label": "Clean Gas Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0
-          },
-          "propanePriceB": {
-            "label": "Propane Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.127
-          },
-          "propaneCarbonB": {
-            "label": "Propane Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.27
-          },
-          "woodPelletsPriceB": {
-            "label": "Wood Pellets Price",
-            "type": "float",
-            "unit": "$/kWh",
-            "required": true,
-            "default": 0.075
-          },
-          "woodPelletsCarbonB": {
-            "label": "Wood Pellets Carbon",
-            "type": "float",
-            "unit": "kg/kWh",
-            "required": true,
-            "default": 0.27
           }
         }
       }
