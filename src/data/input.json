@@ -988,7 +988,7 @@
           },
           "floorB": {
             "label": "Floor",
-            "type": "Select",
+            "type": "select",
             "values": [
               { "R6 - Uninsulated [NBC Below Frost]": {
                 "u": 1.00
