@@ -1512,7 +1512,8 @@
           "airtightnessQuantity": {
             "label": "Airtightness Quantity",
             "type": "float",
-            "required": "true"
+            "required": "true",
+            "unit": "m² of envelope"
           },
           "windowsCost": {
             "label": "Windows Unit Cost (Installed)",
@@ -1524,7 +1525,8 @@
           "windowsQuantity": {
             "label": "Windows Quantity",
             "type": "float",
-            "required": "true"
+            "required": "true",
+            "unit": "m² of window"
           },
           "insulationCost": {
             "label": "Insulation Unit Cost (Installed)",
@@ -1536,7 +1538,8 @@
           "insulationQuantity": {
             "label": "Insulation Quantity",
             "type": "float",
-            "required": "true"
+            "required": "true",
+            "unit": "m² of envelope"
           },
           "ventilationCost": {
             "label": "Ventilation with Energy Recovery (ERV/HRV) Unit Cost (Installed)",
@@ -1580,14 +1583,14 @@
           "solarCost": {
             "label": "Solar PV 13.3 kW Unit Cost (Installed)",
             "type": "float",
-            "unit": "$",
+            "unit": "$/m² of solar",
             "required": "true",
             "default": 412
           },
           "solarQuantity": {
             "label": "Solar PV 13.3 kW Quantity",
             "type": "float",
-            "unit": "$/m² of solar",
+            "unit": "m² of solar",
             "required": "true"
           },
           "batteryCost": {
@@ -1600,7 +1603,8 @@
           "batteryQuantity": {
             "label": "Battery Quantity",
             "type": "float",
-            "required": "true"
+            "required": "true",
+            "unit": "m² of solar"
           },
           "energyMonitorCost": {
             "label": "Energy Monitor Unit Cost (Installed)",

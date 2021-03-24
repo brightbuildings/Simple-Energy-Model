@@ -11,7 +11,7 @@ const inputs = {
   "summerDesignWB": 21.0,
 };
 
-const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
+const getHeatingAndCooling = (variables, optionObjects, isAlternate = false) => {
 
   // Inputs
   const heatingDeltaT = Big(inputs.winterSetpoint).minus(inputs.winterDesignTemperature);
@@ -57,6 +57,8 @@ const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
   const roofArea = Big(variables.roofArea);
   const floorArea = Big(variables.floorArea);
   const doorArea = exteriorSolidDoorArea;
+  const totalAreaLessDoor = wallAboveGradeArea.plus(wallBelowGradeArea).plus(roofArea).plus(floorArea);
+  const totalWindowArea = c;
 
   // Heating (Delta T C)
   const wallAboveGradeHeating = heatingDeltaT;
@@ -141,10 +143,12 @@ const heatingAndCooling = (variables, optionObjects, isAlternate = false) => {
   return {
     totalHeatingQ,
     totalCoolingQ,
+    totalAreaLessDoor,
+    totalWindowArea,
   };
 };
 
-const annualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
+const getAnnualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
   const groundReductionFactor = 0.5;
   // Transmission Losses
   const height = Big(variables.height);
@@ -254,7 +258,7 @@ const annualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
   };
 };
 
-const output = (variables, optionObjects, heatingAndCooling, annualSpaceHeating, isAlternate) => {
+const getOutput = (variables, optionObjects, heatingAndCooling, annualSpaceHeating, isAlternate) => {
   const dhwDistributionLosses = 300.0;
   const heatingLoad = Big(heatingAndCooling.totalHeatingQ).div(1000).times(1.1);
   const coolingLoad = Big(heatingAndCooling.totalCoolingQ).div(1000);
@@ -390,6 +394,20 @@ const getEconomics = (variables, outputA) => {
   }
 };
 
+const getFinancing = (heatingAndCooling, output) => {
+  const windowsQuantity = heatingAndCooling.totalWindowArea.toFixed(1);
+  const airtightnessQuantity = heatingAndCooling.totalAreaLessDoor.toFixed(1);
+  const insulationQuantity = heatingAndCooling.totalAreaLessDoor.toFixed(1);
+  const solarQuantity = output.totalEnergyConsumption.div(1032).div(Big(0.35).div(1.7)).toFixed(1);
+
+  return {
+    windowsQuantity,
+    airtightnessQuantity,
+    insulationQuantity,
+    solarQuantity,
+  };
+};
+
 const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
   const optionKey = isAlternate ? key + "B" : key;
   const options = optionObjects[optionKey] || optionObjects[key];
@@ -407,13 +425,14 @@ const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
 
 const run = (variables, optionObjects) => {
   const isAlternate = true;
-  const heatingAndCoolingA = heatingAndCooling(variables, optionObjects);
-  const heatingAndCoolingB = heatingAndCooling(variables, optionObjects, isAlternate);
-  const annualSpaceHeatingA = annualSpaceHeating(variables, optionObjects);
-  const annualSpaceHeatingB = annualSpaceHeating(variables, optionObjects, isAlternate);
-  const outputA = output(variables, optionObjects, heatingAndCoolingA, annualSpaceHeatingA);
-  const outputB = output(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
+  const heatingAndCoolingA = getHeatingAndCooling(variables, optionObjects);
+  const heatingAndCoolingB = getHeatingAndCooling(variables, optionObjects, isAlternate);
+  const annualSpaceHeatingA = getAnnualSpaceHeating(variables, optionObjects);
+  const annualSpaceHeatingB = getAnnualSpaceHeating(variables, optionObjects, isAlternate);
+  const outputA = getOutput(variables, optionObjects, heatingAndCoolingA, annualSpaceHeatingA);
+  const outputB = getOutput(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
   const economics = getEconomics(variables, outputA);
+  const financing = getFinancing(heatingAndCoolingB, outputB);
 
   return {
     heatingAndCoolingA,
@@ -423,16 +442,17 @@ const run = (variables, optionObjects) => {
     outputA,
     outputB,
     economics,
+    financing
   };
 };
 
 const CalculationService = {
   run,
   getOption,
-  output,
+  getOutput,
   getEconomics,
-  heatingAndCooling,
-  annualSpaceHeating,
+  getHeatingAndCooling,
+  getAnnualSpaceHeating,
 };
 
 export default CalculationService;

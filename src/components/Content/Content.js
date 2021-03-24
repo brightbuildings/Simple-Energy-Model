@@ -5,16 +5,16 @@ import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } 
 
 import "./Content.css";
 
-const formatSections = (data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables) => {
+const formatSections = (data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output) => {
   if (data == null) {
     return;
   }
   return Object.entries(data).map(section => {
-    return formatSection(section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables);
+    return formatSection(section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output);
   });
 };
 
-const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables) => {
+const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output) => {
   const [key, value] = section;
 
   return (
@@ -56,7 +56,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
           return (
             <section key={key} className="Questions">
               {Object.entries(value.fields).map(question => {
-                return formatQuestion(question, variables, setVariables);
+                return formatQuestion(question, variables, setVariables, output);
               })}
             </section>
             );
@@ -91,12 +91,13 @@ const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsec
   });
 };
 
-const formatQuestion = (question, variables, setVariables) => {
+const formatQuestion = (question, variables, setVariables, output) => {
   if (question == null) {
     return;
   }
   const [key, value] = question;
 
+  const moreLabel = output?.financing?.[key];
   const required = value?.required === true;
 
   switch (value?.type) {
@@ -104,7 +105,7 @@ const formatQuestion = (question, variables, setVariables) => {
     case "integer":
       return (
         <InputGroup key={key}>
-          <Label for={key}>{value.label}</Label>
+          <Label for={key}>{value.label}{moreLabel && (` (Calculated: ${moreLabel})`)}</Label>
           <Input 
             type="number" 
             required={required}
@@ -200,7 +201,7 @@ function Content() {
     <div className="centered-narrow">
       <div className="Content">
         <div className="Fields">
-          {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables)}
+          {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output)}
         </div>
         <div className="Navigation">
           {formatNavigation(data, activeSection, setActiveSection, setActiveSubsection)}
