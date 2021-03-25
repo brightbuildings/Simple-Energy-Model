@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 import DataService from "../../services/DataService";
 import CalculationService from "../../services/CalculationService";
-import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
+import ChartService from "../../services/ChartService";
 
 import "./Content.css";
 
@@ -216,6 +217,30 @@ function Content() {
         </div>
         <div>
           <h3>Output</h3>
+          <ChartService.SimpleEnergyModelBar
+            data={{
+              datasets: [
+                {
+                  label: "My first dataset",
+                  data: [5],
+                  backgroundColor: 'rgba(255,99,132,0.2)',
+                  borderColor: 'rgba(255,99,132,1)',
+                  borderWidth: 1,
+                  hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                  hoverBorderColor: 'rgba(255,99,132,1)',
+                },
+                {
+                  label: "My first dataset 2",
+                  data: [10],
+                  backgroundColor: 'rgba(255,199,132,0.2)',
+                  borderColor: 'rgba(255,199,132,1)',
+                  borderWidth: 1,
+                  hoverBackgroundColor: 'rgba(255,199,132,0.4)',
+                  hoverBorderColor: 'rgba(255,199,132,1)',
+                }
+              ]
+            }}
+          />
           <pre>
             {JSON.stringify(output, undefined, 2)}
           </pre>
