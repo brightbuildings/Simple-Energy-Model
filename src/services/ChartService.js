@@ -13,7 +13,7 @@ const SimpleEnergyModelBar = props => {
     tfa = 1;
   }
   max = Big(props.yMax).div(tfa);
-  const tick = Math.round(max.toString());
+  const tick = Math.ceil(Math.round(max.toString())/100)*100;
   return <Bar
     height={300}
     options={{
