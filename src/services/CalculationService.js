@@ -254,7 +254,10 @@ const getAnnualSpaceHeating = (variables, optionObjects, isAlternate = false) =>
     infiltrationkwha,
     totalLoss,
     annualHeatingDemand,
-    spaceHeatingDemand
+    spaceHeatingDemand,
+    utilizationFactor,
+    totalInternalHeatGainsKwha,
+    totalSolarGainsKwha
   };
 };
 

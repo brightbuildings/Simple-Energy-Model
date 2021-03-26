@@ -217,29 +217,15 @@ function Content() {
         </div>
         <div>
           <h3>Output</h3>
-          <ChartService.SimpleEnergyModelBar
-            data={{
-              datasets: [
-                {
-                  label: "My first dataset",
-                  data: [5],
-                  backgroundColor: 'rgba(255,99,132,0.2)',
-                  borderColor: 'rgba(255,99,132,1)',
-                  borderWidth: 1,
-                  hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                  hoverBorderColor: 'rgba(255,99,132,1)',
-                },
-                {
-                  label: "My first dataset 2",
-                  data: [10],
-                  backgroundColor: 'rgba(255,199,132,0.2)',
-                  borderColor: 'rgba(255,199,132,1)',
-                  borderWidth: 1,
-                  hoverBackgroundColor: 'rgba(255,199,132,0.4)',
-                  hoverBorderColor: 'rgba(255,199,132,1)',
-                }
-              ]
-            }}
+          <ChartService.HeatingEnergyBalance
+            title="Heating Energy Balance - Model A"
+            annualSpaceHeating={output.annualSpaceHeatingA}
+            variables={variables}
+          />
+          <ChartService.HeatingEnergyBalance
+            title="Heating Energy Balance - Model B"
+            annualSpaceHeating={output.annualSpaceHeatingB}
+            variables={variables}
           />
           <pre>
             {JSON.stringify(output, undefined, 2)}
