@@ -219,6 +219,14 @@ function Content() {
           />
           <br />
           <br />
+          <ChartService.NetZeroEnergySummary
+            title="Net-zero Energy Summary - Model A"
+            output={output.outputA}
+            variables={variables}
+            yMax={output.maxEnergy}
+          />
+          <br />
+          <br />
           <h3>Input</h3>
           <pre>
             {JSON.stringify(variables, undefined, 2)}
@@ -230,6 +238,14 @@ function Content() {
             annualSpaceHeating={output.annualSpaceHeatingB}
             variables={variables}
             yMax={maximumHeatingEnergyBalance}
+          />
+          <br />
+          <br />
+          <ChartService.NetZeroEnergySummary
+            title="Net-zero Energy Summary - Model B"
+            output={output.outputB}
+            variables={variables}
+            yMax={output.maxEnergy}
           />
           <br />
           <br />

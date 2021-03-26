@@ -3,17 +3,6 @@ import { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
-  let max = Big(0);
-  let tfa = props.variables.interiorFloorArea;
-  try {
-    if (tfa == null || Big(tfa).eq(0)) {
-      tfa = 1;
-    }
-  } catch {
-    tfa = 1;
-  }
-  max = Big(props.yMax).div(tfa);
-  const tick = Math.ceil(Math.round(max.toString())/100)*100;
   return <Bar
     height={300}
     options={{
@@ -42,7 +31,7 @@ const SimpleEnergyModelBar = props => {
           stacked: true,
           ticks: {
             min: 0,
-            max: tick
+            max: props.yMax
           }
         }],
         xAxes: [{
@@ -80,7 +69,16 @@ const HeatingEnergyBalance = props => {
   } catch (e) {
     // do nothing
   }
-  
+  let max = Big(0);
+  try {
+    if (tfa == null || Big(tfa).eq(0)) {
+      tfa = 1;
+    }
+  } catch {
+    tfa = 1;
+  }
+  max = Big(props.yMax).div(tfa);
+  const tick = Math.ceil(Math.round(max.toString())/100)*100;
 
   const data = {
     labels: ["Losses", "Gains"],
@@ -158,6 +156,57 @@ const HeatingEnergyBalance = props => {
     ]
   };
 
+  return <SimpleEnergyModelBar data={data} {...props} yMax={tick} />
+};
+
+const NetZeroEnergySummary = props => {
+  const spaceHeating = props.output.spaceHeating.round();
+  const hotWater = props.output.hotWater.round();
+  const lightsAppliancesPlugs = props.output.lightsAppliancesPlugs.round();
+  const electricVehicle = 0;
+  const electricityGeneration = Big(spaceHeating).plus(hotWater).plus(lightsAppliancesPlugs);
+
+  const data = {
+    labels: ["Space Heating", "Hot Water", "Lights, Appliances, Plugs", "Electric Vehicle", "Total", "83.9 kW Solar Array"],
+    datasets: [
+      { 
+        label: "Space Heating",
+        data: [spaceHeating, null, null, null, spaceHeating],
+        backgroundColor: getColor(1),
+        borderColor: getColor(1),
+        hoverBackgroundColor: getColor(1, true),
+      },
+      { 
+        label: "Hot Water",
+        data: [null, hotWater, null, null, hotWater],
+        backgroundColor: getColor(2),
+        borderColor: getColor(2),
+        hoverBackgroundColor: getColor(2, true),
+      },
+      { 
+        label: "Lights, Appliances, Plugs",
+        data: [null, null, lightsAppliancesPlugs, null, lightsAppliancesPlugs],
+        backgroundColor: getColor(3),
+        borderColor: getColor(3),
+        hoverBackgroundColor: getColor(3, true),
+      },
+      { 
+        label: "Electric Vehicle",
+        data: [null, null, null, electricVehicle, electricVehicle],
+        backgroundColor: getColor(4),
+        borderColor: getColor(4),
+        hoverBackgroundColor: getColor(4, true),
+      },
+      { 
+        label: "83.9 kW Solar Array",
+        data: [null, null, null, null, null, electricityGeneration],
+        backgroundColor: getColor(4),
+        borderColor: getColor(4),
+        hoverBackgroundColor: getColor(4, true),
+      },
+    ]
+  }
+
   return <SimpleEnergyModelBar data={data} {...props} />
 };
 
@@ -193,7 +242,8 @@ const getColor = (index, isHover = false) => {
 };
 
 const ChartService = {
-  HeatingEnergyBalance
+  HeatingEnergyBalance,
+  NetZeroEnergySummary,
 };
 
 export default ChartService;

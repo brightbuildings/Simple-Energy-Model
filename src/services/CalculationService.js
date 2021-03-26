@@ -433,6 +433,12 @@ const getFinancing = (heatingAndCooling, output) => {
   };
 };
 
+const getMaximumEnergy = (a, b) => {
+  const aEnergy = Big(a.spaceHeating).plus(a.hotWater).plus(a.lightsAppliancesPlugs);
+  const bEnergy = Big(b.spaceHeating).plus(b.hotWater).plus(b.lightsAppliancesPlugs);
+  return Math.ceil(Math.max(aEnergy.toString(), bEnergy.toString())/10000)*10000;
+};
+
 const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
   const optionKey = isAlternate ? key + "B" : key;
   const options = optionObjects[optionKey] || optionObjects[key];
@@ -458,6 +464,7 @@ const run = (variables, optionObjects) => {
   const outputB = getOutput(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
   const economics = getEconomics(variables, outputA);
   const financing = getFinancing(heatingAndCoolingB, outputB);
+  const maxEnergy = getMaximumEnergy(outputA, outputB);
 
   return {
     heatingAndCoolingA,
@@ -467,7 +474,8 @@ const run = (variables, optionObjects) => {
     outputA,
     outputB,
     economics,
-    financing
+    financing,
+    maxEnergy
   };
 };
 
