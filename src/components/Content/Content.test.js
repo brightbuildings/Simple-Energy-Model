@@ -1,6 +1,10 @@
 import { Content, formatSections, formatNavigation, formatQuestion, setDefaultVariables } from './Content';
 import renderer from "react-test-renderer";
 
+jest.mock('react-chartjs-2', () => ({
+  Bar: () => null
+}));
+
 const json = {
   "introduction": {
     "label": "Test Label",

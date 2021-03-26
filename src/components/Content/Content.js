@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 import DataService from "../../services/DataService";
 import CalculationService from "../../services/CalculationService";
-import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
+import ChartService from "../../services/ChartService";
 
 import "./Content.css";
 
@@ -196,6 +197,7 @@ function Content() {
   const [variables, setVariables] = useState(setDefaultVariables(data));
   const optionObjects = DataService.getAllOptionsObjects();
   const output = CalculationService.run(variables, optionObjects);
+  const maximumHeatingEnergyBalance = Math.max(output.annualSpaceHeatingA.totalLoss.valueOf(), output.annualSpaceHeatingB.totalLoss.valueOf());
 
   return (
     <div className="centered-narrow">
@@ -209,12 +211,44 @@ function Content() {
       </div>
       <div className="DevResults" style={{ padding: "1rem", backgroundColor: "white" }}>
         <div>
+          <ChartService.HeatingEnergyBalance
+            title="Heating Energy Balance - Model A"
+            annualSpaceHeating={output.annualSpaceHeatingA}
+            variables={variables}
+            yMax={maximumHeatingEnergyBalance}
+          />
+          <br />
+          <br />
+          <ChartService.NetZeroEnergySummary
+            title="Net-zero Energy Summary - Model A"
+            output={output.outputA}
+            variables={variables}
+            yMax={output.maxEnergy}
+          />
+          <br />
+          <br />
           <h3>Input</h3>
           <pre>
             {JSON.stringify(variables, undefined, 2)}
           </pre>
         </div>
         <div>
+          <ChartService.HeatingEnergyBalance
+            title="Heating Energy Balance - Model B"
+            annualSpaceHeating={output.annualSpaceHeatingB}
+            variables={variables}
+            yMax={maximumHeatingEnergyBalance}
+          />
+          <br />
+          <br />
+          <ChartService.NetZeroEnergySummary
+            title="Net-zero Energy Summary - Model B"
+            output={output.outputB}
+            variables={variables}
+            yMax={output.maxEnergy}
+          />
+          <br />
+          <br />
           <h3>Output</h3>
           <pre>
             {JSON.stringify(output, undefined, 2)}

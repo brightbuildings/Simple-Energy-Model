@@ -120,7 +120,7 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            Energy Prices
+            Energy
           </button>
         </div>
         <div
@@ -144,7 +144,7 @@ exports[`renders Content 1`] = `
                 name="airtightness"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="10 (100 years old)"
               >
                 <option
                   disabled="disabled"
@@ -207,7 +207,7 @@ exports[`renders Content 1`] = `
                 name="wallAboveGrade"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R10 - 2x4 w Batt"
               >
                 <option
                   disabled="disabled"
@@ -280,7 +280,7 @@ exports[`renders Content 1`] = `
                 name="wallBelowGrade"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R6 - Concrete Uninsulated"
               >
                 <option
                   disabled="disabled"
@@ -338,7 +338,7 @@ exports[`renders Content 1`] = `
                 name="roof"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R20 - 6\\""
               >
                 <option
                   disabled="disabled"
@@ -393,7 +393,7 @@ exports[`renders Content 1`] = `
                 name="floor"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R6 - Uninsulated [NBC Below Frost]"
               >
                 <option
                   disabled="disabled"
@@ -450,7 +450,7 @@ exports[`renders Content 1`] = `
                 name="windows"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="Double Pane"
               >
                 <option
                   disabled="disabled"
@@ -511,7 +511,7 @@ exports[`renders Content 1`] = `
                 name="solidDoor"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="Uninsulated"
               >
                 <option
                   disabled="disabled"
@@ -567,7 +567,7 @@ exports[`renders Content 1`] = `
             className=""
             onClick={[Function]}
           >
-            Energy Prices
+            Energy
           </button>
         </div>
         <div
@@ -591,7 +591,7 @@ exports[`renders Content 1`] = `
                 name="airtightnessB"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="1.0 (Net-zero)"
               >
                 <option
                   disabled="disabled"
@@ -654,7 +654,7 @@ exports[`renders Content 1`] = `
                 name="wallAboveGradeB"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R31 - 2x4 + 6\\" Rigid"
               >
                 <option
                   disabled="disabled"
@@ -727,7 +727,7 @@ exports[`renders Content 1`] = `
                 name="wallBelowGradeB"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R25 - Conc. + 6\\" Rigid"
               >
                 <option
                   disabled="disabled"
@@ -785,7 +785,7 @@ exports[`renders Content 1`] = `
                 name="roofB"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="R80 - 24\\""
               >
                 <option
                   disabled="disabled"
@@ -826,6 +826,58 @@ exports[`renders Content 1`] = `
               </div>
             </div>
             <div
+              className="input-group"
+            >
+              <label
+                className=""
+                htmlFor="floorB"
+              >
+                Floor
+              </label>
+              <select
+                className="form-control"
+                id="floorB"
+                name="floorB"
+                onChange={[Function]}
+                required={true}
+                value="R25 - 6\\" Rigid"
+              >
+                <option
+                  disabled="disabled"
+                  value="disabled"
+                >
+                  Select an option
+                </option>
+                <option>
+                  R6 - Uninsulated [NBC Below Frost]
+                </option>
+                <option>
+                  R11 - NBC Above Frost Line
+                </option>
+                <option>
+                  R13 - 3" Rigid
+                </option>
+                <option>
+                  R16 - NBC Heated Floor or Slab On Grade
+                </option>
+                <option>
+                  R25 - 6" Rigid
+                </option>
+                <option>
+                  R37 - 9" Rigid
+                </option>
+              </select>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  W/m²K
+                </span>
+              </div>
+            </div>
+            <div
               className="spacer"
             >
                
@@ -845,7 +897,7 @@ exports[`renders Content 1`] = `
                 name="windowsB"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="Triple Pane (High Performance) - Low SHGC"
               >
                 <option
                   disabled="disabled"
@@ -906,7 +958,7 @@ exports[`renders Content 1`] = `
                 name="solidDoorB"
                 onChange={[Function]}
                 required={true}
-                value="disabled"
+                value="Insulated (R10)"
               >
                 <option
                   disabled="disabled"
@@ -1042,6 +1094,7 @@ exports[`renders Content 1`] = `
                 htmlFor="airtightnessQuantity"
               >
                 Airtightness Quantity
+                 (Calculated: 420.6)
               </label>
               <input
                 className="form-control"
@@ -1051,6 +1104,15 @@ exports[`renders Content 1`] = `
                 required={false}
                 type="number"
               />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  m² of envelope
+                </span>
+              </div>
             </div>
             <div
               className="input-group"
@@ -1088,6 +1150,7 @@ exports[`renders Content 1`] = `
                 htmlFor="windowsQuantity"
               >
                 Windows Quantity
+                 (Calculated: 28.0)
               </label>
               <input
                 className="form-control"
@@ -1097,6 +1160,15 @@ exports[`renders Content 1`] = `
                 required={false}
                 type="number"
               />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  m² of window
+                </span>
+              </div>
             </div>
             <div
               className="input-group"
@@ -1134,6 +1206,7 @@ exports[`renders Content 1`] = `
                 htmlFor="insulationQuantity"
               >
                 Insulation Quantity
+                 (Calculated: 420.6)
               </label>
               <input
                 className="form-control"
@@ -1143,6 +1216,15 @@ exports[`renders Content 1`] = `
                 required={false}
                 type="number"
               />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  m² of envelope
+                </span>
+              </div>
             </div>
             <div
               className="input-group"
@@ -1309,7 +1391,7 @@ exports[`renders Content 1`] = `
                 <span
                   className="input-group-text"
                 >
-                  $
+                  $/m² of solar
                 </span>
               </div>
             </div>
@@ -1321,6 +1403,7 @@ exports[`renders Content 1`] = `
                 htmlFor="solarQuantity"
               >
                 Solar PV 13.3 kW Quantity
+                 (Calculated: 64.4)
               </label>
               <input
                 className="form-control"
@@ -1336,7 +1419,7 @@ exports[`renders Content 1`] = `
                 <span
                   className="input-group-text"
                 >
-                  $/m² of solar
+                  m² of solar
                 </span>
               </div>
             </div>
@@ -1385,6 +1468,15 @@ exports[`renders Content 1`] = `
                 required={false}
                 type="number"
               />
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  m² of solar
+                </span>
+              </div>
             </div>
             <div
               className="input-group"
@@ -1571,16 +1663,58 @@ exports[`renders Content 1`] = `
     }
   >
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
       <h3>
         Input
       </h3>
       <pre>
         {
+  "length": 10.56,
+  "width": 6.09,
+  "height": 7.59,
+  "depth": 2.02,
+  "interiorFloorArea": 162.1,
+  "people": 4,
+  "units": 1,
+  "roofArea": 64.3,
+  "floorArea": 64.3,
+  "availableSolarArea": 64.3,
+  "north": 6.48,
+  "east": 3.24,
+  "south": 12.97,
+  "west": 3.24,
+  "exteriorSolidDoorArea": 2.1,
+  "buildingVolume": 618,
+  "heatingDegreeDays": 5700,
+  "heatingDegreeHours": 136.8,
+  "airtightness": "10 (100 years old)",
+  "wallAboveGrade": "R10 - 2x4 w Batt",
+  "wallBelowGrade": "R6 - Concrete Uninsulated",
+  "roof": "R20 - 6\\"",
+  "floor": "R6 - Uninsulated [NBC Below Frost]",
+  "windows": "Double Pane",
+  "solidDoor": "Uninsulated",
+  "ventilation": "Exhaust Only",
+  "heating": "Mid Eff. Furnace / Boiler",
+  "cooling": "None",
+  "hotWaterHeater": "Mid Eff. Water Heater / Boiler",
+  "hotWaterHeaterStorage": "Tank",
+  "drainWaterHeatRecovery": "No",
+  "hotWaterFixtures": "Standard fixtures, House",
+  "lighting": "Standard Lighting, House",
+  "appliances": "Standard Appliances, House",
+  "plugLoads": "Fixed plug loads, House",
+  "spaceHeatingFuelType": "Natural Gas (Fossil)",
+  "hotWaterFuelType": "Natural Gas (Fossil)",
+  "lightsAppliancesPlugsFuelType": "Electricity",
   "carbonPrice": 103,
-  "electrityPrice": 0.15,
-  "electrityCarbon": 0.6,
+  "electricityPrice": 0.15,
+  "electricityCarbon": 0.6,
   "cleanElectricityPrice": 0.15,
-  "cleanElectrityCarbon": 0,
+  "cleanElectricityCarbon": 0,
   "naturalGasFossilPrice": 0.022,
   "naturalGasFossilCarbon": 0.25,
   "cleanGasPrice": 0.063,
@@ -1589,19 +1723,26 @@ exports[`renders Content 1`] = `
   "propaneCarbon": 0.27,
   "woodPelletsPrice": 0.075,
   "woodPelletsCarbon": 0.27,
-  "carbonPriceB": 103,
-  "electrityPriceB": 0.15,
-  "electrityCarbonB": 0.6,
-  "cleanElectricityPriceB": 0.15,
-  "cleanElectrityCarbonB": 0,
-  "naturalGasFossilPriceB": 0.022,
-  "naturalGasFossilCarbonB": 0.25,
-  "cleanGasPriceB": 0.063,
-  "cleanGasCarbonB": 0,
-  "propanePriceB": 0.127,
-  "propaneCarbonB": 0.27,
-  "woodPelletsPriceB": 0.075,
-  "woodPelletsCarbonB": 0.27,
+  "airtightnessB": "1.0 (Net-zero)",
+  "wallAboveGradeB": "R31 - 2x4 + 6\\" Rigid",
+  "wallBelowGradeB": "R25 - Conc. + 6\\" Rigid",
+  "roofB": "R80 - 24\\"",
+  "floorB": "R25 - 6\\" Rigid",
+  "windowsB": "Triple Pane (High Performance) - Low SHGC",
+  "solidDoorB": "Insulated (R10)",
+  "ventilationB": "85%",
+  "heatingB": "Air Source Heat Pump",
+  "coolingB": "Air Source Heat Pump",
+  "hotWaterHeaterB": "Heat Pump Water Heater",
+  "hotWaterHeaterStorageB": "Tank",
+  "drainWaterHeatRecoveryB": "Yes",
+  "hotWaterFixturesB": "Low flow fixtures, House",
+  "lightingB": "LED Lighting",
+  "appliancesB": "EnergyStar Appliances, House",
+  "plugLoadsB": "Fixed plug loads, House",
+  "spaceHeatingFuelTypeB": "Clean Electricity",
+  "hotWaterFuelTypeB": "Clean Electricity",
+  "lightsAppliancesPlugsFuelTypeB": "Clean Electricity",
   "designCost": 0,
   "designQuantity": 1,
   "airtightnessCost": 10,
@@ -1623,53 +1764,113 @@ exports[`renders Content 1`] = `
       </pre>
     </div>
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
       <h3>
         Output
       </h3>
       <pre>
         {
   "heatingAndCoolingA": {
-    "totalHeatingQ": null,
-    "totalCoolingQ": null
+    "totalHeatingQ": "44803.391936318345292",
+    "totalCoolingQ": "10061.259715926341934871329707473284776329498920219525903392",
+    "totalAreaLessDoor": "420.583",
+    "totalWindowArea": "28.03"
   },
   "annualSpaceHeatingA": {
-    "totalG1kwha": null,
-    "ventilationkwha": null,
-    "infiltrationkwha": null,
-    "annualHeatingDemand": null,
-    "spaceHeatingDemand": null
+    "wallAboveGradeG1kwha": "16999.9309368",
+    "wallBelowGradeG1kwha": "4600.9944",
+    "roofG1kwha": "2498.13216",
+    "floorG1kwha": "4398.12",
+    "exteriorDoorsG1kwha": "1689.78096",
+    "windowsG1kwha": "10286.9496",
+    "totalG1kwha": "40473.9080568",
+    "ventilationkwha": "5488.3818",
+    "infiltrationkwha": "15918.587468111218921866",
+    "totalLoss": "61880.877324911218921866",
+    "annualHeatingDemand": "56439.377135739343921866",
+    "spaceHeatingDemand": "348.17629324947158495907",
+    "utilizationFactor": 0.85,
+    "totalInternalHeatGainsKwha": "2091.09",
+    "totalSolarGainsKwha": "4310.6749284375"
   },
   "heatingAndCoolingB": {
-    "totalHeatingQ": null,
-    "totalCoolingQ": null
+    "totalHeatingQ": "7843.4394176318345292",
+    "totalCoolingQ": "3898.2644534872702088128259827205085542613023700219525903392",
+    "totalAreaLessDoor": "420.583",
+    "totalWindowArea": "28.03"
   },
   "annualSpaceHeatingB": {
-    "totalG1kwha": null,
-    "ventilationkwha": null,
-    "infiltrationkwha": null,
-    "annualHeatingDemand": null,
-    "spaceHeatingDemand": null
+    "wallAboveGradeG1kwha": "5625.6552648",
+    "wallBelowGradeG1kwha": "1049.0267232",
+    "roofG1kwha": "624.53304",
+    "floorG1kwha": "1011.5676",
+    "exteriorDoorsG1kwha": "163.17504",
+    "windowsG1kwha": "3547.224",
+    "totalG1kwha": "12021.181668",
+    "ventilationkwha": "823.25727",
+    "infiltrationkwha": "1591.8587468111218921866",
+    "totalLoss": "14436.2976848111218921866",
+    "annualHeatingDemand": "10722.1465205345593921866",
+    "spaceHeatingDemand": "66.14525922599974948912",
+    "utilizationFactor": 0.85,
+    "totalInternalHeatGainsKwha": "2091.09",
+    "totalSolarGainsKwha": "2278.49960503125"
   },
   "outputA": {
-    "heatingLoad": null,
-    "coolingLoad": null,
-    "spaceHeating": null,
-    "hotWater": null,
-    "lightsAppliancesPlugs": null,
-    "totalEnergyConsumption": null,
-    "spaceHeatingDemand": null,
-    "totalEnergyCosts": null
+    "heatingLoad": "49.2837311299501798212",
+    "coolingLoad": "10.06125971592634193487",
+    "spaceHeating": "71399.2214196741799023325",
+    "hotWater": "8406.25",
+    "lightsAppliancesPlugs": "6789",
+    "totalEnergyConsumption": "86594.4714196741799023325",
+    "spaceHeatingDemand": "348.17629324947158495907",
+    "spaceHeatingAnnualCost": "3687.712822789442090336376875",
+    "hotWaterAnnualCost": "401.3984375",
+    "lightsAppliancesPlugsAnnualCost": "1437.9102",
+    "totalEnergyCosts": "5527.021460289442090336376875"
   },
   "outputB": {
-    "heatingLoad": null,
-    "coolingLoad": null,
-    "spaceHeating": null,
-    "hotWater": null,
-    "lightsAppliancesPlugs": null,
-    "totalEnergyConsumption": null,
-    "spaceHeatingDemand": null,
-    "totalEnergyCosts": null
-  }
+    "heatingLoad": "8.62778335939501798212",
+    "coolingLoad": "3.89826445348727020881",
+    "spaceHeating": "6211.0732602672796960933",
+    "hotWater": "1785.32608695652173913043",
+    "lightsAppliancesPlugs": "5694",
+    "totalEnergyConsumption": "13690.39934722380143522373",
+    "spaceHeatingDemand": "66.14525922599974948912",
+    "spaceHeatingAnnualCost": "931.660989040091954413995",
+    "hotWaterAnnualCost": "267.7989130434782608695645",
+    "lightsAppliancesPlugsAnnualCost": "854.1",
+    "totalEnergyCosts": "2053.5599020835702152835595"
+  },
+  "economics": {
+    "design": 0,
+    "airtightness": null,
+    "windows": null,
+    "insulation": null,
+    "ventilation": 4000,
+    "heatPump": 5000,
+    "waterHeater": 2000,
+    "solar": null,
+    "battery": null,
+    "energyMonitor": 300,
+    "annualSavings": "5527.021460289442090336376875",
+    "accumulationSum": null,
+    "investment": null,
+    "irr": null,
+    "monthlyPayments": null,
+    "monthlySavings": 460.5851216907868,
+    "monthlyNetSavings": null
+  },
+  "financing": {
+    "windowsQuantity": "28.0",
+    "airtightnessQuantity": "420.6",
+    "insulationQuantity": "420.6",
+    "solarQuantity": "64.4"
+  },
+  "maxEnergy": 90000
 }
       </pre>
     </div>

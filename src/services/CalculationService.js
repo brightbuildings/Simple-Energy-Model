@@ -13,6 +13,15 @@ const inputs = {
 
 const getHeatingAndCooling = (variables, optionObjects, isAlternate = false) => {
 
+  let tfa = variables.interiorFloorArea;
+  try {
+    if (tfa == null || Big(tfa).eq(0)) {
+      tfa = 1;
+    }
+  } catch {
+    tfa = 1;
+  }
+
   // Inputs
   const heatingDeltaT = Big(inputs.winterSetpoint).minus(inputs.winterDesignTemperature);
   const coolingDeltaT = Big(inputs.summerDesignDB).minus(inputs.summerSetpoint);
@@ -27,7 +36,7 @@ const getHeatingAndCooling = (variables, optionObjects, isAlternate = false) => 
   const ventilation = Big(0.3);
   const infiltrationAnnualEnergyAirflowRate = Big(variables.buildingVolume).times(infiltrationAnnualEnergy);
   const infiltrationHeatingLoadAirflowRate = Big(variables.buildingVolume).times(infiltrationHeatingLoad);
-  const ventilationAirflowRate = Big(variables.interiorFloorArea).times(2.5).times(ventilation);
+  const ventilationAirflowRate = Big(tfa).times(2.5).times(ventilation);
 
   // Calculations
   // Opaque Assemblies
@@ -95,8 +104,8 @@ const getHeatingAndCooling = (variables, optionObjects, isAlternate = false) => 
   const lightingWm2 = Big(5);
   const equipmentWm2 = Big(5);
   const people = Big(peopleWPer).times(variables.people);
-  const lighting = Big(lightingWm2).times(variables.interiorFloorArea);
-  const equipment = Big(equipmentWm2).times(variables.interiorFloorArea);
+  const lighting = Big(lightingWm2).times(tfa);
+  const equipment = Big(equipmentWm2).times(tfa);
 
   // Transparent Assemblies
   const northU = getOption('windows', 'u', variables, optionObjects, isAlternate);
@@ -149,6 +158,14 @@ const getHeatingAndCooling = (variables, optionObjects, isAlternate = false) => 
 };
 
 const getAnnualSpaceHeating = (variables, optionObjects, isAlternate = false) => {
+  let tfa = variables.interiorFloorArea;
+  try {
+    if (tfa == null || Big(tfa).eq(0)) {
+      tfa = 1;
+    }
+  } catch {
+    tfa = 1;
+  }
   const groundReductionFactor = 0.5;
   // Transmission Losses
   const height = Big(variables.height);
@@ -201,8 +218,8 @@ const getAnnualSpaceHeating = (variables, optionObjects, isAlternate = false) =>
   const ventilationEfficiency = getOption("ventilation", "efficiency", variables, optionObjects, isAlternate);
   const ventilationLoss = Big(ventilationRaw).times(Big(1).minus(ventilationEfficiency));
   const infiltrationLoss = getOption("airtightness", "annualEnergy", variables, optionObjects, isAlternate);
-  const ventilationVolume = Big(variables.interiorFloorArea).times(2.5);
-  const infiltrationVolume = Big(variables.interiorFloorArea).times(2.5);
+  const ventilationVolume = Big(tfa).times(2.5);
+  const infiltrationVolume = Big(tfa).times(2.5);
   const ventilationCAir = 0.33;
   const infiltrationCAir = 0.33;
   const ventilationG1 = heatingDegreeHours;
@@ -234,13 +251,18 @@ const getAnnualSpaceHeating = (variables, optionObjects, isAlternate = false) =>
   // Internal Heat Gains
   const lengthOfHeatingPeriod = 215.0;
   const specPower = 2.5;
-  const totalInternalHeatGainsKwha = Big(lengthOfHeatingPeriod).times(specPower).times(variables.interiorFloorArea).times(0.024);
+  const totalInternalHeatGainsKwha = Big(lengthOfHeatingPeriod).times(specPower).times(tfa).times(0.024);
   const totalGains = Big(totalSolarGainsKwha).plus(totalInternalHeatGainsKwha);
   const utilizationFactor = 0.85;
   
   // Totals
   const annualHeatingDemand = Big(totalLoss).minus(Big(totalGains).times(utilizationFactor));
-  const spaceHeatingDemand = Big(annualHeatingDemand).div(variables.interiorFloorArea);
+  let spaceHeatingDemand = null;
+  try {
+    spaceHeatingDemand = Big(annualHeatingDemand).div(tfa);
+  } catch (e) {
+    spaceHeatingDemand = 0;
+  }
 
   return {
     wallAboveGradeG1kwha,
@@ -254,7 +276,10 @@ const getAnnualSpaceHeating = (variables, optionObjects, isAlternate = false) =>
     infiltrationkwha,
     totalLoss,
     annualHeatingDemand,
-    spaceHeatingDemand
+    spaceHeatingDemand,
+    utilizationFactor,
+    totalInternalHeatGainsKwha,
+    totalSolarGainsKwha
   };
 };
 
@@ -408,6 +433,12 @@ const getFinancing = (heatingAndCooling, output) => {
   };
 };
 
+const getMaximumEnergy = (a, b) => {
+  const aEnergy = Big(a.spaceHeating).plus(a.hotWater).plus(a.lightsAppliancesPlugs);
+  const bEnergy = Big(b.spaceHeating).plus(b.hotWater).plus(b.lightsAppliancesPlugs);
+  return Math.ceil(Math.max(aEnergy.toString(), bEnergy.toString())/10000)*10000;
+};
+
 const getOption = (key, subkey, variables, optionObjects, isAlternate) => {
   const optionKey = isAlternate ? key + "B" : key;
   const options = optionObjects[optionKey] || optionObjects[key];
@@ -433,6 +464,7 @@ const run = (variables, optionObjects) => {
   const outputB = getOutput(variables, optionObjects, heatingAndCoolingB, annualSpaceHeatingB, isAlternate);
   const economics = getEconomics(variables, outputA);
   const financing = getFinancing(heatingAndCoolingB, outputB);
+  const maxEnergy = getMaximumEnergy(outputA, outputB);
 
   return {
     heatingAndCoolingA,
@@ -442,7 +474,8 @@ const run = (variables, optionObjects) => {
     outputA,
     outputB,
     economics,
-    financing
+    financing,
+    maxEnergy
   };
 };
 
