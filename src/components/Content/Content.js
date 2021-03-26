@@ -211,25 +211,29 @@ function Content() {
       </div>
       <div className="DevResults" style={{ padding: "1rem", backgroundColor: "white" }}>
         <div>
-          <h3>Input</h3>
-          <pre>
-            {JSON.stringify(variables, undefined, 2)}
-          </pre>
-        </div>
-        <div>
-          <h3>Output</h3>
           <ChartService.HeatingEnergyBalance
             title="Heating Energy Balance - Model A"
             annualSpaceHeating={output.annualSpaceHeatingA}
             variables={variables}
             yMax={maximumHeatingEnergyBalance}
           />
+          <br />
+          <br />
+          <h3>Input</h3>
+          <pre>
+            {JSON.stringify(variables, undefined, 2)}
+          </pre>
+        </div>
+        <div>
           <ChartService.HeatingEnergyBalance
             title="Heating Energy Balance - Model B"
             annualSpaceHeating={output.annualSpaceHeatingB}
             variables={variables}
             yMax={maximumHeatingEnergyBalance}
           />
+          <br />
+          <br />
+          <h3>Output</h3>
           <pre>
             {JSON.stringify(output, undefined, 2)}
           </pre>
