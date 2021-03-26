@@ -242,6 +242,8 @@ const getColor = (index, isHover = false) => {
 };
 
 const ChartService = {
+  SimpleEnergyModelBar,
+  getColor,
   HeatingEnergyBalance,
   NetZeroEnergySummary,
 };
