@@ -197,6 +197,7 @@ function Content() {
   const [variables, setVariables] = useState(setDefaultVariables(data));
   const optionObjects = DataService.getAllOptionsObjects();
   const output = CalculationService.run(variables, optionObjects);
+  const maximumHeatingEnergyBalance = Math.max(output.annualSpaceHeatingA.totalLoss.valueOf(), output.annualSpaceHeatingB.totalLoss.valueOf());
 
   return (
     <div className="centered-narrow">
@@ -221,11 +222,13 @@ function Content() {
             title="Heating Energy Balance - Model A"
             annualSpaceHeating={output.annualSpaceHeatingA}
             variables={variables}
+            yMax={maximumHeatingEnergyBalance}
           />
           <ChartService.HeatingEnergyBalance
             title="Heating Energy Balance - Model B"
             annualSpaceHeating={output.annualSpaceHeatingB}
             variables={variables}
+            yMax={maximumHeatingEnergyBalance}
           />
           <pre>
             {JSON.stringify(output, undefined, 2)}

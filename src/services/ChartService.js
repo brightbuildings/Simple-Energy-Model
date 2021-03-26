@@ -3,6 +3,12 @@ import { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
+  let max = Big(0);
+  const tfa = props.variables.interiorFloorArea;
+  if (tfa != null && tfa !== 0) {
+    max = Big(props.yMax).div(tfa);
+  }
+  const tick = Math.round(max.toString());
   return <Bar
     height={300}
     options={{
@@ -28,7 +34,11 @@ const SimpleEnergyModelBar = props => {
       },
       scales: {
         yAxes: [{
-          stacked: true
+          stacked: true,
+          ticks: {
+            min: 0,
+            max: tick
+          }
         }],
         xAxes: [{
           stacked: true
@@ -41,15 +51,15 @@ const SimpleEnergyModelBar = props => {
 
 const HeatingEnergyBalance = props => {
   const tfa = props.variables.interiorFloorArea;
-  const internalHeatGains = Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).toFixed(0);
-  const solarGains = Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).toFixed(0);
-  const ventilation = Big(props.annualSpaceHeating.ventilationkwha).div(tfa).toFixed(0);
-  const infiltration = Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).toFixed(0);
-  const windows = Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).toFixed(0);
-  const floor = Big(props.annualSpaceHeating.floorG1kwha).div(tfa).toFixed(0);
-  const roof = Big(props.annualSpaceHeating.roofG1kwha).div(tfa).toFixed(0);
-  const walls = Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).toFixed(0);
-  const wallsBelowGrade = Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).toFixed(0);
+  const internalHeatGains = Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round();
+  const solarGains = Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round();
+  const ventilation = Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round();
+  const infiltration = Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round();
+  const windows = Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round();
+  const floor = Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round();
+  const roof = Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round();
+  const walls = Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round();
+  const wallsBelowGrade = Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round();
   const spaceHeatingDemand = Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains);
 
   const data = {
