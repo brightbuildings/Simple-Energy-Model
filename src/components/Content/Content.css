@@ -2,20 +2,25 @@
   background-color: white;
   padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .Navigation {
-  width: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .Navigation button {
-  margin-bottom: 1rem;
   text-align: left;
+  padding: 1rem 1rem 0.5rem;
 }
 
-.Navigation button.active {
-  font-weight: bold;
+.Navigation button.active,
+.Navigation button:hover {
+  background-color: white;  
+  text-decoration: none;
 }
 
 .subNavigation {
@@ -33,7 +38,7 @@
 }
 
 .Fields {
-  width: 75%;
+  width: 100%;
   padding-right: 4rem;
 }
 

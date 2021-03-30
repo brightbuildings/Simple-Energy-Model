@@ -76,18 +76,16 @@ const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsec
     const [key, value] = navItem;
 
     return (
-      <React.Fragment key={key}>
-        <button
-          className={key === activeSection ? "active" : "" } 
-          onClick={() => {
-            setActiveSubsection("");
-            setActiveSection(key);
-          }}
-        >
-          {value.label}
-        </button>
-        <br />
-      </React.Fragment>
+      <button
+        key={key}
+        className={key === activeSection ? "active" : "" } 
+        onClick={() => {
+          setActiveSubsection("");
+          setActiveSection(key);
+        }}
+      >
+        {value.label}
+      </button>
     );
   });
 };
@@ -200,13 +198,13 @@ function Content() {
   const maximumHeatingEnergyBalance = Math.max(output.annualSpaceHeatingA.totalLoss.valueOf(), output.annualSpaceHeatingB.totalLoss.valueOf());
 
   return (
-    <div className="centered-narrow">
+    <div className="centered">
+      <div className="Navigation">
+        {formatNavigation(data, activeSection, setActiveSection, setActiveSubsection)}
+      </div>
       <div className="Content">
         <div className="Fields">
           {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output)}
-        </div>
-        <div className="Navigation">
-          {formatNavigation(data, activeSection, setActiveSection, setActiveSubsection)}
         </div>
       </div>
       <div className="DevResults" style={{ padding: "1rem", backgroundColor: "white" }}>
