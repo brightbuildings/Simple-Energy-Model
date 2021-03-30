@@ -62,3 +62,21 @@ button {
   text-transform: capitalize;
   cursor: pointer;
 }
+
+button:hover {
+  text-decoration: underline;
+}
+
+.FeedbackButton {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid black;
+  border-radius: 0;
+  margin-bottom: 0 !important;
+}
+
+.FeedbackButton:hover {
+  background-color: white;
+  color: black;
+}

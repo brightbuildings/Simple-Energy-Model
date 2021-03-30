@@ -1,0 +1,13 @@
+.Error {
+  flex-wrap: wrap;
+}
+
+.Error h1 {
+  width: 100%;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.Error p {
+  width: 100%;
+}
