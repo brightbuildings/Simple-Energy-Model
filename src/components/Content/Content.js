@@ -83,30 +83,31 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
       return <img src='/img/render.png' alt='Display of a render to help visualize dimensions.' />;
     case "parametersA":
       return (
-        <ChartService.HeatingEnergyBalance
-          title="Heating Energy Balance - Model A"
-          annualSpaceHeating={output.annualSpaceHeatingA}
-          variables={variables}
-          yMax={maximumHeatingEnergyBalance}
-        />
-      );
-    case "parametersB":
-      return (
-        <ChartService.HeatingEnergyBalance
-          title="Heating Energy Balance - Model B"
-          annualSpaceHeating={output.annualSpaceHeatingB}
-          variables={variables}
-          yMax={maximumHeatingEnergyBalance}
-        />
-      );
-    case "financing":
-      return (
         <React.Fragment>
+          <ChartService.HeatingEnergyBalance
+            title="Heating Energy Balance - Model A"
+            annualSpaceHeating={output.annualSpaceHeatingA}
+            variables={variables}
+            yMax={maximumHeatingEnergyBalance}
+          />
+          <br />
+          <br />
           <ChartService.NetZeroEnergySummary
             title="Net-zero Energy Summary - Model A"
             output={output.outputA}
             variables={variables}
             yMax={output.maxEnergy}
+          />
+        </React.Fragment>
+      );
+    case "parametersB":
+      return (
+        <React.Fragment>
+          <ChartService.HeatingEnergyBalance
+            title="Heating Energy Balance - Model B"
+            annualSpaceHeating={output.annualSpaceHeatingB}
+            variables={variables}
+            yMax={maximumHeatingEnergyBalance}
           />
           <br />
           <br />
@@ -117,8 +118,10 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
             yMax={output.maxEnergy}
           />
         </React.Fragment>
-        
       );
+    // case "financing":
+
+    // );
     // case "business":
     //   return (
 

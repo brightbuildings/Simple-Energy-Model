@@ -13,11 +13,13 @@
 
 .SectionOutput {
   width: 40%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
 }
 
-.SectionOutput img {
+.SectionOutput > img {
   max-width: 100%;
-  margin-top: 2rem;
 }
 
 .SectionTitle {
@@ -66,6 +68,7 @@
 .fieldset {
   display: none;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .fieldset.active {
