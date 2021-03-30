@@ -129,3 +129,34 @@ label {
   align-content: center;
   line-height: 28px;
 }
+
+.Glossary {
+  width: 100%;
+}
+
+.Glossary h3 {
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+dl .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.25rem;
+  margin: 0;
+}
+
+dl .row:hover dt,
+dl .row:hover dd {
+  background-color: #eee;
+}
+
+dt {
+  width: 20%;
+  padding-right: 2rem;
+}
+
+dd {
+  width: 80%;
+  margin: 0;
+}
