@@ -6,71 +6,126 @@ import ChartService from "../../services/ChartService";
 
 import "./Content.css";
 
-const formatSections = (data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output) => {
+const formatSections = (data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output, maximumHeatingEnergyBalance) => {
   if (data == null) {
     return;
   }
   return Object.entries(data).map(section => {
-    return formatSection(section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output);
+    return formatSection(section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output, maximumHeatingEnergyBalance);
   });
 };
 
-const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output) => {
+const formatSection = (section, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output, maximumHeatingEnergyBalance) => {
   const [key, value] = section;
 
   return (
     <FormGroup key={key} className={`fieldset ${activeSection === key ? "active" : ""}`}>
-      <h2>{value.label}</h2>
-      <p>{value.content}</p>
+      <h2 className="SectionTitle">{value.label}</h2>
+      <div className="SectionMain">
+        <p>{value.content}</p>
+        <div className="subNavigation">
+          {Object.entries(value.fields).map((field, index) => {
+            const key = field[0];
+            const navTitle = field[1].navigation;
 
-      <div className="subNavigation">
-        {Object.entries(value.fields).map((field, index) => {
-          const key = field[0];
-          const navTitle = field[1].navigation;
+            let activeKey = activeSubsection;
+            if (index === 0 && activeSubsection === "") {
+              activeKey = key;
+            }
 
-          let activeKey = activeSubsection;
-          if (index === 0 && activeSubsection === "") {
-            activeKey = key;
-          }
+            if (Object.entries(value.fields).length < 2) {
+              return "";
+            }
 
-          if (Object.entries(value.fields).length < 2) {
-            return "";
-          }
-
-          return (
-            <div 
-              key={key}
-              onClick={() => setActiveSubsection(key)}
-              className={key === activeKey ? "active SubNavigationButton" : "SubNavigationButton" } 
-            >
-              <div className="Step">{index+1}</div>
-              <button>{navTitle}</button>
-            </div>
-          );
-        })}
-      </div>
-      <div className="subNavigationContent">
-        {Object.entries(value.fields).map((field, index) => {
-          const [key, value] = field;
-
-          if (index === 0 && activeSubsection === "") {
-            // display this entry
-          } else if (activeSubsection !== key) {
-            return null;
-          }
-
-          return (
-            <section key={key} className="Questions">
-              {Object.entries(value.fields).map(question => {
-                return formatQuestion(question, variables, setVariables, output);
-              })}
-            </section>
+            return (
+              <div 
+                key={key}
+                onClick={() => setActiveSubsection(key)}
+                className={key === activeKey ? "active SubNavigationButton" : "SubNavigationButton" } 
+              >
+                <div className="Step">{index+1}</div>
+                <button>{navTitle}</button>
+              </div>
             );
-          })
-        }
+          })}
+        </div>
+        <div className="subNavigationContent">
+          {Object.entries(value.fields).map((field, index) => {
+            const [key, value] = field;
+
+            if (index === 0 && activeSubsection === "") {
+              // display this entry
+            } else if (activeSubsection !== key) {
+              return null;
+            }
+
+            return (
+              <section key={key} className="Questions">
+                {Object.entries(value.fields).map(question => {
+                  return formatQuestion(question, variables, setVariables, output);
+                })}
+              </section>
+              );
+            })
+          }
+        </div>
+      </div>
+      <div className="SectionOutput">
+        {getSidebar(key, output, variables, maximumHeatingEnergyBalance)}
       </div>
     </FormGroup>
   );
+}
+
+const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
+  switch(key) {
+    case "introduction":
+      return <img src='/img/render.png' alt='Display of a render to help visualize dimensions.' />;
+    case "parametersA":
+      return (
+        <ChartService.HeatingEnergyBalance
+          title="Heating Energy Balance - Model A"
+          annualSpaceHeating={output.annualSpaceHeatingA}
+          variables={variables}
+          yMax={maximumHeatingEnergyBalance}
+        />
+      );
+    case "parametersB":
+      return (
+        <ChartService.HeatingEnergyBalance
+          title="Heating Energy Balance - Model B"
+          annualSpaceHeating={output.annualSpaceHeatingB}
+          variables={variables}
+          yMax={maximumHeatingEnergyBalance}
+        />
+      );
+    case "financing":
+      return (
+        <React.Fragment>
+          <ChartService.NetZeroEnergySummary
+            title="Net-zero Energy Summary - Model A"
+            output={output.outputA}
+            variables={variables}
+            yMax={output.maxEnergy}
+          />
+          <br />
+          <br />
+          <ChartService.NetZeroEnergySummary
+            title="Net-zero Energy Summary - Model B"
+            output={output.outputB}
+            variables={variables}
+            yMax={output.maxEnergy}
+          />
+        </React.Fragment>
+        
+      );
+    // case "business":
+    //   return (
+
+    //   );
+    default: 
+      return "";
+  }
 }
 
 const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsection) => {
@@ -209,53 +264,7 @@ function Content() {
       </div>
       <div className="Content">
         <div className="Fields">
-          {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output)}
-        </div>
-      </div>
-      <div className="DevResults" style={{ padding: "1rem", backgroundColor: "white" }}>
-        <div>
-          <ChartService.HeatingEnergyBalance
-            title="Heating Energy Balance - Model A"
-            annualSpaceHeating={output.annualSpaceHeatingA}
-            variables={variables}
-            yMax={maximumHeatingEnergyBalance}
-          />
-          <br />
-          <br />
-          <ChartService.NetZeroEnergySummary
-            title="Net-zero Energy Summary - Model A"
-            output={output.outputA}
-            variables={variables}
-            yMax={output.maxEnergy}
-          />
-          <br />
-          <br />
-          <h3>Input</h3>
-          <pre>
-            {JSON.stringify(variables, undefined, 2)}
-          </pre>
-        </div>
-        <div>
-          <ChartService.HeatingEnergyBalance
-            title="Heating Energy Balance - Model B"
-            annualSpaceHeating={output.annualSpaceHeatingB}
-            variables={variables}
-            yMax={maximumHeatingEnergyBalance}
-          />
-          <br />
-          <br />
-          <ChartService.NetZeroEnergySummary
-            title="Net-zero Energy Summary - Model B"
-            output={output.outputB}
-            variables={variables}
-            yMax={output.maxEnergy}
-          />
-          <br />
-          <br />
-          <h3>Output</h3>
-          <pre>
-            {JSON.stringify(output, undefined, 2)}
-          </pre>
+          {formatSections(data, activeSection, activeSubsection, setActiveSubsection, variables, setVariables, output, maximumHeatingEnergyBalance)}
         </div>
       </div>
     </div>

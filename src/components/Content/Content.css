@@ -6,6 +6,24 @@
   justify-content: space-between;
 }
 
+.SectionMain {
+  width: 60%;
+  padding-right: 2rem;
+}
+
+.SectionOutput {
+  width: 40%;
+}
+
+.SectionOutput img {
+  max-width: 100%;
+  margin-top: 2rem;
+}
+
+.SectionTitle {
+  width: 100%;
+}
+
 .Navigation {
   width: 100%;
   display: flex;
@@ -47,10 +65,11 @@
 
 .fieldset {
   display: none;
+  flex-wrap: wrap;
 }
 
 .fieldset.active {
-  display: initial;
+  display: flex;
 }
 
 .input-group {
