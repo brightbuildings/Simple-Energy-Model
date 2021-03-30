@@ -19,3 +19,9 @@
   margin: 0;
   font-weight: normal;
 }
+
+.Header .Navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
