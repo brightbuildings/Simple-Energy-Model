@@ -77,7 +77,9 @@ const HeatingEnergyBalance = props => {
   } catch {
     tfa = 1;
   }
-  max = Big(props.yMax).div(tfa);
+  if (props.yMax != null) {
+    max = Big(props.yMax).div(tfa);
+  }
   const tick = Math.ceil(Math.round(max.toString())/100)*100;
 
   const data = {

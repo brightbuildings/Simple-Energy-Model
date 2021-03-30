@@ -2,26 +2,50 @@
   background-color: white;
   padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
+.SectionMain {
+  width: 60%;
+  padding-right: 2rem;
+}
+
+.SectionOutput {
+  width: 40%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+}
+
+.SectionOutput > img {
+  max-width: 100%;
+}
+
+.SectionTitle {
+  width: 100%;
+}
+
 .Navigation {
-  width: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .Navigation button {
-  margin-bottom: 1rem;
   text-align: left;
+  padding: 1rem 1rem 0.5rem;
 }
 
-.Navigation button.active {
-  font-weight: bold;
+.Navigation button.active,
+.Navigation button:hover {
+  background-color: white;  
+  text-decoration: none;
 }
 
 .subNavigation {
-  display: flex-start;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin: 2rem 0 3rem;
 }
 
 .subNavigation button {
@@ -33,7 +57,7 @@
 }
 
 .Fields {
-  width: 75%;
+  width: 100%;
   padding-right: 4rem;
 }
 
@@ -43,10 +67,12 @@
 
 .fieldset {
   display: none;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .fieldset.active {
-  display: initial;
+  display: flex;
 }
 
 .input-group {
@@ -75,4 +101,31 @@ label {
 .DevResults > div {
   padding: 1rem;
   width: 50%;
+}
+
+
+.SubNavigationButton {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.SubNavigationButton button {
+  padding-left: 0.5rem;
+}
+
+.SubNavigationButton.active .Step,
+.SubNavigationButton:hover .Step {
+  background-color: black;
+  color: white;
+}
+
+.Step {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  border: 1px solid black;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  line-height: 28px;
 }

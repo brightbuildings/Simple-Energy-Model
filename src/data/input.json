@@ -182,7 +182,7 @@
     }
   },
   "parametersA": {
-    "label": "Parameters - Model A",
+    "label": "Model A",
     "content": "How is the existing home built?",
     "fields": {
       "build": {
@@ -879,7 +879,7 @@
     }
   },
   "parametersB": {
-    "label": "Parameters - Model B",
+    "label": "Model B",
     "content": "What improvements would you like to consider?",
     "fields": {
       "build": {
@@ -1478,7 +1478,7 @@
     }
   },
   "financing": {
-    "label": "Financing the Net-zero Upgrade",
+    "label": "Net-Zero Financing",
     "content": "Lorem ipsum",
     "navigation": "Financing",
     "fields": {
