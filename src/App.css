@@ -62,7 +62,3 @@ button {
   text-transform: capitalize;
   cursor: pointer;
 }
-
-button:hover {
-  text-decoration: underline;
-}

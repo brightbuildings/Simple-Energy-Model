@@ -33,14 +33,19 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
             activeKey = key;
           }
 
+          if (Object.entries(value.fields).length < 2) {
+            return "";
+          }
+
           return (
-            <button 
+            <div 
               key={key}
               onClick={() => setActiveSubsection(key)}
-              className={key === activeKey ? "active" : "" } 
+              className={key === activeKey ? "active SubNavigationButton" : "SubNavigationButton" } 
             >
-              {navTitle}
-            </button>
+              <div className="Step">{index+1}</div>
+              <button>{navTitle}</button>
+            </div>
           );
         })}
       </div>

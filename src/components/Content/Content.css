@@ -24,9 +24,8 @@
 }
 
 .subNavigation {
-  display: flex-start;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin: 2rem 0 3rem;
 }
 
 .subNavigation button {
@@ -80,4 +79,31 @@ label {
 .DevResults > div {
   padding: 1rem;
   width: 50%;
+}
+
+
+.SubNavigationButton {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.SubNavigationButton button {
+  padding-left: 0.5rem;
+}
+
+.SubNavigationButton.active .Step,
+.SubNavigationButton:hover .Step {
+  background-color: black;
+  color: white;
+}
+
+.Step {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  border: 1px solid black;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  line-height: 28px;
 }
