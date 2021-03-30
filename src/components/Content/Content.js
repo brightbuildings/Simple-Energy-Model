@@ -22,7 +22,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
     <FormGroup key={key} className={`fieldset ${activeSection === key ? "active" : ""}`}>
       <h2 className="SectionTitle">{value.label}</h2>
       <div className="SectionMain">
-        <p>{value.content}</p>
+        <p dangerouslySetInnerHTML={{__html: value.content}} />
         <div className="subNavigation">
           {Object.entries(value.fields).map((field, index) => {
             const key = field[0];

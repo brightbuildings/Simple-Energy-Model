@@ -1,7 +1,7 @@
 {
   "introduction": {
     "label": "Introduction",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "content": "The purpose of this application is to quickly estimate energy consumption of homes and small buildings in central Saskatchewan and to prepare the business case to upgrade a building to net-zero energy through PACE financing.<br><br>To use this tool, gather information for the building you would like to assess. This will include dimensions, thermal properties of the building envelope, mechanical equipment information, and electrical equipment information.",
     "fields": {
       "introduction": {
         "navigation": "Introduction",
@@ -1479,11 +1479,10 @@
   },
   "financing": {
     "label": "Net-Zero Financing",
-    "content": "Lorem ipsum",
     "navigation": "Financing",
     "fields": {
       "improvementsSection1": {
-        "navigation": "Improvements",
+        "navigation": "Net-Zero Financing",
         "fields": {
           "improvementsSection1": {
             "label": "Improvements",
@@ -1620,16 +1619,9 @@
             "default": 1
           }
         }
-      }
-    }
-  },
-  "business": {
-    "label": "Business Case",
-    "content": "Lorem ipsum",
-    "navigation": "Business Case",
-    "fields": {
+      },
       "business": {
-        "navigation": "Business",
+        "navigation": "Business Case",
         "fields": {
           "paceLoanTerm": {
             "label": "PACE Loan Term",
