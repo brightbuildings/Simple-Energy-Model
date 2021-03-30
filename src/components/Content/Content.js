@@ -372,4 +372,6 @@ export {
   formatNavigation,
   formatQuestion,
   setDefaultVariables,
+  getSidebar,
+  getGlossarySection
 };
