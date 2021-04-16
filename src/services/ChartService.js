@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import ChartComponent, { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
@@ -243,9 +243,63 @@ const getColor = (index, isHover = false) => {
   return isHover ? hoverColors[index-1] : colors[index-1];
 };
 
+function FinancingSavingsBar (){
+  const monthlyPayments = 386.27;
+  const monthlyEnergySavings = 458.81;
+  const annualPayments = monthlyPayments * 12;
+  const annualEnergySavings = monthlyEnergySavings * 12;
+
+  const xLabels = [];
+  const dataCost = [];
+  const dataSavings = [];
+  const dataAnnualSavings = [];
+  
+  let totalSavings = 0;
+  for (let i = 0; i < 20; i++) {
+    xLabels.push(new Date().getFullYear() + i + 1);
+    const curYearSavings = annualEnergySavings * 1.03 ** i;
+    totalSavings += curYearSavings - annualPayments;
+    dataCost.push(annualPayments);
+    dataSavings.push(curYearSavings);
+    dataAnnualSavings.push(totalSavings);
+  }
+
+  const tickCallback = t => {
+    return t.toLocaleString('en-CA', {
+      style: 'currency', 
+      currency: 'CAD',
+    })
+  }
+
+  return (
+    <div>
+      <ChartComponent
+        type='line'
+        height={200}
+        data={{
+          datasets: [
+            {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "annual", barPercentage: 0.8},
+            {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "annual", barPercentage: 0.8},
+            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "total", "fill": false, borderColor: "#888"}],
+          labels: xLabels,
+        }}
+        options={{
+          scales: {
+            yAxes: [
+              {id: 'annual', ticks: {beginAtZero: false, callback: tickCallback}, position: "left"},
+              {id: 'total', position: 'right', ticks: {callback: tickCallback}}
+            ],
+          }
+        }}
+      />
+    </div>
+  );
+}
+
 const ChartService = {
   SimpleEnergyModelBar,
   getColor,
+  FinancingSavingsBar,
   HeatingEnergyBalance,
   NetZeroEnergySummary,
 };
