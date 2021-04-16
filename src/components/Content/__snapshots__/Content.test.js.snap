@@ -2,8 +2,42 @@
 
 exports[`renders Content 1`] = `
 <div
-  className="centered-narrow"
+  className="centered"
 >
+  <div
+    className="Navigation"
+  >
+    <button
+      className="active"
+      onClick={[Function]}
+    >
+      Introduction
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      Model A
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      Model B
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      Net-Zero Financing
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      Glossary
+    </button>
+  </div>
   <div
     className="Content"
   >
@@ -13,1866 +47,2113 @@ exports[`renders Content 1`] = `
       <div
         className="fieldset active form-group"
       >
-        <h2>
+        <h2
+          className="SectionTitle"
+        >
           Introduction
         </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
         <div
-          className="subNavigation"
+          className="SectionMain"
         >
-          <button
-            className="active"
-            onClick={[Function]}
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "The purpose of this application is to quickly estimate energy consumption of homes and small buildings in central Saskatchewan and to prepare the business case to upgrade a building to net-zero energy through PACE financing.<br><br>To use this tool, gather information for the building you would like to assess. This will include dimensions, thermal properties of the building envelope, mechanical equipment information, and electrical equipment information.",
+              }
+            }
+          />
+          <div
+            className="subNavigation"
           >
-            Introduction
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
+            <div
+              className="active SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                1
+              </div>
+              <button>
+                Introduction
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                2
+              </div>
+              <button>
+                Dimensions
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                3
+              </div>
+              <button>
+                Solar
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                4
+              </div>
+              <button>
+                Location
+              </button>
+            </div>
+          </div>
+          <div
+            className="subNavigationContent"
           >
-            Dimensions
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            Solar
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            Location
-          </button>
+            <section
+              className="Questions"
+            >
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="buildingOwner"
+                >
+                  Building Owner
+                </label>
+                <input
+                  className="form-control"
+                  id="buildingOwner"
+                  name="buildingOwner"
+                  onChange={[Function]}
+                  required={true}
+                  type="text"
+                />
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="address"
+                >
+                  Address
+                </label>
+                <input
+                  className="form-control"
+                  id="address"
+                  name="address"
+                  onChange={[Function]}
+                  required={true}
+                  type="text"
+                />
+              </div>
+            </section>
+          </div>
         </div>
         <div
-          className="subNavigationContent"
+          className="SectionOutput"
         >
-          <section
-            className="Questions"
-          >
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="buildingOwner"
-              >
-                Building Owner
-              </label>
-              <input
-                className="form-control"
-                id="buildingOwner"
-                name="buildingOwner"
-                onChange={[Function]}
-                required={true}
-                type="text"
-              />
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="address"
-              >
-                Address
-              </label>
-              <input
-                className="form-control"
-                id="address"
-                name="address"
-                onChange={[Function]}
-                required={true}
-                type="text"
-              />
-            </div>
-          </section>
-        </div>
-      </div>
-      <div
-        className="fieldset  form-group"
-      >
-        <h2>
-          Parameters - Model A
-        </h2>
-        <p>
-          How is the existing home built?
-        </p>
-        <div
-          className="subNavigation"
-        >
-          <button
-            className="active"
-            onClick={[Function]}
-          >
-            Build
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            Mechanical
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            Energy
-          </button>
-        </div>
-        <div
-          className="subNavigationContent"
-        >
-          <section
-            className="Questions"
-          >
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="airtightness"
-              >
-                Airtightness
-              </label>
-              <select
-                className="form-control"
-                id="airtightness"
-                name="airtightness"
-                onChange={[Function]}
-                required={true}
-                value="10 (100 years old)"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  0.6 (Passivhaus)
-                </option>
-                <option>
-                  0.8
-                </option>
-                <option>
-                  1.0 (Net-zero)
-                </option>
-                <option>
-                  1.5
-                </option>
-                <option>
-                  2.5 (NBC)
-                </option>
-                <option>
-                  3
-                </option>
-                <option>
-                  5
-                </option>
-                <option>
-                  10 (100 years old)
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  ACH @50 Pa
-                </span>
-              </div>
-            </div>
-            <div
-              className="spacer"
-            >
-               
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="wallAboveGrade"
-              >
-                Wall Above Grade
-              </label>
-              <select
-                className="form-control"
-                id="wallAboveGrade"
-                name="wallAboveGrade"
-                onChange={[Function]}
-                required={true}
-                value="R10 - 2x4 w Batt"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R1 - Uninsulated
-                </option>
-                <option>
-                  R10 - 2x4 w Batt
-                </option>
-                <option>
-                  R15 - 2x6 w Batt
-                </option>
-                <option>
-                  R17 - NBC
-                </option>
-                <option>
-                  R19 - 2x8 w Batt
-                </option>
-                <option>
-                  R21 - 2x4 + 3" Rigid
-                </option>
-                <option>
-                  R31 - 2x4 + 6" Rigid
-                </option>
-                <option>
-                  R35 - 2x4 + 2x8 w Batt
-                </option>
-                <option>
-                  R42 - 2x4 + 9.5" I-joist
-                </option>
-                <option>
-                  R50 - 2x4 + 12" I-joist
-                </option>
-                <option>
-                  R26 - 2x6 + 3" Rigid
-                </option>
-                <option>
-                  R55 - 2x6 +12" I-joist
-                </option>
-                <option>
-                  R75 - 2x6 + 16" I-joist
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="wallBelowGrade"
-              >
-                Wall Below Grade
-              </label>
-              <select
-                className="form-control"
-                id="wallBelowGrade"
-                name="wallBelowGrade"
-                onChange={[Function]}
-                required={true}
-                value="R6 - Concrete Uninsulated"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R6 - Concrete Uninsulated
-                </option>
-                <option>
-                  R13 - Conc. + 3" Rigid
-                </option>
-                <option>
-                  R17 - NBC
-                </option>
-                <option>
-                  R25 - Conc. + 6" Rigid
-                </option>
-                <option>
-                  R37 - Conc. + 9" Rigid
-                </option>
-                <option>
-                  R9 - 2x4 + Conc.
-                </option>
-                <option>
-                  R14 - 2x6 + Conc.
-                </option>
-                <option>
-                  R30 - 2x4 + 5.5" Batt + Conc.
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="roof"
-              >
-                Roof
-              </label>
-              <select
-                className="form-control"
-                id="roof"
-                name="roof"
-                onChange={[Function]}
-                required={true}
-                value="R20 - 6\\""
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R1 - Uninsulated
-                </option>
-                <option>
-                  R20 - 6"
-                </option>
-                <option>
-                  R40 - 12"
-                </option>
-                <option>
-                  R50 - NBC
-                </option>
-                <option>
-                  R60 - 18"
-                </option>
-                <option>
-                  R80 - 24"
-                </option>
-                <option>
-                  R100 - 30"
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="floor"
-              >
-                Floor
-              </label>
-              <select
-                className="form-control"
-                id="floor"
-                name="floor"
-                onChange={[Function]}
-                required={true}
-                value="R6 - Uninsulated [NBC Below Frost]"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R6 - Uninsulated [NBC Below Frost]
-                </option>
-                <option>
-                  R11 - NBC Above Frost Line
-                </option>
-                <option>
-                  R13 - 3" Rigid
-                </option>
-                <option>
-                  R16 - NBC Heated Floor or Slab On Grade
-                </option>
-                <option>
-                  R25 - 6" Rigid
-                </option>
-                <option>
-                  R37 - 9" Rigid
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="spacer"
-            >
-               
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="windows"
-              >
-                Windows
-              </label>
-              <select
-                className="form-control"
-                id="windows"
-                name="windows"
-                onChange={[Function]}
-                required={true}
-                value="Double Pane"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  Single Pane
-                </option>
-                <option>
-                  Double Pane
-                </option>
-                <option>
-                  NBC
-                </option>
-                <option>
-                  Improved Double Pane (Argon, Low-E)
-                </option>
-                <option>
-                  Triple Pane (PVC, uninsulated)
-                </option>
-                <option>
-                  Triple Pane (High Performance) - High SHGC
-                </option>
-                <option>
-                  Triple Pane (High Performance) - Low SHGC
-                </option>
-                <option>
-                  Triple Pane (Passivhaus)
-                </option>
-                <option>
-                  Quad Pane (or Passivhaus Cold Climate)
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="solidDoor"
-              >
-                Solid Door
-              </label>
-              <select
-                className="form-control"
-                id="solidDoor"
-                name="solidDoor"
-                onChange={[Function]}
-                required={true}
-                value="Uninsulated"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  Uninsulated
-                </option>
-                <option>
-                  Insulated (R10)
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-          </section>
+          <img
+            alt="Display of a render to help visualize dimensions."
+            src="/img/render.png"
+          />
         </div>
       </div>
       <div
         className="fieldset  form-group"
       >
-        <h2>
-          Parameters - Model B
-        </h2>
-        <p>
-          What improvements would you like to consider?
-        </p>
-        <div
-          className="subNavigation"
+        <h2
+          className="SectionTitle"
         >
-          <button
-            className="active"
-            onClick={[Function]}
+          Model A
+        </h2>
+        <div
+          className="SectionMain"
+        >
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "How is the existing home built?",
+              }
+            }
+          />
+          <div
+            className="subNavigation"
           >
-            Build
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
+            <div
+              className="active SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                1
+              </div>
+              <button>
+                Build
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                2
+              </div>
+              <button>
+                Mechanical
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                3
+              </div>
+              <button>
+                Energy
+              </button>
+            </div>
+          </div>
+          <div
+            className="subNavigationContent"
           >
-            Mechanical
-          </button>
-          <button
-            className=""
-            onClick={[Function]}
-          >
-            Energy
-          </button>
+            <section
+              className="Questions"
+            >
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="airtightness"
+                >
+                  Airtightness
+                </label>
+                <select
+                  className="form-control"
+                  id="airtightness"
+                  name="airtightness"
+                  onChange={[Function]}
+                  required={true}
+                  value="10 (100 years old)"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    0.6 (Passivhaus)
+                  </option>
+                  <option>
+                    0.8
+                  </option>
+                  <option>
+                    1.0 (Net-zero)
+                  </option>
+                  <option>
+                    1.5
+                  </option>
+                  <option>
+                    2.5 (NBC)
+                  </option>
+                  <option>
+                    3
+                  </option>
+                  <option>
+                    5
+                  </option>
+                  <option>
+                    10 (100 years old)
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    ACH @50 Pa
+                  </span>
+                </div>
+              </div>
+              <div
+                className="spacer"
+              >
+                 
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="wallAboveGrade"
+                >
+                  Wall Above Grade
+                </label>
+                <select
+                  className="form-control"
+                  id="wallAboveGrade"
+                  name="wallAboveGrade"
+                  onChange={[Function]}
+                  required={true}
+                  value="R10 - 2x4 w Batt"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R1 - Uninsulated
+                  </option>
+                  <option>
+                    R10 - 2x4 w Batt
+                  </option>
+                  <option>
+                    R15 - 2x6 w Batt
+                  </option>
+                  <option>
+                    R17 - NBC
+                  </option>
+                  <option>
+                    R19 - 2x8 w Batt
+                  </option>
+                  <option>
+                    R21 - 2x4 + 3" Rigid
+                  </option>
+                  <option>
+                    R31 - 2x4 + 6" Rigid
+                  </option>
+                  <option>
+                    R35 - 2x4 + 2x8 w Batt
+                  </option>
+                  <option>
+                    R42 - 2x4 + 9.5" I-joist
+                  </option>
+                  <option>
+                    R50 - 2x4 + 12" I-joist
+                  </option>
+                  <option>
+                    R26 - 2x6 + 3" Rigid
+                  </option>
+                  <option>
+                    R55 - 2x6 +12" I-joist
+                  </option>
+                  <option>
+                    R75 - 2x6 + 16" I-joist
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="wallBelowGrade"
+                >
+                  Wall Below Grade
+                </label>
+                <select
+                  className="form-control"
+                  id="wallBelowGrade"
+                  name="wallBelowGrade"
+                  onChange={[Function]}
+                  required={true}
+                  value="R6 - Concrete Uninsulated"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R6 - Concrete Uninsulated
+                  </option>
+                  <option>
+                    R13 - Conc. + 3" Rigid
+                  </option>
+                  <option>
+                    R17 - NBC
+                  </option>
+                  <option>
+                    R25 - Conc. + 6" Rigid
+                  </option>
+                  <option>
+                    R37 - Conc. + 9" Rigid
+                  </option>
+                  <option>
+                    R9 - 2x4 + Conc.
+                  </option>
+                  <option>
+                    R14 - 2x6 + Conc.
+                  </option>
+                  <option>
+                    R30 - 2x4 + 5.5" Batt + Conc.
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="roof"
+                >
+                  Roof
+                </label>
+                <select
+                  className="form-control"
+                  id="roof"
+                  name="roof"
+                  onChange={[Function]}
+                  required={true}
+                  value="R20 - 6\\""
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R1 - Uninsulated
+                  </option>
+                  <option>
+                    R20 - 6"
+                  </option>
+                  <option>
+                    R40 - 12"
+                  </option>
+                  <option>
+                    R50 - NBC
+                  </option>
+                  <option>
+                    R60 - 18"
+                  </option>
+                  <option>
+                    R80 - 24"
+                  </option>
+                  <option>
+                    R100 - 30"
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="floor"
+                >
+                  Floor
+                </label>
+                <select
+                  className="form-control"
+                  id="floor"
+                  name="floor"
+                  onChange={[Function]}
+                  required={true}
+                  value="R6 - Uninsulated [NBC Below Frost]"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R6 - Uninsulated [NBC Below Frost]
+                  </option>
+                  <option>
+                    R11 - NBC Above Frost Line
+                  </option>
+                  <option>
+                    R13 - 3" Rigid
+                  </option>
+                  <option>
+                    R16 - NBC Heated Floor or Slab On Grade
+                  </option>
+                  <option>
+                    R25 - 6" Rigid
+                  </option>
+                  <option>
+                    R37 - 9" Rigid
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="spacer"
+              >
+                 
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="windows"
+                >
+                  Windows
+                </label>
+                <select
+                  className="form-control"
+                  id="windows"
+                  name="windows"
+                  onChange={[Function]}
+                  required={true}
+                  value="Double Pane"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    Single Pane
+                  </option>
+                  <option>
+                    Double Pane
+                  </option>
+                  <option>
+                    NBC
+                  </option>
+                  <option>
+                    Improved Double Pane (Argon, Low-E)
+                  </option>
+                  <option>
+                    Triple Pane (PVC, uninsulated)
+                  </option>
+                  <option>
+                    Triple Pane (High Performance) - High SHGC
+                  </option>
+                  <option>
+                    Triple Pane (High Performance) - Low SHGC
+                  </option>
+                  <option>
+                    Triple Pane (Passivhaus)
+                  </option>
+                  <option>
+                    Quad Pane (or Passivhaus Cold Climate)
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="solidDoor"
+                >
+                  Solid Door
+                </label>
+                <select
+                  className="form-control"
+                  id="solidDoor"
+                  name="solidDoor"
+                  onChange={[Function]}
+                  required={true}
+                  value="Uninsulated"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    Uninsulated
+                  </option>
+                  <option>
+                    Insulated (R10)
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
         <div
-          className="subNavigationContent"
+          className="SectionOutput"
         >
-          <section
-            className="Questions"
-          >
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="airtightnessB"
-              >
-                Airtightness
-              </label>
-              <select
-                className="form-control"
-                id="airtightnessB"
-                name="airtightnessB"
-                onChange={[Function]}
-                required={true}
-                value="1.0 (Net-zero)"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  0.6 (Passivhaus)
-                </option>
-                <option>
-                  0.8
-                </option>
-                <option>
-                  1.0 (Net-zero)
-                </option>
-                <option>
-                  1.5
-                </option>
-                <option>
-                  2.5 (NBC)
-                </option>
-                <option>
-                  3
-                </option>
-                <option>
-                  5
-                </option>
-                <option>
-                  10 (100 years old)
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  ACH @50 Pa
-                </span>
-              </div>
-            </div>
-            <div
-              className="spacer"
-            >
-               
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="wallAboveGradeB"
-              >
-                Wall Above Grade
-              </label>
-              <select
-                className="form-control"
-                id="wallAboveGradeB"
-                name="wallAboveGradeB"
-                onChange={[Function]}
-                required={true}
-                value="R31 - 2x4 + 6\\" Rigid"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R1 - Uninsulated
-                </option>
-                <option>
-                  R10 - 2x4 w Batt
-                </option>
-                <option>
-                  R15 - 2x6 w Batt
-                </option>
-                <option>
-                  R17 - NBC
-                </option>
-                <option>
-                  R19 - 2x8 w Batt
-                </option>
-                <option>
-                  R21 - 2x4 + 3" Rigid
-                </option>
-                <option>
-                  R31 - 2x4 + 6" Rigid
-                </option>
-                <option>
-                  R35 - 2x4 + 2x8 w Batt
-                </option>
-                <option>
-                  R42 - 2x4 + 9.5" I-joist
-                </option>
-                <option>
-                  R50 - 2x4 + 12" I-joist
-                </option>
-                <option>
-                  R26 - 2x6 + 3" Rigid
-                </option>
-                <option>
-                  R55 - 2x6 +12" I-joist
-                </option>
-                <option>
-                  R75 - 2x6 + 16" I-joist
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="wallBelowGradeB"
-              >
-                Wall Below Grade
-              </label>
-              <select
-                className="form-control"
-                id="wallBelowGradeB"
-                name="wallBelowGradeB"
-                onChange={[Function]}
-                required={true}
-                value="R25 - Conc. + 6\\" Rigid"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R6 - Concrete Uninsulated
-                </option>
-                <option>
-                  R13 - Conc. + 3" Rigid
-                </option>
-                <option>
-                  R17 - NBC
-                </option>
-                <option>
-                  R25 - Conc. + 6" Rigid
-                </option>
-                <option>
-                  R37 - Conc. + 9" Rigid
-                </option>
-                <option>
-                  R9 - 2x4 + Conc.
-                </option>
-                <option>
-                  R14 - 2x6 + Conc.
-                </option>
-                <option>
-                  R30 - 2x4 + 5.5" Batt + Conc.
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="roofB"
-              >
-                Roof
-              </label>
-              <select
-                className="form-control"
-                id="roofB"
-                name="roofB"
-                onChange={[Function]}
-                required={true}
-                value="R80 - 24\\""
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R1 - Uninsulated
-                </option>
-                <option>
-                  R20 - 6"
-                </option>
-                <option>
-                  R40 - 12"
-                </option>
-                <option>
-                  R50 - NBC
-                </option>
-                <option>
-                  R60 - 18"
-                </option>
-                <option>
-                  R80 - 24"
-                </option>
-                <option>
-                  R100 - 30"
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="floorB"
-              >
-                Floor
-              </label>
-              <select
-                className="form-control"
-                id="floorB"
-                name="floorB"
-                onChange={[Function]}
-                required={true}
-                value="R25 - 6\\" Rigid"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  R6 - Uninsulated [NBC Below Frost]
-                </option>
-                <option>
-                  R11 - NBC Above Frost Line
-                </option>
-                <option>
-                  R13 - 3" Rigid
-                </option>
-                <option>
-                  R16 - NBC Heated Floor or Slab On Grade
-                </option>
-                <option>
-                  R25 - 6" Rigid
-                </option>
-                <option>
-                  R37 - 9" Rigid
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="spacer"
-            >
-               
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="windowsB"
-              >
-                Windows
-              </label>
-              <select
-                className="form-control"
-                id="windowsB"
-                name="windowsB"
-                onChange={[Function]}
-                required={true}
-                value="Triple Pane (High Performance) - Low SHGC"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  Single Pane
-                </option>
-                <option>
-                  Double Pane
-                </option>
-                <option>
-                  NBC
-                </option>
-                <option>
-                  Improved Double Pane (Argon, Low-E)
-                </option>
-                <option>
-                  Triple Pane (PVC, uninsulated)
-                </option>
-                <option>
-                  Triple Pane (High Performance) - High SHGC
-                </option>
-                <option>
-                  Triple Pane (High Performance) - Low SHGC
-                </option>
-                <option>
-                  Triple Pane (Passivhaus)
-                </option>
-                <option>
-                  Quad Pane (or Passivhaus Cold Climate)
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="solidDoorB"
-              >
-                Solid Door
-              </label>
-              <select
-                className="form-control"
-                id="solidDoorB"
-                name="solidDoorB"
-                onChange={[Function]}
-                required={true}
-                value="Insulated (R10)"
-              >
-                <option
-                  disabled="disabled"
-                  value="disabled"
-                >
-                  Select an option
-                </option>
-                <option>
-                  Uninsulated
-                </option>
-                <option>
-                  Insulated (R10)
-                </option>
-              </select>
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  W/m²K
-                </span>
-              </div>
-            </div>
-          </section>
+          <br />
+          <br />
         </div>
       </div>
       <div
         className="fieldset  form-group"
       >
-        <h2>
-          Financing the Net-zero Upgrade
-        </h2>
-        <p>
-          Lorem ipsum
-        </p>
-        <div
-          className="subNavigation"
+        <h2
+          className="SectionTitle"
         >
-          <button
-            className="active"
-            onClick={[Function]}
+          Model B
+        </h2>
+        <div
+          className="SectionMain"
+        >
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "What improvements would you like to consider?",
+              }
+            }
+          />
+          <div
+            className="subNavigation"
           >
-            Improvements
-          </button>
+            <div
+              className="active SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                1
+              </div>
+              <button>
+                Build
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                2
+              </div>
+              <button>
+                Mechanical
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                3
+              </div>
+              <button>
+                Energy
+              </button>
+            </div>
+          </div>
+          <div
+            className="subNavigationContent"
+          >
+            <section
+              className="Questions"
+            >
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="airtightnessB"
+                >
+                  Airtightness
+                </label>
+                <select
+                  className="form-control"
+                  id="airtightnessB"
+                  name="airtightnessB"
+                  onChange={[Function]}
+                  required={true}
+                  value="1.0 (Net-zero)"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    0.6 (Passivhaus)
+                  </option>
+                  <option>
+                    0.8
+                  </option>
+                  <option>
+                    1.0 (Net-zero)
+                  </option>
+                  <option>
+                    1.5
+                  </option>
+                  <option>
+                    2.5 (NBC)
+                  </option>
+                  <option>
+                    3
+                  </option>
+                  <option>
+                    5
+                  </option>
+                  <option>
+                    10 (100 years old)
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    ACH @50 Pa
+                  </span>
+                </div>
+              </div>
+              <div
+                className="spacer"
+              >
+                 
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="wallAboveGradeB"
+                >
+                  Wall Above Grade
+                </label>
+                <select
+                  className="form-control"
+                  id="wallAboveGradeB"
+                  name="wallAboveGradeB"
+                  onChange={[Function]}
+                  required={true}
+                  value="R31 - 2x4 + 6\\" Rigid"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R1 - Uninsulated
+                  </option>
+                  <option>
+                    R10 - 2x4 w Batt
+                  </option>
+                  <option>
+                    R15 - 2x6 w Batt
+                  </option>
+                  <option>
+                    R17 - NBC
+                  </option>
+                  <option>
+                    R19 - 2x8 w Batt
+                  </option>
+                  <option>
+                    R21 - 2x4 + 3" Rigid
+                  </option>
+                  <option>
+                    R31 - 2x4 + 6" Rigid
+                  </option>
+                  <option>
+                    R35 - 2x4 + 2x8 w Batt
+                  </option>
+                  <option>
+                    R42 - 2x4 + 9.5" I-joist
+                  </option>
+                  <option>
+                    R50 - 2x4 + 12" I-joist
+                  </option>
+                  <option>
+                    R26 - 2x6 + 3" Rigid
+                  </option>
+                  <option>
+                    R55 - 2x6 +12" I-joist
+                  </option>
+                  <option>
+                    R75 - 2x6 + 16" I-joist
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="wallBelowGradeB"
+                >
+                  Wall Below Grade
+                </label>
+                <select
+                  className="form-control"
+                  id="wallBelowGradeB"
+                  name="wallBelowGradeB"
+                  onChange={[Function]}
+                  required={true}
+                  value="R25 - Conc. + 6\\" Rigid"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R6 - Concrete Uninsulated
+                  </option>
+                  <option>
+                    R13 - Conc. + 3" Rigid
+                  </option>
+                  <option>
+                    R17 - NBC
+                  </option>
+                  <option>
+                    R25 - Conc. + 6" Rigid
+                  </option>
+                  <option>
+                    R37 - Conc. + 9" Rigid
+                  </option>
+                  <option>
+                    R9 - 2x4 + Conc.
+                  </option>
+                  <option>
+                    R14 - 2x6 + Conc.
+                  </option>
+                  <option>
+                    R30 - 2x4 + 5.5" Batt + Conc.
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="roofB"
+                >
+                  Roof
+                </label>
+                <select
+                  className="form-control"
+                  id="roofB"
+                  name="roofB"
+                  onChange={[Function]}
+                  required={true}
+                  value="R80 - 24\\""
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R1 - Uninsulated
+                  </option>
+                  <option>
+                    R20 - 6"
+                  </option>
+                  <option>
+                    R40 - 12"
+                  </option>
+                  <option>
+                    R50 - NBC
+                  </option>
+                  <option>
+                    R60 - 18"
+                  </option>
+                  <option>
+                    R80 - 24"
+                  </option>
+                  <option>
+                    R100 - 30"
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="floorB"
+                >
+                  Floor
+                </label>
+                <select
+                  className="form-control"
+                  id="floorB"
+                  name="floorB"
+                  onChange={[Function]}
+                  required={true}
+                  value="R25 - 6\\" Rigid"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    R6 - Uninsulated [NBC Below Frost]
+                  </option>
+                  <option>
+                    R11 - NBC Above Frost Line
+                  </option>
+                  <option>
+                    R13 - 3" Rigid
+                  </option>
+                  <option>
+                    R16 - NBC Heated Floor or Slab On Grade
+                  </option>
+                  <option>
+                    R25 - 6" Rigid
+                  </option>
+                  <option>
+                    R37 - 9" Rigid
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="spacer"
+              >
+                 
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="windowsB"
+                >
+                  Windows
+                </label>
+                <select
+                  className="form-control"
+                  id="windowsB"
+                  name="windowsB"
+                  onChange={[Function]}
+                  required={true}
+                  value="Triple Pane (High Performance) - Low SHGC"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    Single Pane
+                  </option>
+                  <option>
+                    Double Pane
+                  </option>
+                  <option>
+                    NBC
+                  </option>
+                  <option>
+                    Improved Double Pane (Argon, Low-E)
+                  </option>
+                  <option>
+                    Triple Pane (PVC, uninsulated)
+                  </option>
+                  <option>
+                    Triple Pane (High Performance) - High SHGC
+                  </option>
+                  <option>
+                    Triple Pane (High Performance) - Low SHGC
+                  </option>
+                  <option>
+                    Triple Pane (Passivhaus)
+                  </option>
+                  <option>
+                    Quad Pane (or Passivhaus Cold Climate)
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="solidDoorB"
+                >
+                  Solid Door
+                </label>
+                <select
+                  className="form-control"
+                  id="solidDoorB"
+                  name="solidDoorB"
+                  onChange={[Function]}
+                  required={true}
+                  value="Insulated (R10)"
+                >
+                  <option
+                    disabled="disabled"
+                    value="disabled"
+                  >
+                    Select an option
+                  </option>
+                  <option>
+                    Uninsulated
+                  </option>
+                  <option>
+                    Insulated (R10)
+                  </option>
+                </select>
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    W/m²K
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
         <div
-          className="subNavigationContent"
+          className="SectionOutput"
         >
-          <section
-            className="Questions"
-          >
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="designCost"
-              >
-                Design Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={0}
-                id="designCost"
-                name="designCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="designQuantity"
-              >
-                Design Quantity
-              </label>
-              <input
-                className="form-control"
-                defaultValue={1}
-                id="designQuantity"
-                name="designQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="airtightnessCost"
-              >
-                Airtightness Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={10}
-                id="airtightnessCost"
-                name="airtightnessCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of envelope
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="airtightnessQuantity"
-              >
-                Airtightness Quantity
-                 (Calculated: 420.6)
-              </label>
-              <input
-                className="form-control"
-                id="airtightnessQuantity"
-                name="airtightnessQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  m² of envelope
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="windowsCost"
-              >
-                Windows Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={400}
-                id="windowsCost"
-                name="windowsCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of window
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="windowsQuantity"
-              >
-                Windows Quantity
-                 (Calculated: 28.0)
-              </label>
-              <input
-                className="form-control"
-                id="windowsQuantity"
-                name="windowsQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  m² of window
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="insulationCost"
-              >
-                Insulation Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={25}
-                id="insulationCost"
-                name="insulationCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of envelope
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="insulationQuantity"
-              >
-                Insulation Quantity
-                 (Calculated: 420.6)
-              </label>
-              <input
-                className="form-control"
-                id="insulationQuantity"
-                name="insulationQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  m² of envelope
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="ventilationCost"
-              >
-                Ventilation with Energy Recovery (ERV/HRV) Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={4000}
-                id="ventilationCost"
-                name="ventilationCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="ventilationQuantity"
-              >
-                Ventilation with Energy Recovery (ERV/HRV) Quantity
-              </label>
-              <input
-                className="form-control"
-                defaultValue={1}
-                id="ventilationQuantity"
-                name="ventilationQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="heatPumpCost"
-              >
-                Heat Pump Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={5000}
-                id="heatPumpCost"
-                name="heatPumpCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of envelope
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="heatPumpQuantity"
-              >
-                Heat Pump Quantity
-              </label>
-              <input
-                className="form-control"
-                defaultValue={1}
-                id="heatPumpQuantity"
-                name="heatPumpQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="waterHeaterCost"
-              >
-                Water Heater, Drain Water Heat Recovery Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={2000}
-                id="waterHeaterCost"
-                name="waterHeaterCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of window
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="waterHeaterQuantity"
-              >
-                Water Heater, Drain Water Heat Recovery Quantity
-              </label>
-              <input
-                className="form-control"
-                defaultValue={1}
-                id="waterHeaterQuantity"
-                name="waterHeaterQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="solarCost"
-              >
-                Solar PV 13.3 kW Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={412}
-                id="solarCost"
-                name="solarCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of solar
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="solarQuantity"
-              >
-                Solar PV 13.3 kW Quantity
-                 (Calculated: 64.4)
-              </label>
-              <input
-                className="form-control"
-                id="solarQuantity"
-                name="solarQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  m² of solar
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="batteryCost"
-              >
-                Battery Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={0}
-                id="batteryCost"
-                name="batteryCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $/m² of solar
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="batteryQuantity"
-              >
-                Battery Quantity
-              </label>
-              <input
-                className="form-control"
-                id="batteryQuantity"
-                name="batteryQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  m² of solar
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="energyMonitorCost"
-              >
-                Energy Monitor Unit Cost (Installed)
-              </label>
-              <input
-                className="form-control"
-                defaultValue={300}
-                id="energyMonitorCost"
-                name="energyMonitorCost"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  $
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="energyMonitorQuantity"
-              >
-                Energy Monitor Quantity
-              </label>
-              <input
-                className="form-control"
-                defaultValue={1}
-                id="energyMonitorQuantity"
-                name="energyMonitorQuantity"
-                onChange={[Function]}
-                required={false}
-                type="number"
-              />
-            </div>
-          </section>
+          <br />
+          <br />
         </div>
       </div>
       <div
         className="fieldset  form-group"
       >
-        <h2>
-          Business Case
-        </h2>
-        <p>
-          Lorem ipsum
-        </p>
-        <div
-          className="subNavigation"
+        <h2
+          className="SectionTitle"
         >
-          <button
-            className="active"
-            onClick={[Function]}
+          Net-Zero Financing
+        </h2>
+        <div
+          className="SectionMain"
+        >
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined,
+              }
+            }
+          />
+          <div
+            className="subNavigation"
           >
-            Business
-          </button>
+            <div
+              className="active SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                1
+              </div>
+              <button>
+                Net-Zero Financing
+              </button>
+            </div>
+            <div
+              className="SubNavigationButton"
+              onClick={[Function]}
+            >
+              <div
+                className="Step"
+              >
+                2
+              </div>
+              <button>
+                Business Case
+              </button>
+            </div>
+          </div>
+          <div
+            className="subNavigationContent"
+          >
+            <section
+              className="Questions"
+            >
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="designCost"
+                >
+                  Design Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={0}
+                  id="designCost"
+                  name="designCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="designQuantity"
+                >
+                  Design Quantity
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={1}
+                  id="designQuantity"
+                  name="designQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="airtightnessCost"
+                >
+                  Airtightness Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={10}
+                  id="airtightnessCost"
+                  name="airtightnessCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of envelope
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="airtightnessQuantity"
+                >
+                  Airtightness Quantity
+                   (Calculated: 420.6)
+                </label>
+                <input
+                  className="form-control"
+                  id="airtightnessQuantity"
+                  name="airtightnessQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    m² of envelope
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="windowsCost"
+                >
+                  Windows Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={400}
+                  id="windowsCost"
+                  name="windowsCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of window
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="windowsQuantity"
+                >
+                  Windows Quantity
+                   (Calculated: 28.0)
+                </label>
+                <input
+                  className="form-control"
+                  id="windowsQuantity"
+                  name="windowsQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    m² of window
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="insulationCost"
+                >
+                  Insulation Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={25}
+                  id="insulationCost"
+                  name="insulationCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of envelope
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="insulationQuantity"
+                >
+                  Insulation Quantity
+                   (Calculated: 420.6)
+                </label>
+                <input
+                  className="form-control"
+                  id="insulationQuantity"
+                  name="insulationQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    m² of envelope
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="ventilationCost"
+                >
+                  Ventilation with Energy Recovery (ERV/HRV) Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={4000}
+                  id="ventilationCost"
+                  name="ventilationCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="ventilationQuantity"
+                >
+                  Ventilation with Energy Recovery (ERV/HRV) Quantity
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={1}
+                  id="ventilationQuantity"
+                  name="ventilationQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="heatPumpCost"
+                >
+                  Heat Pump Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={5000}
+                  id="heatPumpCost"
+                  name="heatPumpCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of envelope
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="heatPumpQuantity"
+                >
+                  Heat Pump Quantity
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={1}
+                  id="heatPumpQuantity"
+                  name="heatPumpQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="waterHeaterCost"
+                >
+                  Water Heater, Drain Water Heat Recovery Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={2000}
+                  id="waterHeaterCost"
+                  name="waterHeaterCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of window
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="waterHeaterQuantity"
+                >
+                  Water Heater, Drain Water Heat Recovery Quantity
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={1}
+                  id="waterHeaterQuantity"
+                  name="waterHeaterQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="solarCost"
+                >
+                  Solar PV 13.3 kW Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={412}
+                  id="solarCost"
+                  name="solarCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of solar
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="solarQuantity"
+                >
+                  Solar PV 13.3 kW Quantity
+                   (Calculated: 64.4)
+                </label>
+                <input
+                  className="form-control"
+                  id="solarQuantity"
+                  name="solarQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    m² of solar
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="batteryCost"
+                >
+                  Battery Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={0}
+                  id="batteryCost"
+                  name="batteryCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $/m² of solar
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="batteryQuantity"
+                >
+                  Battery Quantity
+                </label>
+                <input
+                  className="form-control"
+                  id="batteryQuantity"
+                  name="batteryQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    m² of solar
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="energyMonitorCost"
+                >
+                  Energy Monitor Unit Cost (Installed)
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={300}
+                  id="energyMonitorCost"
+                  name="energyMonitorCost"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <span
+                    className="input-group-text"
+                  >
+                    $
+                  </span>
+                </div>
+              </div>
+              <div
+                className="input-group"
+              >
+                <label
+                  className=""
+                  htmlFor="energyMonitorQuantity"
+                >
+                  Energy Monitor Quantity
+                </label>
+                <input
+                  className="form-control"
+                  defaultValue={1}
+                  id="energyMonitorQuantity"
+                  name="energyMonitorQuantity"
+                  onChange={[Function]}
+                  required={false}
+                  type="number"
+                />
+              </div>
+            </section>
+          </div>
         </div>
         <div
-          className="subNavigationContent"
+          className="SectionOutput"
         >
-          <section
-            className="Questions"
-          >
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="paceLoanTerm"
-              >
-                PACE Loan Term
-              </label>
-              <input
-                className="form-control"
-                defaultValue={20}
-                id="paceLoanTerm"
-                name="paceLoanTerm"
-                onChange={[Function]}
-                required={true}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  years
-                </span>
-              </div>
-            </div>
-            <div
-              className="input-group"
-            >
-              <label
-                className=""
-                htmlFor="interest"
-              >
-                Interest
-              </label>
-              <input
-                className="form-control"
-                defaultValue={4}
-                id="interest"
-                name="interest"
-                onChange={[Function]}
-                required={true}
-                type="number"
-              />
-              <div
-                className="input-group-append"
-              >
-                <span
-                  className="input-group-text"
-                >
-                  %
-                </span>
-              </div>
-            </div>
-          </section>
+          
         </div>
       </div>
-    </div>
-    <div
-      className="Navigation"
-    >
-      <button
-        className="active"
-        onClick={[Function]}
+      <div
+        className="fieldset  form-group"
       >
-        Introduction
-      </button>
-      <br />
-      <button
-        className=""
-        onClick={[Function]}
-      >
-        Parameters - Model A
-      </button>
-      <br />
-      <button
-        className=""
-        onClick={[Function]}
-      >
-        Parameters - Model B
-      </button>
-      <br />
-      <button
-        className=""
-        onClick={[Function]}
-      >
-        Financing the Net-zero Upgrade
-      </button>
-      <br />
-      <button
-        className=""
-        onClick={[Function]}
-      >
-        Business Case
-      </button>
-      <br />
-    </div>
-  </div>
-  <div
-    className="DevResults"
-    style={
-      Object {
-        "backgroundColor": "white",
-        "padding": "1rem",
-      }
-    }
-  >
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <h3>
-        Input
-      </h3>
-      <pre>
-        {
-  "length": 10.56,
-  "width": 6.09,
-  "height": 7.59,
-  "depth": 2.02,
-  "interiorFloorArea": 162.1,
-  "people": 4,
-  "units": 1,
-  "roofArea": 64.3,
-  "floorArea": 64.3,
-  "availableSolarArea": 64.3,
-  "north": 6.48,
-  "east": 3.24,
-  "south": 12.97,
-  "west": 3.24,
-  "exteriorSolidDoorArea": 2.1,
-  "buildingVolume": 618,
-  "heatingDegreeDays": 5700,
-  "heatingDegreeHours": 136.8,
-  "airtightness": "10 (100 years old)",
-  "wallAboveGrade": "R10 - 2x4 w Batt",
-  "wallBelowGrade": "R6 - Concrete Uninsulated",
-  "roof": "R20 - 6\\"",
-  "floor": "R6 - Uninsulated [NBC Below Frost]",
-  "windows": "Double Pane",
-  "solidDoor": "Uninsulated",
-  "ventilation": "Exhaust Only",
-  "heating": "Mid Eff. Furnace / Boiler",
-  "cooling": "None",
-  "hotWaterHeater": "Mid Eff. Water Heater / Boiler",
-  "hotWaterHeaterStorage": "Tank",
-  "drainWaterHeatRecovery": "No",
-  "hotWaterFixtures": "Standard fixtures, House",
-  "lighting": "Standard Lighting, House",
-  "appliances": "Standard Appliances, House",
-  "plugLoads": "Fixed plug loads, House",
-  "spaceHeatingFuelType": "Natural Gas (Fossil)",
-  "hotWaterFuelType": "Natural Gas (Fossil)",
-  "lightsAppliancesPlugsFuelType": "Electricity",
-  "carbonPrice": 103,
-  "electricityPrice": 0.15,
-  "electricityCarbon": 0.6,
-  "cleanElectricityPrice": 0.15,
-  "cleanElectricityCarbon": 0,
-  "naturalGasFossilPrice": 0.022,
-  "naturalGasFossilCarbon": 0.25,
-  "cleanGasPrice": 0.063,
-  "cleanGasCarbon": 0,
-  "propanePrice": 0.127,
-  "propaneCarbon": 0.27,
-  "woodPelletsPrice": 0.075,
-  "woodPelletsCarbon": 0.27,
-  "airtightnessB": "1.0 (Net-zero)",
-  "wallAboveGradeB": "R31 - 2x4 + 6\\" Rigid",
-  "wallBelowGradeB": "R25 - Conc. + 6\\" Rigid",
-  "roofB": "R80 - 24\\"",
-  "floorB": "R25 - 6\\" Rigid",
-  "windowsB": "Triple Pane (High Performance) - Low SHGC",
-  "solidDoorB": "Insulated (R10)",
-  "ventilationB": "85%",
-  "heatingB": "Air Source Heat Pump",
-  "coolingB": "Air Source Heat Pump",
-  "hotWaterHeaterB": "Heat Pump Water Heater",
-  "hotWaterHeaterStorageB": "Tank",
-  "drainWaterHeatRecoveryB": "Yes",
-  "hotWaterFixturesB": "Low flow fixtures, House",
-  "lightingB": "LED Lighting",
-  "appliancesB": "EnergyStar Appliances, House",
-  "plugLoadsB": "Fixed plug loads, House",
-  "spaceHeatingFuelTypeB": "Clean Electricity",
-  "hotWaterFuelTypeB": "Clean Electricity",
-  "lightsAppliancesPlugsFuelTypeB": "Clean Electricity",
-  "designCost": 0,
-  "designQuantity": 1,
-  "airtightnessCost": 10,
-  "windowsCost": 400,
-  "insulationCost": 25,
-  "ventilationCost": 4000,
-  "ventilationQuantity": 1,
-  "heatPumpCost": 5000,
-  "heatPumpQuantity": 1,
-  "waterHeaterCost": 2000,
-  "waterHeaterQuantity": 1,
-  "solarCost": 412,
-  "batteryCost": 0,
-  "energyMonitorCost": 300,
-  "energyMonitorQuantity": 1,
-  "paceLoanTerm": 20,
-  "interest": 4
-}
-      </pre>
-    </div>
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <h3>
-        Output
-      </h3>
-      <pre>
-        {
-  "heatingAndCoolingA": {
-    "totalHeatingQ": "44803.391936318345292",
-    "totalCoolingQ": "10061.259715926341934871329707473284776329498920219525903392",
-    "totalAreaLessDoor": "420.583",
-    "totalWindowArea": "28.03"
-  },
-  "annualSpaceHeatingA": {
-    "wallAboveGradeG1kwha": "16999.9309368",
-    "wallBelowGradeG1kwha": "4600.9944",
-    "roofG1kwha": "2498.13216",
-    "floorG1kwha": "4398.12",
-    "exteriorDoorsG1kwha": "1689.78096",
-    "windowsG1kwha": "10286.9496",
-    "totalG1kwha": "40473.9080568",
-    "ventilationkwha": "5488.3818",
-    "infiltrationkwha": "15918.587468111218921866",
-    "totalLoss": "61880.877324911218921866",
-    "annualHeatingDemand": "56439.377135739343921866",
-    "spaceHeatingDemand": "348.17629324947158495907",
-    "utilizationFactor": 0.85,
-    "totalInternalHeatGainsKwha": "2091.09",
-    "totalSolarGainsKwha": "4310.6749284375"
-  },
-  "heatingAndCoolingB": {
-    "totalHeatingQ": "7843.4394176318345292",
-    "totalCoolingQ": "3898.2644534872702088128259827205085542613023700219525903392",
-    "totalAreaLessDoor": "420.583",
-    "totalWindowArea": "28.03"
-  },
-  "annualSpaceHeatingB": {
-    "wallAboveGradeG1kwha": "5625.6552648",
-    "wallBelowGradeG1kwha": "1049.0267232",
-    "roofG1kwha": "624.53304",
-    "floorG1kwha": "1011.5676",
-    "exteriorDoorsG1kwha": "163.17504",
-    "windowsG1kwha": "3547.224",
-    "totalG1kwha": "12021.181668",
-    "ventilationkwha": "823.25727",
-    "infiltrationkwha": "1591.8587468111218921866",
-    "totalLoss": "14436.2976848111218921866",
-    "annualHeatingDemand": "10722.1465205345593921866",
-    "spaceHeatingDemand": "66.14525922599974948912",
-    "utilizationFactor": 0.85,
-    "totalInternalHeatGainsKwha": "2091.09",
-    "totalSolarGainsKwha": "2278.49960503125"
-  },
-  "outputA": {
-    "heatingLoad": "49.2837311299501798212",
-    "coolingLoad": "10.06125971592634193487",
-    "spaceHeating": "71399.2214196741799023325",
-    "hotWater": "8406.25",
-    "lightsAppliancesPlugs": "6789",
-    "totalEnergyConsumption": "86594.4714196741799023325",
-    "spaceHeatingDemand": "348.17629324947158495907",
-    "spaceHeatingAnnualCost": "3687.712822789442090336376875",
-    "hotWaterAnnualCost": "401.3984375",
-    "lightsAppliancesPlugsAnnualCost": "1437.9102",
-    "totalEnergyCosts": "5527.021460289442090336376875"
-  },
-  "outputB": {
-    "heatingLoad": "8.62778335939501798212",
-    "coolingLoad": "3.89826445348727020881",
-    "spaceHeating": "6211.0732602672796960933",
-    "hotWater": "1785.32608695652173913043",
-    "lightsAppliancesPlugs": "5694",
-    "totalEnergyConsumption": "13690.39934722380143522373",
-    "spaceHeatingDemand": "66.14525922599974948912",
-    "spaceHeatingAnnualCost": "931.660989040091954413995",
-    "hotWaterAnnualCost": "267.7989130434782608695645",
-    "lightsAppliancesPlugsAnnualCost": "854.1",
-    "totalEnergyCosts": "2053.5599020835702152835595"
-  },
-  "economics": {
-    "design": 0,
-    "airtightness": null,
-    "windows": null,
-    "insulation": null,
-    "ventilation": 4000,
-    "heatPump": 5000,
-    "waterHeater": 2000,
-    "solar": null,
-    "battery": null,
-    "energyMonitor": 300,
-    "annualSavings": "5527.021460289442090336376875",
-    "accumulationSum": null,
-    "investment": null,
-    "irr": null,
-    "monthlyPayments": null,
-    "monthlySavings": 460.5851216907868,
-    "monthlyNetSavings": null
-  },
-  "financing": {
-    "windowsQuantity": "28.0",
-    "airtightnessQuantity": "420.6",
-    "insulationQuantity": "420.6",
-    "solarQuantity": "64.4"
-  },
-  "maxEnergy": 90000
-}
-      </pre>
+        <h2
+          className="SectionTitle"
+        >
+          Glossary
+        </h2>
+        <div
+          className="SectionMain Glossary"
+        >
+          <div
+            className="subNavigationContent"
+          >
+            <h3>
+              How to use this tool
+            </h3>
+            <p>
+              Gather information for the building you would like to assess. This will include:
+            </p>
+            <ol>
+              <li>
+                <strong>
+                  Dimensions
+                </strong>
+                 (overall length, width, height above grade, depth below grade, window areas) - results will be most accurate for a rectangular building as shown below, overrides can be made to accommodate L-shaped and U-shaped buildings.
+              </li>
+              <li>
+                Thermal properties of the 
+                <strong>
+                  building envelope
+                </strong>
+                 (walls, windows, roof, floor)
+              </li>
+              <li>
+                <strong>
+                  Mechanical equipment
+                </strong>
+                 information (heating, cooling, ventilation, hot water)
+              </li>
+              <li>
+                <strong>
+                  Electrical equipment
+                </strong>
+                 information (lighting, appliances)
+              </li>
+            </ol>
+            <h3>
+              General Notes
+            </h3>
+            <p>
+              Do not perform any retrofit work without considering air, vapour and weather barrier detailing.
+            </p>
+            <p>
+              Grant applications will require a pre-retrofit energy audit. Please contact your Energy Advisor before you begin work.
+            </p>
+            <p>
+              A HOT2000 energy model will need to be prepared for grant and financing.
+            </p>
+            <p>
+              More complex energy analysis can be prepared in PHPP, HOT2000 or IESVE.
+            </p>
+            <p>
+              We recommend choosing construction materials with low embodied carbon.
+            </p>
+            <h3>
+              Glossary
+            </h3>
+            <dl>
+              <div
+                className="row"
+              >
+                <dt>
+                  °C
+                </dt>
+                <dd>
+                  degree Celsius, temperature scale
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  a
+                </dt>
+                <dd>
+                  annum, per year
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  ACH, 1/h
+                </dt>
+                <dd>
+                  Air Changes per Hour, used to describe the air leakage during a blower door test, also used to describe ventilation rates. One air change per hour is the volume of the room being fully replaced every hour.
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  batt
+                </dt>
+                <dd>
+                  batt insulation, this could be mineral wool, fibreglass or sheeps wool
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  BTU
+                </dt>
+                <dd>
+                  British Thermal Units, rate: 1 watt = 3.41 BTU per hour, quantity: 1 watt*hour = 3.41 BTU
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  Conc. 
+                </dt>
+                <dd>
+                  concrete
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  effective vs nominal values
+                </dt>
+                <dd>
+                  effective U-values take into account thermal bridging and other aspects that reduce performance rather than nominal performance stated by the manufacture on the packaging for the insulation alone
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  embodied carbon
+                </dt>
+                <dd>
+                  total of greenhouse gas emissions that are caused by the manufacture and supply of construction products and materials, as well as the construction process itself
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  Energuide
+                </dt>
+                <dd>
+                  energy efficiency rating system maintained by the Government of Canada and Natural Resources Canada (NRCan)
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  GJ
+                </dt>
+                <dd>
+                  gigajoule, 1000 megajoules, or 1 billion joules, unit of energy
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  h
+                </dt>
+                <dd>
+                  hours
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  heat pump
+                </dt>
+                <dd>
+                  efficient electric heating system that function based on refrigeration (similar to an air conditioner in reverse, and can provide cooling in the summer), they can be air source or geothermal, they will often require an electric backup heater
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  Heating degree days
+                </dt>
+                <dd>
+                  Heating degree day is a measurement designed to quantify the demand for energy needed to heat a building. HDD is derived from measurements of outside air temperature. The heating requirements for a given building at a specific location are considered to be directly proportional to the number of HDD at that location.
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  Heating degree hours
+                </dt>
+                <dd>
+                  similar to heating degree days but measured in hours, heating degree days x 24
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  HELP, Home Energy Loan Program
+                </dt>
+                <dd>
+                  <a
+                    href="https://www.saskatoon.ca/engage/home-energy-loan-program-help"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Saskatoon Home Energy Loan Program
+                  </a>
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  I-joist
+                </dt>
+                <dd>
+                  I-joists are strong, lightweight, "I" shaped engineered wood structural members that are typically used for floor structures. In net-zero retofits they can be used to create an insulation cavity around an existing home.
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  K
+                </dt>
+                <dd>
+                  Kelvin absolute temperature scale 0 K = -273 °C, a change of 1 K equals a change of 1 °C
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  k, kilo
+                </dt>
+                <dd>
+                  prefix meaning 1000, one thousand
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  kW
+                </dt>
+                <dd>
+                  kilowatts, 1000 watts, power, rate of energy consumption, 1000 joules per second
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  kWh
+                </dt>
+                <dd>
+                  kilowatt*hour, 1000 watt*hours, energy quantity, 1 kilowatt load running for 1 hour, equal to 3.6 megajoules
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  MJ
+                </dt>
+                <dd>
+                  megajoule, another metric unit of energy quantity, one million joules, 3.6 kilowatt*hours
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  MURB
+                </dt>
+                <dd>
+                  multi-unit residential building, an apartment or condominium building
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  net-zero energy
+                </dt>
+                <dd>
+                  A net zero energy home is very energy efficient, it only uses as much energy as it can produce from on-site renewable energy throughout the year. A variation is net-zero carbon.
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  PACE Financing
+                </dt>
+                <dd>
+                  Loans would be provided by the City to be used for energy efficiency retrofits and energy generation on residential properties.  This financing is different than a regular loan as it is tied to a property, not an individual, and therefore has no impact on credit ratings, mortgage limits or other individual debt limits.  Loans would be paid back to the City through property taxes. See City of Saskatoon Home Energy Loan Program (HELP)
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  passivhaus
+                </dt>
+                <dd>
+                  Passivhaus is a voluntary sustainable building standard which results in buildings that require very little energy for space heating or cooling.
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  rigid
+                </dt>
+                <dd>
+                  Rigid insulation, we recommend mineral wool (Rockwool Comfortboard) since it is vapour permeable and allows drying. Expanded polystyrene (EPS) is another option. Wood fibre insulation is emerging as low embodied carbon option.
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  R-value
+                </dt>
+                <dd>
+                  thermal resistance, higher is better, the ability of an assembly to prevent heat flow, R-value is the inverse of U-value, R = 1/U
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  SHGC
+                </dt>
+                <dd>
+                  solar heat gain coefficient, defines how much solar gain is allowed in through a window, high solar gain 50% (for passive solar design), low solar gain 30% (if overheating is a risk)
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  U-value
+                </dt>
+                <dd>
+                  thermal transmittance or heat transfer coefficient, lower is better, the amount of heat that moves through an assembly for a unit area and temperature difference, U-value is the inverse of R-value, U = 1/R
+                </dd>
+              </div>
+            </dl>
+            <h3>
+              Conversion Table
+            </h3>
+            <dl>
+              <div
+                className="row"
+              >
+                <dt>
+                  1 m
+                </dt>
+                <dd>
+                  3.28 ft
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  1 m²
+                </dt>
+                <dd>
+                  10.8 ft²
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  U-value [metric] 
+                </dt>
+                <dd>
+                  5.678 / R-value [imperial]
+                </dd>
+              </div>
+              <div
+                className="row"
+              >
+                <dt>
+                  R-value [imperial]
+                </dt>
+                <dd>
+                  5.678 / U-value [metric]
+                </dd>
+              </div>
+            </dl>
+            <img
+              alt="Conversion table for U <> R"
+              src="/img/conversion.png"
+            />
+            <h3>
+              Technical Notes
+            </h3>
+            <ol>
+              <li>
+                Insulation effective R-values account for NBC 9.36 typical framing percentages.
+              </li>
+              <li>
+                Contact 
+                <a
+                  href="https://brightbuildings.ca/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Bright Buildings
+                </a>
+                 for photos, details and schematics designs.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -2010,5 +2291,445 @@ exports[`renders formatQuestion with text question 1`] = `
     required={true}
     type="text"
   />
+</div>
+`;
+
+exports[`renders getGlossarySection 1`] = `
+<div
+  className="fieldset active form-group"
+>
+  <h2
+    className="SectionTitle"
+  >
+    Glossary
+  </h2>
+  <div
+    className="SectionMain Glossary"
+  >
+    <div
+      className="subNavigationContent"
+    >
+      <h3>
+        How to use this tool
+      </h3>
+      <p>
+        Gather information for the building you would like to assess. This will include:
+      </p>
+      <ol>
+        <li>
+          <strong>
+            Dimensions
+          </strong>
+           (overall length, width, height above grade, depth below grade, window areas) - results will be most accurate for a rectangular building as shown below, overrides can be made to accommodate L-shaped and U-shaped buildings.
+        </li>
+        <li>
+          Thermal properties of the 
+          <strong>
+            building envelope
+          </strong>
+           (walls, windows, roof, floor)
+        </li>
+        <li>
+          <strong>
+            Mechanical equipment
+          </strong>
+           information (heating, cooling, ventilation, hot water)
+        </li>
+        <li>
+          <strong>
+            Electrical equipment
+          </strong>
+           information (lighting, appliances)
+        </li>
+      </ol>
+      <h3>
+        General Notes
+      </h3>
+      <p>
+        Do not perform any retrofit work without considering air, vapour and weather barrier detailing.
+      </p>
+      <p>
+        Grant applications will require a pre-retrofit energy audit. Please contact your Energy Advisor before you begin work.
+      </p>
+      <p>
+        A HOT2000 energy model will need to be prepared for grant and financing.
+      </p>
+      <p>
+        More complex energy analysis can be prepared in PHPP, HOT2000 or IESVE.
+      </p>
+      <p>
+        We recommend choosing construction materials with low embodied carbon.
+      </p>
+      <h3>
+        Glossary
+      </h3>
+      <dl>
+        <div
+          className="row"
+        >
+          <dt>
+            °C
+          </dt>
+          <dd>
+            degree Celsius, temperature scale
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            a
+          </dt>
+          <dd>
+            annum, per year
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            ACH, 1/h
+          </dt>
+          <dd>
+            Air Changes per Hour, used to describe the air leakage during a blower door test, also used to describe ventilation rates. One air change per hour is the volume of the room being fully replaced every hour.
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            batt
+          </dt>
+          <dd>
+            batt insulation, this could be mineral wool, fibreglass or sheeps wool
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            BTU
+          </dt>
+          <dd>
+            British Thermal Units, rate: 1 watt = 3.41 BTU per hour, quantity: 1 watt*hour = 3.41 BTU
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            Conc. 
+          </dt>
+          <dd>
+            concrete
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            effective vs nominal values
+          </dt>
+          <dd>
+            effective U-values take into account thermal bridging and other aspects that reduce performance rather than nominal performance stated by the manufacture on the packaging for the insulation alone
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            embodied carbon
+          </dt>
+          <dd>
+            total of greenhouse gas emissions that are caused by the manufacture and supply of construction products and materials, as well as the construction process itself
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            Energuide
+          </dt>
+          <dd>
+            energy efficiency rating system maintained by the Government of Canada and Natural Resources Canada (NRCan)
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            GJ
+          </dt>
+          <dd>
+            gigajoule, 1000 megajoules, or 1 billion joules, unit of energy
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            h
+          </dt>
+          <dd>
+            hours
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            heat pump
+          </dt>
+          <dd>
+            efficient electric heating system that function based on refrigeration (similar to an air conditioner in reverse, and can provide cooling in the summer), they can be air source or geothermal, they will often require an electric backup heater
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            Heating degree days
+          </dt>
+          <dd>
+            Heating degree day is a measurement designed to quantify the demand for energy needed to heat a building. HDD is derived from measurements of outside air temperature. The heating requirements for a given building at a specific location are considered to be directly proportional to the number of HDD at that location.
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            Heating degree hours
+          </dt>
+          <dd>
+            similar to heating degree days but measured in hours, heating degree days x 24
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            HELP, Home Energy Loan Program
+          </dt>
+          <dd>
+            <a
+              href="https://www.saskatoon.ca/engage/home-energy-loan-program-help"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Saskatoon Home Energy Loan Program
+            </a>
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            I-joist
+          </dt>
+          <dd>
+            I-joists are strong, lightweight, "I" shaped engineered wood structural members that are typically used for floor structures. In net-zero retofits they can be used to create an insulation cavity around an existing home.
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            K
+          </dt>
+          <dd>
+            Kelvin absolute temperature scale 0 K = -273 °C, a change of 1 K equals a change of 1 °C
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            k, kilo
+          </dt>
+          <dd>
+            prefix meaning 1000, one thousand
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            kW
+          </dt>
+          <dd>
+            kilowatts, 1000 watts, power, rate of energy consumption, 1000 joules per second
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            kWh
+          </dt>
+          <dd>
+            kilowatt*hour, 1000 watt*hours, energy quantity, 1 kilowatt load running for 1 hour, equal to 3.6 megajoules
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            MJ
+          </dt>
+          <dd>
+            megajoule, another metric unit of energy quantity, one million joules, 3.6 kilowatt*hours
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            MURB
+          </dt>
+          <dd>
+            multi-unit residential building, an apartment or condominium building
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            net-zero energy
+          </dt>
+          <dd>
+            A net zero energy home is very energy efficient, it only uses as much energy as it can produce from on-site renewable energy throughout the year. A variation is net-zero carbon.
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            PACE Financing
+          </dt>
+          <dd>
+            Loans would be provided by the City to be used for energy efficiency retrofits and energy generation on residential properties.  This financing is different than a regular loan as it is tied to a property, not an individual, and therefore has no impact on credit ratings, mortgage limits or other individual debt limits.  Loans would be paid back to the City through property taxes. See City of Saskatoon Home Energy Loan Program (HELP)
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            passivhaus
+          </dt>
+          <dd>
+            Passivhaus is a voluntary sustainable building standard which results in buildings that require very little energy for space heating or cooling.
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            rigid
+          </dt>
+          <dd>
+            Rigid insulation, we recommend mineral wool (Rockwool Comfortboard) since it is vapour permeable and allows drying. Expanded polystyrene (EPS) is another option. Wood fibre insulation is emerging as low embodied carbon option.
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            R-value
+          </dt>
+          <dd>
+            thermal resistance, higher is better, the ability of an assembly to prevent heat flow, R-value is the inverse of U-value, R = 1/U
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            SHGC
+          </dt>
+          <dd>
+            solar heat gain coefficient, defines how much solar gain is allowed in through a window, high solar gain 50% (for passive solar design), low solar gain 30% (if overheating is a risk)
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            U-value
+          </dt>
+          <dd>
+            thermal transmittance or heat transfer coefficient, lower is better, the amount of heat that moves through an assembly for a unit area and temperature difference, U-value is the inverse of R-value, U = 1/R
+          </dd>
+        </div>
+      </dl>
+      <h3>
+        Conversion Table
+      </h3>
+      <dl>
+        <div
+          className="row"
+        >
+          <dt>
+            1 m
+          </dt>
+          <dd>
+            3.28 ft
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            1 m²
+          </dt>
+          <dd>
+            10.8 ft²
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            U-value [metric] 
+          </dt>
+          <dd>
+            5.678 / R-value [imperial]
+          </dd>
+        </div>
+        <div
+          className="row"
+        >
+          <dt>
+            R-value [imperial]
+          </dt>
+          <dd>
+            5.678 / U-value [metric]
+          </dd>
+        </div>
+      </dl>
+      <img
+        alt="Conversion table for U <> R"
+        src="/img/conversion.png"
+      />
+      <h3>
+        Technical Notes
+      </h3>
+      <ol>
+        <li>
+          Insulation effective R-values account for NBC 9.36 typical framing percentages.
+        </li>
+        <li>
+          Contact 
+          <a
+            href="https://brightbuildings.ca/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Bright Buildings
+          </a>
+           for photos, details and schematics designs.
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>
 `;

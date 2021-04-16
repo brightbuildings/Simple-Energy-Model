@@ -1,4 +1,4 @@
-import { Content, formatSections, formatNavigation, formatQuestion, setDefaultVariables } from './Content';
+import { Content, formatSections, formatNavigation, formatQuestion, setDefaultVariables, getGlossarySection } from './Content';
 import renderer from "react-test-renderer";
 
 jest.mock('react-chartjs-2', () => ({
@@ -136,6 +136,13 @@ test("renders formatQuestion with select question", () => {
   const result = renderer.create(formatQuestion(questionSelect, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
+
+test("renders getGlossarySection", () => {
+  const result = renderer.create(getGlossarySection("glossary"));
+  expect(result).toMatchSnapshot();
+});
+
+test.todo("renders getSidebar");
 
 test("runs setDefaultVariables", () => {
     const data = {
