@@ -99,7 +99,7 @@
             "type": "label"
           },
           "availableSolarArea": {
-            "label": "Available Solar Area",
+            "label": "Available Solar Collector Area",
             "type": "float",
             "unit": "m²",
             "required": true,
