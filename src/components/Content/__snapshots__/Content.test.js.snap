@@ -1205,12 +1205,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={0}
                   id="designCost"
                   name="designCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={0}
                 />
                 <div
                   className="input-group-append"
@@ -1233,12 +1233,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={1}
                   id="designQuantity"
                   name="designQuantity"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={1}
                 />
               </div>
               <div
@@ -1252,12 +1252,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={10}
                   id="airtightnessCost"
                   name="airtightnessCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={10}
                 />
                 <div
                   className="input-group-append"
@@ -1308,12 +1308,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={400}
                   id="windowsCost"
                   name="windowsCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={400}
                 />
                 <div
                   className="input-group-append"
@@ -1364,12 +1364,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={25}
                   id="insulationCost"
                   name="insulationCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={25}
                 />
                 <div
                   className="input-group-append"
@@ -1420,12 +1420,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={4000}
                   id="ventilationCost"
                   name="ventilationCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={4000}
                 />
                 <div
                   className="input-group-append"
@@ -1448,12 +1448,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={1}
                   id="ventilationQuantity"
                   name="ventilationQuantity"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={1}
                 />
               </div>
               <div
@@ -1467,12 +1467,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={5000}
                   id="heatPumpCost"
                   name="heatPumpCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={5000}
                 />
                 <div
                   className="input-group-append"
@@ -1495,12 +1495,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={1}
                   id="heatPumpQuantity"
                   name="heatPumpQuantity"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={1}
                 />
               </div>
               <div
@@ -1514,12 +1514,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={2000}
                   id="waterHeaterCost"
                   name="waterHeaterCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={2000}
                 />
                 <div
                   className="input-group-append"
@@ -1542,12 +1542,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={1}
                   id="waterHeaterQuantity"
                   name="waterHeaterQuantity"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={1}
                 />
               </div>
               <div
@@ -1561,12 +1561,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={412}
                   id="solarCost"
                   name="solarCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={412}
                 />
                 <div
                   className="input-group-append"
@@ -1617,12 +1617,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={0}
                   id="batteryCost"
                   name="batteryCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={0}
                 />
                 <div
                   className="input-group-append"
@@ -1672,12 +1672,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={300}
                   id="energyMonitorCost"
                   name="energyMonitorCost"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={300}
                 />
                 <div
                   className="input-group-append"
@@ -1700,12 +1700,12 @@ exports[`renders Content 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  defaultValue={1}
                   id="energyMonitorQuantity"
                   name="energyMonitorQuantity"
                   onChange={[Function]}
                   required={false}
                   type="number"
+                  value={1}
                 />
               </div>
             </section>
@@ -2159,140 +2159,15 @@ exports[`renders Content 1`] = `
 </div>
 `;
 
-exports[`renders formatQuestion with float question 1`] = `
-<div
-  className="input-group"
->
-  <label
-    className=""
-    htmlFor="questionFloat"
-  >
-    Float
-  </label>
-  <input
-    className="form-control"
-    id="questionFloat"
-    name="questionFloat"
-    onChange={[Function]}
-    required={true}
-    type="number"
-  />
-</div>
-`;
+exports[`renders FormatQuestion with float question 1`] = `null`;
 
-exports[`renders formatQuestion with gap question 1`] = `
-<div
-  className="spacer"
->
-   
-</div>
-`;
+exports[`renders FormatQuestion with gap question 1`] = `null`;
 
-exports[`renders formatQuestion with integer question 1`] = `
-<div
-  className="input-group"
->
-  <label
-    className=""
-    htmlFor="question2Key"
-  >
-    Integer
-  </label>
-  <input
-    className="form-control"
-    id="question2Key"
-    name="question2Key"
-    onChange={[Function]}
-    required={false}
-    type="number"
-  />
-  <div
-    className="input-group-append"
-  >
-    <span
-      className="input-group-text"
-    >
-      IBU
-    </span>
-  </div>
-</div>
-`;
+exports[`renders FormatQuestion with integer question 1`] = `null`;
 
-exports[`renders formatQuestion with select question 1`] = `
-<div
-  className="input-group"
->
-  <label
-    className=""
-    htmlFor="question5Key"
-  >
-    Select
-  </label>
-  <select
-    className="form-control"
-    id="question5Key"
-    name="question5Key"
-    onChange={[Function]}
-    required={false}
-    value="disabled"
-  >
-    <option
-      disabled="disabled"
-      value="disabled"
-    >
-      Select an option
-    </option>
-    <option>
-      Electricity
-    </option>
-    <option>
-      Clean Electricity
-    </option>
-    <option>
-      Natural Gass (Fossil)
-    </option>
-    <option>
-      Clean Gas
-    </option>
-    <option>
-      Propane
-    </option>
-    <option>
-      Wood Pellets
-    </option>
-  </select>
-  <div
-    className="input-group-append"
-  >
-    <span
-      className="input-group-text"
-    >
-      IBU
-    </span>
-  </div>
-</div>
-`;
+exports[`renders FormatQuestion with select question 1`] = `null`;
 
-exports[`renders formatQuestion with text question 1`] = `
-<div
-  className="input-group"
->
-  <label
-    className=""
-    htmlFor="question3Key"
-  >
-    Text Label
-  </label>
-  <input
-    className="form-control"
-    id="question3Key"
-    name="question3Key"
-    onChange={[Function]}
-    required={true}
-    type="text"
-  />
-</div>
-`;
+exports[`renders FormatQuestion with text question 1`] = `null`;
 
 exports[`renders getGlossarySection 1`] = `
 <div
