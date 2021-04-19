@@ -253,7 +253,7 @@ function FinancingSavingsBar (){
   const dataCost = [];
   const dataSavings = [];
   const dataAnnualSavings = [];
-  
+
   let totalSavings = 0;
   for (let i = 0; i < 20; i++) {
     xLabels.push(new Date().getFullYear() + i + 1);
@@ -285,8 +285,11 @@ function FinancingSavingsBar (){
         }}
         options={{
           scales: {
+            xAxes: [
+              {id: 'time', offset: true},
+            ],
             yAxes: [
-              {id: 'annual', ticks: {beginAtZero: false, callback: tickCallback}, position: "left"},
+              {id: 'annual', ticks: {beginAtZero: true, callback: tickCallback}, position: "left"},
               {id: 'total', position: 'right', ticks: {callback: tickCallback}}
             ],
           }
