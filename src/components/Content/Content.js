@@ -258,7 +258,7 @@ const formatQuestion = (question, variables, setVariables, output) => {
     const w = parseFloat(variables.width) || 0;
     const h1 = parseFloat(variables.height) || 0;
     const h2 = parseFloat(variables.depth) || 0;
-    moreLabel = l * w * (h1 + h2);
+    moreLabel = (l * w * (h1 + h2)).toFixed(0);
   }
 
   switch (value?.type) {
