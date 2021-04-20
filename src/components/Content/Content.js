@@ -251,8 +251,15 @@ const formatQuestion = (question, variables, setVariables, output) => {
   }
   const [key, value] = question;
 
-  const moreLabel = output?.financing?.[key];
+  let moreLabel = output?.financing?.[key];
   const required = value?.required === true;
+  if (key === "buildingVolume") {
+    const l = parseFloat(variables.length) || 0;
+    const w = parseFloat(variables.width) || 0;
+    const h1 = parseFloat(variables.height) || 0;
+    const h2 = parseFloat(variables.depth) || 0;
+    moreLabel = l * w * (h1 + h2);
+  }
 
   switch (value?.type) {
     case "float": // fall through
