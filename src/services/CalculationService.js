@@ -340,26 +340,26 @@ const getOutput = (variables, optionObjects, heatingAndCooling, annualSpaceHeati
 };
 
 const getEconomics = (variables, outputA) => {
-  const designCost = parseFloat(variables.designCost);
-  const designQuantity = parseFloat(variables.designQuantity);
-  const airtightnessCost = parseFloat(variables.airtightnessCost)
-  const airtightnessQuantity = parseFloat(variables.airtightnessQuantity);
-  const windowsCost = parseFloat(variables.windowsCost);
-  const windowsQuantity = parseFloat(variables.windowsQuantity);
-  const insulationCost = parseFloat(variables.insulationCost);
-  const insulationQuantity = parseFloat(variables.insulationQuantity);
-  const ventilationCost = parseFloat(variables.ventilationCost);
-  const ventilationQuantity = parseFloat(variables.ventilationQuantity);
-  const heatPumpCost = parseFloat(variables.heatPumpCost);
-  const heatPumpQuantity = parseFloat(variables.heatPumpQuantity);
-  const waterHeaterCost = parseFloat(variables.waterHeaterCost);
-  const waterHeaterQuantity = parseFloat(variables.waterHeaterQuantity);
-  const solarCost = parseFloat(variables.solarCost);
-  const solarQuantity = parseFloat(variables.solarQuantity);
-  const batteryCost = parseFloat(variables.batteryCost);
-  const batteryQuantity = parseFloat(variables.batteryQuantity);
-  const energyMonitorCost = parseFloat(variables.energyMonitorCost);
-  const energyMonitorQuantity = parseFloat(variables.energyMonitorQuantity);
+  const designCost = parseFloat(variables.designCost) || 0;
+  const designQuantity = parseFloat(variables.designQuantity) || 0;
+  const airtightnessCost = parseFloat(variables.airtightnessCost || 0)
+  const airtightnessQuantity = parseFloat(variables.airtightnessQuantity) || 0;
+  const windowsCost = parseFloat(variables.windowsCost) || 0;
+  const windowsQuantity = parseFloat(variables.windowsQuantity) || 0;
+  const insulationCost = parseFloat(variables.insulationCost) || 0;
+  const insulationQuantity = parseFloat(variables.insulationQuantity) || 0;
+  const ventilationCost = parseFloat(variables.ventilationCost) || 0;
+  const ventilationQuantity = parseFloat(variables.ventilationQuantity) || 0;
+  const heatPumpCost = parseFloat(variables.heatPumpCost) || 0;
+  const heatPumpQuantity = parseFloat(variables.heatPumpQuantity) || 0;
+  const waterHeaterCost = parseFloat(variables.waterHeaterCost) || 0;
+  const waterHeaterQuantity = parseFloat(variables.waterHeaterQuantity) || 0;
+  const solarCost = parseFloat(variables.solarCost) || 0;
+  const solarQuantity = parseFloat(variables.solarQuantity) || 0;
+  const batteryCost = parseFloat(variables.batteryCost) || 0;
+  const batteryQuantity = parseFloat(variables.batteryQuantity) || 0;
+  const energyMonitorCost = parseFloat(variables.energyMonitorCost) || 0;
+  const energyMonitorQuantity = parseFloat(variables.energyMonitorQuantity) || 0;
 
   const design = designCost * designQuantity;
   const airtightness = airtightnessCost * airtightnessQuantity;
@@ -375,7 +375,7 @@ const getEconomics = (variables, outputA) => {
 
   // Business Case
   const investment = total;
-  const annualSavings = outputA.totalEnergyCosts;
+  const annualSavings = parseFloat(outputA.totalEnergyCosts) || 0;
   const payback = total / annualSavings;
   const guess = 0.06;
   const years = [];
