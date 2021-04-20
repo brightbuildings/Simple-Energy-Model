@@ -248,9 +248,9 @@ const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsec
 const calculatedChanges = (key, value) => {
   const variableCalcs = {};
   if (key === "heatingDegreeDays") {
-    variableCalcs.heatingDegreeHours = value * 24 / 1000 ?? 0;
+    variableCalcs.heatingDegreeHours = (value * 24 / 1000) || 0;
   } else if (key === "heatingDegreeHours") {
-    variableCalcs.heatingDegreeDays = (value * 1000 / 24) ?? 0;
+    variableCalcs.heatingDegreeDays = (value * 1000 / 24) || 0;
   }
   return variableCalcs;
 }
@@ -279,7 +279,7 @@ const FormatQuestion = ({question, variables, setVariables, output}) => {
             onChange={input => {
               const { value } = input.currentTarget;
               const otherChanges = calculatedChanges(key, value);
-              setVariables({...variables, ...otherChanges, [key]: input.currentTarget.value});
+              setVariables({...variables, ...otherChanges, [key]: value});
             }}
           />
           {value.unit && (

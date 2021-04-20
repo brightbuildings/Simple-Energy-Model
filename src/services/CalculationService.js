@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const FinancialService = require("./FinancialService");
-const Big = require("big.js");
+const _Big = require("big.js");
+const Big = (v) => _Big(v || 0);
 
 const inputs = {
   "winterSetpoint": 20.0,
