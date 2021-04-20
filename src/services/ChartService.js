@@ -281,9 +281,10 @@ function FinancingSavingsBar (props){
         height={200}
         data={{
           datasets: [
+            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "total", "fill": false, borderColor: "#777"},
             {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "annual", barPercentage: 0.8},
             {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "annual", barPercentage: 0.8},
-            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "total", "fill": false, borderColor: "#888"}],
+          ],
           labels: xLabels,
         }}
         options={{
