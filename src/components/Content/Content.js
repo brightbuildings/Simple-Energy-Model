@@ -198,7 +198,7 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
         </React.Fragment>
       );
     case "financing":
-      return <ChartService.FinancingSavingsBar output={output.outputA} variables={variables} />;
+      return <ChartService.FinancingSavingsBar output={output} variables={variables} />;
 
     // case "business":
 

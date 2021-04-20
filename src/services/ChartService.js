@@ -243,11 +243,14 @@ const getColor = (index, isHover = false) => {
   return isHover ? hoverColors[index-1] : colors[index-1];
 };
 
-function FinancingSavingsBar (){
-  const monthlyPayments = 386.27;
-  const monthlyEnergySavings = 458.81;
-  const annualPayments = monthlyPayments * 12;
-  const annualEnergySavings = monthlyEnergySavings * 12;
+function FinancingSavingsBar (props){
+  // const monthlyPayments = 386.27;
+  // const monthlySavings = 458.81;
+  const {monthlyPayments, monthlySavings} = props.output.economics;
+  const annualPayments = parseFloat(monthlyPayments) * 12; // 4625.24
+  const annualEnergySavings = parseFloat(monthlySavings) * 12; // 5505.72
+
+  const interest = 1.03;
 
   const xLabels = [];
   const dataCost = [];
@@ -255,9 +258,9 @@ function FinancingSavingsBar (){
   const dataAnnualSavings = [];
 
   let totalSavings = 0;
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < (props.variables.paceLoanTerm || 0); i++) {
     xLabels.push(new Date().getFullYear() + i + 1);
-    const curYearSavings = annualEnergySavings * 1.03 ** i;
+    const curYearSavings = annualEnergySavings * interest ** i;
     totalSavings += curYearSavings - annualPayments;
     dataCost.push(annualPayments);
     dataSavings.push(curYearSavings);
