@@ -382,7 +382,7 @@ const getEconomics = (variables, outputA) => {
   const numberOfYears = 21;
   const startingYear = 1;
   const energyInflation = 0.02;
-  let accumulation = null;
+  let accumulation = 0;
   let accumulationSum = 0;
   let netSavings = 0;
   for (let year = startingYear; year <= numberOfYears; year++) {
@@ -390,7 +390,7 @@ const getEconomics = (variables, outputA) => {
     netSavings += year === startingYear ? -investment : annualSavings;
     accumulationSum += accumulation;
   }
-  const irr = FinancialService.IRR(accumulationSum, 0.06);
+  const irr = FinancialService.IRR(accumulationSum, guess);
   const paceLoanTerm = parseInt(variables.paceLoanTerm);
   const interest = parseFloat(variables.interest);
   const monthsInYear = 12;
