@@ -284,6 +284,11 @@ function FinancingSavingsBar (){
           labels: xLabels,
         }}
         options={{
+          tooltips: {
+            callbacks: {
+              label: (x) => tickCallback(parseFloat(x.value)),
+            }
+          },
           scales: {
             xAxes: [
               {id: 'time', offset: true},
