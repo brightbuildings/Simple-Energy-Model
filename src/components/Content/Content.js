@@ -197,15 +197,13 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
           />
         </React.Fragment>
       );
-    // case "financing":
+    case "financing":
+      return <ChartService.FinancingSavingsBar output={output} variables={variables} />;
 
-    // );
     // case "business":
-    //   return (
 
-    //   );
     default: 
-      return "";
+      return null;
   }
 }
 
