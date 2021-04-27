@@ -1,4 +1,4 @@
-import { Content, formatSections, formatNavigation, formatQuestion, setDefaultVariables, getGlossarySection } from './Content';
+import { Content, formatSections, formatNavigation, FormatQuestion, setDefaultVariables, getGlossarySection } from './Content';
 import renderer from "react-test-renderer";
 
 jest.mock('react-chartjs-2', () => ({
@@ -88,52 +88,52 @@ test("runs formatNavigation with json", () => {
   expect(result).not.toBeUndefined();
 });
 
-test("runs formatQuestion with empty question", () => {
-  expect(formatQuestion()).toBeUndefined();
+test("runs FormatQuestion with empty question", () => {
+  expect(FormatQuestion({})).toBeNull();
 });
 
-test("runs formatQuestion with float question", () => {
-  const result = formatQuestion(questionFloat, variables, setVariables);
+test("runs FormatQuestion with float question", () => {
+  const result = FormatQuestion(questionFloat, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
-test("runs formatQuestion with integer question", () => {
-  const result = formatQuestion(questionInteger, variables, setVariables);
+test("runs FormatQuestion with integer question", () => {
+  const result = FormatQuestion(questionInteger, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
-test("runs formatQuestion with text question", () => {
-  const result = formatQuestion(questionText, variables, setVariables);
+test("runs FormatQuestion with text question", () => {
+  const result = FormatQuestion(questionText, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
-test("runs formatQuestion with gap question", () => {
-  const result = formatQuestion(questionGap, variables, setVariables);
+test("runs FormatQuestion with gap question", () => {
+  const result = FormatQuestion(questionGap, variables, setVariables);
   expect(result).not.toBeUndefined();
 });
 
-test("renders formatQuestion with float question", () => {
-  const result = renderer.create(formatQuestion(questionFloat, variables, setVariables));
+test("renders FormatQuestion with float question", () => {
+  const result = renderer.create(FormatQuestion(questionFloat, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
-test("renders formatQuestion with integer question", () => {
-  const result = renderer.create(formatQuestion(questionInteger, variables, setVariables));
+test("renders FormatQuestion with integer question", () => {
+  const result = renderer.create(FormatQuestion(questionInteger, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
-test("renders formatQuestion with text question", () => {
-  const result = renderer.create(formatQuestion(questionText, variables, setVariables));
+test("renders FormatQuestion with text question", () => {
+  const result = renderer.create(FormatQuestion(questionText, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
-test("renders formatQuestion with gap question", () => {
-  const result = renderer.create(formatQuestion(questionGap, variables, setVariables));
+test("renders FormatQuestion with gap question", () => {
+  const result = renderer.create(FormatQuestion(questionGap, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 
-test("renders formatQuestion with select question", () => {
-  const result = renderer.create(formatQuestion(questionSelect, variables, setVariables));
+test("renders FormatQuestion with select question", () => {
+  const result = renderer.create(FormatQuestion(questionSelect, variables, setVariables));
   expect(result).toMatchSnapshot();
 });
 

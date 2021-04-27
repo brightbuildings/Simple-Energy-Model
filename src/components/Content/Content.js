@@ -67,7 +67,7 @@ const formatSection = (section, activeSection, activeSubsection, setActiveSubsec
             return (
               <section key={key} className="Questions">
                 {Object.entries(value.fields).map(question => {
-                  return formatQuestion(question, variables, setVariables, output);
+                  return <FormatQuestion key={question[0]} question={question} variables={variables} setVariables={setVariables} output={output} />;
                 })}
               </section>
               );
@@ -245,9 +245,19 @@ const formatNavigation = (data, activeSection, setActiveSection, setActiveSubsec
   );
 };
 
-const formatQuestion = (question, variables, setVariables, output) => {
+const calculatedChanges = (key, value) => {
+  const variableCalcs = {};
+  if (key === "heatingDegreeDays") {
+    variableCalcs.heatingDegreeHours = (value * 24 / 1000) || 0;
+  } else if (key === "heatingDegreeHours") {
+    variableCalcs.heatingDegreeDays = (value * 1000 / 24) || 0;
+  }
+  return variableCalcs;
+}
+
+const FormatQuestion = ({question, variables, setVariables, output}) => {
   if (question == null) {
-    return;
+    return null;
   }
   const [key, value] = question;
 
@@ -265,8 +275,12 @@ const formatQuestion = (question, variables, setVariables, output) => {
             required={required}
             name={key}
             id={key}
-            defaultValue={variables[key]}
-            onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
+            value={variables[key]}
+            onChange={input => {
+              const { value } = input.currentTarget;
+              const otherChanges = calculatedChanges(key, value);
+              setVariables({...variables, ...otherChanges, [key]: value});
+            }}
           />
           {value.unit && (
             <InputGroupAddon addonType="append">
@@ -322,7 +336,7 @@ const formatQuestion = (question, variables, setVariables, output) => {
     case "gap":
       return <div key={key} className="spacer">&nbsp;</div>;
     default:
-      return;
+      return null;
   }
 };
 
@@ -370,7 +384,7 @@ export {
   Content,
   formatSections,
   formatNavigation,
-  formatQuestion,
+  FormatQuestion,
   setDefaultVariables,
   getSidebar,
   getGlossarySection
