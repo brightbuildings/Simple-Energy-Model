@@ -309,7 +309,20 @@ const formatQuestion = (question, variables, setVariables, output) => {
             <option key="disabled" value="disabled" disabled="disabled">Select an option</option>
             {value.values.map(optionKey => {
               const entries = Object.entries(optionKey);
-              return <option key={entries[0][0]}>{entries[0][0]}</option>
+              const values = Object.entries(entries[0][1]);
+              let result = "";
+              values.forEach((value, index) => {
+                let unit = value[0] + ": " + Number.parseFloat(value[1]).toFixed(2);
+                if (index === 0) {
+                  result += "(";
+                }
+                if (index === values.length - 1) {
+                  result += unit + ")";
+                } else {
+                  result = result + unit +  ", ";
+                }
+              });
+              return <option key={entries[0][0]} value={entries[0][0]}>{entries[0][0]} {result}</option>
             })}
           </Input>
           {value.unit && (
