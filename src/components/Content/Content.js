@@ -273,7 +273,7 @@ const formatQuestion = (question, variables, setVariables, output) => {
             required={required}
             name={key}
             id={key}
-            defaultValue={variables[key]}
+            defaultValue={moreLabel || variables[key]}
             onChange={input => setVariables({...variables, [key]: input.currentTarget.value})}
           />
           {value.unit && (
