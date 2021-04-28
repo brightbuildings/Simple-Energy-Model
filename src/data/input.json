@@ -152,6 +152,7 @@
           },
           "buildingVolume": {
             "label": "Building Volume",
+            "help": "You may overwrite this value for building shapes other than rectangular.",
             "type": "float",
             "unit": "m³",
             "default": 618.0

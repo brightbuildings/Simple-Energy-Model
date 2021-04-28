@@ -160,3 +160,10 @@ dd {
   width: 80%;
   margin: 0;
 }
+
+.HelpText {
+  width: 100%;
+  padding: 0.25rem 0.75rem 0.5rem;
+  font-style: italic;
+  font-size: 14px;
+}

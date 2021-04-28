@@ -267,6 +267,7 @@ const formatQuestion = (question, variables, setVariables, output) => {
       return (
         <InputGroup key={key}>
           <Label for={key}>{value.label}{moreLabel && (` (Calculated: ${moreLabel})`)}</Label>
+          {value.help && <div className="HelpText">{value.help}</div>}
           <Input 
             type="number" 
             required={required}
@@ -286,6 +287,7 @@ const formatQuestion = (question, variables, setVariables, output) => {
       return (
         <InputGroup key={key}>
           <Label for={key}>{value.label}</Label>
+          {value.help && <div className="HelpText">{value.help}</div>}
           <Input 
             type="text" 
             required={required}
@@ -305,6 +307,7 @@ const formatQuestion = (question, variables, setVariables, output) => {
       return (
         <InputGroup key={key}>
           <Label for={key}>{value.label}</Label>
+          {value.help && <div className="HelpText">{value.help}</div>}
           <Input 
             type="select" 
             required={required}
