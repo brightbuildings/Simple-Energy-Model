@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import ChartComponent, { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
@@ -243,9 +243,75 @@ const getColor = (index, isHover = false) => {
   return isHover ? hoverColors[index-1] : colors[index-1];
 };
 
+function FinancingSavingsBar (props){
+  // const monthlyPayments = 386.27;
+  // const monthlySavings = 458.81;
+  const {monthlyPayments, monthlySavings} = props.output.economics;
+  const annualPayments = parseFloat(monthlyPayments) * 12; // 4625.24
+  const annualEnergySavings = parseFloat(monthlySavings) * 12; // 5505.72
+
+  const interest = 1.03;
+
+  const xLabels = [];
+  const dataCost = [];
+  const dataSavings = [];
+  const dataAnnualSavings = [];
+
+  let totalSavings = 0;
+  for (let i = 0; i < (props.variables.paceLoanTerm || 0); i++) {
+    xLabels.push(new Date().getFullYear() + i + 1);
+    const curYearSavings = annualEnergySavings * interest ** i;
+    totalSavings += curYearSavings - annualPayments;
+    dataCost.push(annualPayments);
+    dataSavings.push(curYearSavings);
+    dataAnnualSavings.push(totalSavings);
+  }
+
+  const tickCallback = t => {
+    return t.toLocaleString('en-CA', {
+      style: 'currency', 
+      currency: 'CAD',
+    })
+  }
+
+  return (
+    <div>
+      <ChartComponent
+        type='line'
+        height={200}
+        data={{
+          datasets: [
+            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "total", "fill": false, borderColor: "#777"},
+            {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "annual", barPercentage: 0.8},
+            {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "annual", barPercentage: 0.8},
+          ],
+          labels: xLabels,
+        }}
+        options={{
+          tooltips: {
+            callbacks: {
+              label: (x) => tickCallback(parseFloat(x.value)),
+            }
+          },
+          scales: {
+            xAxes: [
+              {id: 'time', offset: true},
+            ],
+            yAxes: [
+              {id: 'annual', ticks: {beginAtZero: true, callback: tickCallback}, position: "left"},
+              {id: 'total', position: 'right', ticks: {callback: tickCallback}}
+            ],
+          }
+        }}
+      />
+    </div>
+  );
+}
+
 const ChartService = {
   SimpleEnergyModelBar,
   getColor,
+  FinancingSavingsBar,
   HeatingEnergyBalance,
   NetZeroEnergySummary,
 };

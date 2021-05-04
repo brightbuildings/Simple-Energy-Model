@@ -47,7 +47,7 @@
             "default": 7.59
           },
           "depth": {
-            "label": "Length (facing east)",
+            "label": "Depth below grade",
             "type": "float",
             "required": true,
             "unit": "m",
