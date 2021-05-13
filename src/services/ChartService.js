@@ -3,42 +3,46 @@ import ChartComponent, { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
-  return <Bar
-    height={300}
-    options={{
-      plugins: {
-        legend: {
-          position: "bottom"
-        },
-        title: {
-          text: props.title,
-          display: true
-        },
-        tooltip: {
-          callbacks: {
-            label: function (ctx) {
-              const label = ctx.dataset.label;
-              const value = ctx.dataset.data[ctx.parsed.x];
-              return value === null ? null : label + ': ' + value;
+  return (
+    <>
+      <h3 className="ChartTitle">{props.title}</h3>
+      <Bar
+        height={300}
+        options={{
+          plugins: {
+            legend: {
+              position: "bottom"
             },
+            tooltip: {
+              callbacks: {
+                label: function (ctx) {
+                  const label = ctx.dataset.label;
+                  const value = ctx.dataset.data[ctx.parsed.x];
+                  return value === null ? null : label + ': ' + value;
+                },
+                itemSort: function(a, b) {
+                  return b.datasetIndex - a.datasetIndex;
+              }
+              }
+            },
+          },
+          scales: {
+            y: {
+              stacked: true,
+              ticks: {
+                min: 0,
+                max: props.ymax
+              }
+            },
+            x: {
+              stacked: true
+            }
           }
-        },
-      },
-      scales: {
-        y: {
-          stacked: true,
-          ticks: {
-            min: 0,
-            max: props.ymax
-          }
-        },
-        x: {
-          stacked: true
-        }
-      }
-    }}
-    {...props}
-  />;
+        }}
+        {...props}
+      />
+    </>
+  );
 };
 
 const HeatingEnergyBalance = props => {
@@ -84,39 +88,11 @@ const HeatingEnergyBalance = props => {
     labels: ["Losses", "Gains"],
     datasets: [
       {
-        label: "Walls",
-        data: [walls],
-        backgroundColor: hexToRgbA('#bdc9eb', 0.7),
-        borderColor: '#bdc9eb',
-        hoverBackgroundColor: '#bdc9eb',
-      },
-      {
-        label: "Walls - Below Grade",
-        data: [wallsBelowGrade],
-        backgroundColor: hexToRgbA('#8fabdd', 0.7),
-        borderColor: '#8fabdd',
-        hoverBackgroundColor: '#8fabdd',
-      },
-      {
-        label: "Roof",
-        data: [roof],
-        backgroundColor: hexToRgbA('#2e5697', 0.7),
-        borderColor: '#2e5697',
-        hoverBackgroundColor: '#2e5697',
-      },
-      {
-        label: "Floor",
-        data: [floor],
-        backgroundColor: hexToRgbA('#bf8f00', 0.7),
-        borderColor: '#bf8f00',
-        hoverBackgroundColor: '#bf8f00',
-      },
-      {
-        label: "Windows",
-        data: [windows],
-        backgroundColor: hexToRgbA('#fbfd7e', 0.7),
-        borderColor: '#fbfd7e',
-        hoverBackgroundColor: '#fbfd7e',
+        label: "Ventilation",
+        data: [ventilation],
+        backgroundColor: hexToRgbA('#a9d18d', 0.7),
+        borderColor: '#a9d18d',
+        hoverBackgroundColor: '#a9d18d',
       },
       {
         label: "Infiltration",
@@ -126,11 +102,39 @@ const HeatingEnergyBalance = props => {
         hoverBackgroundColor: '#D9D1FA',
       },
       {
-        label: "Ventilation",
-        data: [ventilation],
-        backgroundColor: hexToRgbA('#a9d18d', 0.7),
-        borderColor: '#a9d18d',
-        hoverBackgroundColor: '#a9d18d',
+        label: "Windows",
+        data: [windows],
+        backgroundColor: hexToRgbA('#fbfd7e', 0.7),
+        borderColor: '#fbfd7e',
+        hoverBackgroundColor: '#fbfd7e',
+      },
+      {
+        label: "Floor",
+        data: [floor],
+        backgroundColor: hexToRgbA('#bf8f00', 0.7),
+        borderColor: '#bf8f00',
+        hoverBackgroundColor: '#bf8f00',
+      },
+      {
+        label: "Roof",
+        data: [roof],
+        backgroundColor: hexToRgbA('#2e5697', 0.7),
+        borderColor: '#2e5697',
+        hoverBackgroundColor: '#2e5697',
+      },
+      {
+        label: "Walls - Below Grade",
+        data: [wallsBelowGrade],
+        backgroundColor: hexToRgbA('#8fabdd', 0.7),
+        borderColor: '#8fabdd',
+        hoverBackgroundColor: '#8fabdd',
+      },
+      {
+        label: "Walls",
+        data: [walls],
+        backgroundColor: hexToRgbA('#bdc9eb', 0.7),
+        borderColor: '#bdc9eb',
+        hoverBackgroundColor: '#bdc9eb',
       },
       {
         label: "Space Heating Demand",
