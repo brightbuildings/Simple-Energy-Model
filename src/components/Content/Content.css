@@ -11,6 +11,10 @@
   padding-right: 2rem;
 }
 
+.SectionMain h3 {
+  margin-top: 1.5rem;
+}
+
 .SectionOutput {
   width: 40%;
   position: -webkit-sticky;
