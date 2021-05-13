@@ -583,7 +583,6 @@
                 "dhwFuelType": "Natural Gas"
               } }
             ],
-            "unit": "%",
             "required": true,
             "default": "No"
           },
@@ -611,7 +610,6 @@
                 "flow": 140
               } }
             ],
-            "unit": "L/day",
             "required": true,
             "default": "Standard fixtures, House"
           },
@@ -1280,7 +1278,6 @@
                 "dhwFuelType": "Natural Gas"
               } }
             ],
-            "unit": "%",
             "required": true,
             "default": "Yes"
           },
@@ -1308,7 +1305,6 @@
                 "flow": 140
               } }
             ],
-            "unit": "L/day",
             "required": true,
             "default": "Low flow fixtures, House"
           },
