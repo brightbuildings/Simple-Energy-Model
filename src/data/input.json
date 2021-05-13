@@ -15,16 +15,28 @@
             "label": "Address",
             "type": "text",
             "required": true
+          },
+          "location": {
+            "label": "Location",
+            "type": "text"
+          },
+          "heatingDegreeDays": {
+            "label": "Heating Degree Days",
+            "type": "integer",
+            "unit": "HDD18",
+            "default": 5700.0
+          },
+          "heatingDegreeHours": {
+            "label": "Heating Degree Hours",
+            "type": "float",
+            "unit": "kKh/a",
+            "default": 136.8
           }
         }
       },
       "dimensions": {
         "navigation": "Dimensions",
         "fields": {
-          "instructions": {
-            "label": "Please enter the overall dimensions of the building: ",
-            "type": "label"
-          },
           "length": {
             "label": "Length (facing east)",
             "type": "float",
@@ -88,29 +100,6 @@
             "type": "float",
             "unit": "m²",
             "default": 64.3
-          }
-        }
-      },
-      "solar": {
-        "navigation": "Solar",
-        "fields": {
-          "solar": {
-            "label": "Solar",
-            "type": "label"
-          },
-          "availableSolarArea": {
-            "label": "Available Solar Collector Area",
-            "type": "float",
-            "unit": "m²",
-            "required": true,
-            "default": 64.3
-          },
-          "gap1": {
-            "type": "gap"
-          },
-          "totalWindowAndGlassDoorsArea": {
-            "label": "Total Window & Glass Doors Area",
-            "type": "label"
           },
           "north": {
             "label": "North",
@@ -156,27 +145,16 @@
             "type": "float",
             "unit": "m³",
             "default": 618.0
-          }
-        }
-      },
-      "location": {
-        "navigation": "Location",
-        "fields": {
-          "location": {
-            "label": "Location",
-            "type": "text"
           },
-          "heatingDegreeDays": {
-            "label": "Heating Degree Days",
-            "type": "integer",
-            "unit": "HDD18",
-            "default": 5700.0
+          "gap1": {
+            "type": "gap"
           },
-          "heatingDegreeHours": {
-            "label": "Heating Degree Hours",
+          "availableSolarArea": {
+            "label": "Available Solar Collector Area",
             "type": "float",
-            "unit": "kKh/a",
-            "default": 136.8
+            "unit": "m²",
+            "required": true,
+            "default": 64.3
           }
         }
       }

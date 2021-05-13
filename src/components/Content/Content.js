@@ -357,6 +357,8 @@ const FormatQuestion = ({question, variables, setVariables, output}) => {
       )
     case "gap":
       return <div key={key} className="spacer">&nbsp;</div>;
+    case "label":
+      return <div key={key} className="label">{value.label}</div>;
     default:
       return null;
   }
