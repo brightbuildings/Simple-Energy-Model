@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 
@@ -14,6 +15,8 @@ Sentry.init({
   release: "bb@0.x",
   tracesSampleRate: 1.0,
 });
+
+ReactGA.initialize('UA-196831312-1');
 
 ReactDOM.render(
   <React.StrictMode>

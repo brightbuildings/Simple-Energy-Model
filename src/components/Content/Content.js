@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactGA from 'react-ga';
 import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 import DataService from "../../services/DataService";
 import CalculationService from "../../services/CalculationService";
@@ -386,6 +387,10 @@ function Content() {
   const optionObjects = DataService.getAllOptionsObjects();
   const output = CalculationService.run(variables, optionObjects);
   const maximumHeatingEnergyBalance = Math.max(output.annualSpaceHeatingA.totalLoss.valueOf(), output.annualSpaceHeatingB.totalLoss.valueOf());
+
+  useEffect(() => {
+    ReactGA.pageview(activeSection + "/" + activeSubsection);
+  }, [activeSection, activeSubsection]);
 
   return (
     <div className="centered">

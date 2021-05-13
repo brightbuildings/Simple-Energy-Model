@@ -67,6 +67,10 @@ button:hover {
   text-decoration: underline;
 }
 
+select {
+  background-color: white !important;
+}
+
 .FeedbackButton {
   background-color: black;
   color: white;

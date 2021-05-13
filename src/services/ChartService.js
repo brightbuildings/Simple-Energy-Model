@@ -6,12 +6,14 @@ const SimpleEnergyModelBar = props => {
   return <Bar
     height={300}
     options={{
-      legend: {
-        position: "bottom"
-      },
-      title: {
-        text: props.title,
-        display: true
+      plugins: {
+        legend: {
+          position: "bottom"
+        },
+        title: {
+          text: props.title,
+          display: true
+        },
       },
       tooltips: {
         mode: "label",
@@ -27,16 +29,16 @@ const SimpleEnergyModelBar = props => {
        }
       },
       scales: {
-        yAxes: [{
+        y: {
           stacked: true,
           ticks: {
             min: 0,
             max: props.yMax
           }
-        }],
-        xAxes: [{
+        },
+        x: {
           stacked: true
-        }]
+        }
       }
     }}
     {...props}
@@ -56,16 +58,16 @@ const HeatingEnergyBalance = props => {
   let wallsBelowGrade = null;
   let spaceHeatingDemand = null;
   try {
-    internalHeatGains = Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round();
-    solarGains = Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round();
-    ventilation = Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round();
-    infiltration = Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round();
-    windows = Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round();
-    floor = Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round();
-    roof = Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round();
-    walls = Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round();
-    wallsBelowGrade = Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round();
-    spaceHeatingDemand = Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains);
+    internalHeatGains = parseFloat(Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
+    solarGains = parseFloat(Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
+    ventilation = parseFloat(Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round());
+    infiltration = parseFloat(Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round());
+    windows = parseFloat(Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round());
+    floor = parseFloat(Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round());
+    roof = parseFloat(Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round());
+    walls = parseFloat(Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round());
+    wallsBelowGrade = parseFloat(Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round());
+    spaceHeatingDemand = parseFloat(Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains));
   } catch (e) {
     // do nothing
   }
@@ -173,7 +175,7 @@ const NetZeroEnergySummary = props => {
     datasets: [
       { 
         label: "Space Heating",
-        data: [spaceHeating, null, null, null, spaceHeating],
+        data: [parseFloat(spaceHeating), null, null, null, spaceHeating],
         backgroundColor: getColor(1),
         borderColor: getColor(1),
         hoverBackgroundColor: getColor(1, true),
@@ -281,26 +283,35 @@ function FinancingSavingsBar (props){
         height={200}
         data={{
           datasets: [
-            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "total", "fill": false, borderColor: "#777"},
-            {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "annual", barPercentage: 0.8},
-            {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "annual", barPercentage: 0.8},
+            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "right-y-axis", "fill": false, borderColor: "#777"},
+            {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "left-y-axis", barPercentage: 0.8},
+            {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "left-y-axis", barPercentage: 0.8},
           ],
           labels: xLabels,
         }}
         options={{
-          tooltips: {
-            callbacks: {
-              label: (x) => tickCallback(parseFloat(x.value)),
-            }
+          plugins: {
+            tooltips: {
+              callbacks: {
+                label: (x) => tickCallback(parseFloat(x.value)),
+              }
+            },
+            legend: {
+              position: "bottom",
+            },
           },
           scales: {
-            xAxes: [
-              {id: 'time', offset: true},
-            ],
-            yAxes: [
-              {id: 'annual', ticks: {beginAtZero: true, callback: tickCallback}, position: "left"},
-              {id: 'total', position: 'right', ticks: {callback: tickCallback}}
-            ],
+            'x': {
+                offset: true
+            },
+            'left-y-axis': {
+              ticks: {beginAtZero: true, callback: tickCallback}, 
+              position: "left"
+            },
+            'right-y-axis': {
+              position: 'right', 
+              ticks: {callback: tickCallback}
+            }
           }
         }}
       />
