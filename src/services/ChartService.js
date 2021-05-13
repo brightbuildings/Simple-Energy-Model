@@ -283,9 +283,9 @@ function FinancingSavingsBar (props){
         height={200}
         data={{
           datasets: [
-            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "total", "fill": false, borderColor: "#777"},
-            {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "annual", barPercentage: 0.8},
-            {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "annual", barPercentage: 0.8},
+            {data: dataAnnualSavings, label: 'Total Net Savings', yAxisID: "right-y-axis", "fill": false, borderColor: "#777"},
+            {data: dataCost, type: 'bar', label: 'Loan Payments', backgroundColor: "#4f71be", yAxisID: "left-y-axis", barPercentage: 0.8},
+            {data: dataSavings, type: 'bar', label: 'Annual Energy Savings', backgroundColor: "#DE8344", yAxisID: "left-y-axis", barPercentage: 0.8},
           ],
           labels: xLabels,
         }}
@@ -296,15 +296,22 @@ function FinancingSavingsBar (props){
                 label: (x) => tickCallback(parseFloat(x.value)),
               }
             },
+            legend: {
+              position: "bottom",
+            },
           },
           scales: {
-            xAxes: [
-              {id: 'time', offset: true},
-            ],
-            yAxes: [
-              {id: 'annual', ticks: {beginAtZero: true, callback: tickCallback}, position: "left"},
-              {id: 'total', position: 'right', ticks: {callback: tickCallback}}
-            ],
+            'x': {
+                offset: true
+            },
+            'left-y-axis': {
+              ticks: {beginAtZero: true, callback: tickCallback}, 
+              position: "left"
+            },
+            'right-y-axis': {
+              position: 'right', 
+              ticks: {callback: tickCallback}
+            }
           }
         }}
       />
