@@ -6,12 +6,14 @@ const SimpleEnergyModelBar = props => {
   return <Bar
     height={300}
     options={{
-      legend: {
-        position: "bottom"
-      },
-      title: {
-        text: props.title,
-        display: true
+      plugins: {
+        legend: {
+          position: "bottom"
+        },
+        title: {
+          text: props.title,
+          display: true
+        },
       },
       tooltips: {
         mode: "label",
@@ -22,21 +24,21 @@ const SimpleEnergyModelBar = props => {
             return value === null ? null : tooltip.label + ': ' + value;
           },
         },
-        itemSort: function(a, b) {
-          return b.datasetIndex - a.datasetIndex;
-       }
+      //   itemSort: function(a, b) {
+      //     return b.datasetIndex - a.datasetIndex;
+      //  }
       },
       scales: {
-        yAxes: [{
+        y: {
           stacked: true,
           ticks: {
             min: 0,
             max: props.yMax
           }
-        }],
-        xAxes: [{
+        },
+        x: {
           stacked: true
-        }]
+        }
       }
     }}
     {...props}
