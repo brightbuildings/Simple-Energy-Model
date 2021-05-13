@@ -16,9 +16,7 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 
-ReactGA.initialize('UA-196831312-1', {
-  debug: true
-});
+ReactGA.initialize('UA-196831312-1');
 
 ReactDOM.render(
   <React.StrictMode>
