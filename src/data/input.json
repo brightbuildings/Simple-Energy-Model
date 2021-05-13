@@ -152,8 +152,9 @@
           },
           "buildingVolume": {
             "label": "Building Volume",
+            "help": "You may overwrite this value for building shapes other than rectangular.",
             "type": "float",
-            "unit": "m²",
+            "unit": "m³",
             "default": 618.0
           }
         }
@@ -1479,6 +1480,7 @@
   },
   "financing": {
     "label": "Net-Zero Financing",
+    "content": "These are typical values. Please update with values from your contractor as required",
     "navigation": "Financing",
     "fields": {
       "improvementsSection1": {
@@ -1511,6 +1513,7 @@
           "airtightnessQuantity": {
             "label": "Airtightness Quantity",
             "type": "float",
+            "help": "Modifying model parameters will automatically update this field.",
             "required": "true",
             "unit": "m² of envelope"
           },
@@ -1524,6 +1527,7 @@
           "windowsQuantity": {
             "label": "Windows Quantity",
             "type": "float",
+            "help": "Modifying model parameters will automatically update this field.",
             "required": "true",
             "unit": "m² of window"
           },
@@ -1536,6 +1540,7 @@
           },
           "insulationQuantity": {
             "label": "Insulation Quantity",
+            "help": "Modifying model parameters will automatically update this field.",
             "type": "float",
             "required": "true",
             "unit": "m² of envelope"
@@ -1589,6 +1594,7 @@
           "solarQuantity": {
             "label": "Solar PV 13.3 kW Quantity",
             "type": "float",
+            "help": "Modifying model parameters will automatically update this field.",
             "unit": "m² of solar",
             "required": "true"
           },

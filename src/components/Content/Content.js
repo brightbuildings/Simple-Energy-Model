@@ -259,8 +259,15 @@ const FormatQuestion = ({question, variables, setVariables, output}) => {
   }
   const [key, value] = question;
 
-  const moreLabel = output?.financing?.[key];
+  let moreLabel = output?.financing?.[key];
   const required = value?.required === true;
+  if (key === "buildingVolume") {
+    const l = parseFloat(variables.length) || 0;
+    const w = parseFloat(variables.width) || 0;
+    const h1 = parseFloat(variables.height) || 0;
+    const h2 = parseFloat(variables.depth) || 0;
+    moreLabel = (l * w * (h1 + h2)).toFixed(0);
+  }
 
   switch (value?.type) {
     case "float": // fall through
@@ -268,12 +275,13 @@ const FormatQuestion = ({question, variables, setVariables, output}) => {
       return (
         <InputGroup key={key}>
           <Label for={key}>{value.label}{moreLabel && (` (Calculated: ${moreLabel})`)}</Label>
+          {value.help && <div className="HelpText">{value.help}</div>}
           <Input 
             type="number" 
             required={required}
             name={key}
             id={key}
-            value={variables[key]}
+            value={moreLabel || variables[key]}
             onChange={input => {
               const { value } = input.currentTarget;
               const otherChanges = calculatedChanges(key, value);
@@ -291,6 +299,7 @@ const FormatQuestion = ({question, variables, setVariables, output}) => {
       return (
         <InputGroup key={key}>
           <Label for={key}>{value.label}</Label>
+          {value.help && <div className="HelpText">{value.help}</div>}
           <Input 
             type="text" 
             required={required}
@@ -310,6 +319,7 @@ const FormatQuestion = ({question, variables, setVariables, output}) => {
       return (
         <InputGroup key={key}>
           <Label for={key}>{value.label}</Label>
+          {value.help && <div className="HelpText">{value.help}</div>}
           <Input 
             type="select" 
             required={required}
