@@ -24,9 +24,9 @@ const SimpleEnergyModelBar = props => {
             return value === null ? null : tooltip.label + ': ' + value;
           },
         },
-      //   itemSort: function(a, b) {
-      //     return b.datasetIndex - a.datasetIndex;
-      //  }
+        itemSort: function(a, b) {
+          return b.datasetIndex - a.datasetIndex;
+       }
       },
       scales: {
         y: {
@@ -58,16 +58,16 @@ const HeatingEnergyBalance = props => {
   let wallsBelowGrade = null;
   let spaceHeatingDemand = null;
   try {
-    internalHeatGains = Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round();
-    solarGains = Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round();
-    ventilation = Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round();
-    infiltration = Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round();
-    windows = Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round();
-    floor = Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round();
-    roof = Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round();
-    walls = Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round();
-    wallsBelowGrade = Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round();
-    spaceHeatingDemand = Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains);
+    internalHeatGains = parseFloat(Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
+    solarGains = parseFloat(Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
+    ventilation = parseFloat(Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round());
+    infiltration = parseFloat(Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round());
+    windows = parseFloat(Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round());
+    floor = parseFloat(Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round());
+    roof = parseFloat(Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round());
+    walls = parseFloat(Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round());
+    wallsBelowGrade = parseFloat(Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round());
+    spaceHeatingDemand = parseFloat(Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains));
   } catch (e) {
     // do nothing
   }
@@ -175,7 +175,7 @@ const NetZeroEnergySummary = props => {
     datasets: [
       { 
         label: "Space Heating",
-        data: [spaceHeating, null, null, null, spaceHeating],
+        data: [parseFloat(spaceHeating), null, null, null, spaceHeating],
         backgroundColor: getColor(1),
         borderColor: getColor(1),
         hoverBackgroundColor: getColor(1, true),
@@ -290,10 +290,12 @@ function FinancingSavingsBar (props){
           labels: xLabels,
         }}
         options={{
-          tooltips: {
-            callbacks: {
-              label: (x) => tickCallback(parseFloat(x.value)),
-            }
+          plugins: {
+            tooltips: {
+              callbacks: {
+                label: (x) => tickCallback(parseFloat(x.value)),
+              }
+            },
           },
           scales: {
             xAxes: [
