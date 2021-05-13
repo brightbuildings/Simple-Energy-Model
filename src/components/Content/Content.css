@@ -90,6 +90,13 @@ label {
   height: 40px;
 }
 
+.label {
+  font-weight: bold;
+  margin-left: 0.75rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
 .Outputs {
   margin-top: 2rem;
 }
