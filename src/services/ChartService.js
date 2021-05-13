@@ -14,24 +14,22 @@ const SimpleEnergyModelBar = props => {
           text: props.title,
           display: true
         },
-      },
-      tooltips: {
-        mode: "label",
-        callbacks: {
-          label: function (tooltipItem, data) {
-            console.log(tooltipItem);
-            const tooltip = data.datasets[tooltipItem.datasetIndex];
-            const value = tooltip.data[tooltipItem.index];
-            return value === null ? "null" : tooltip.label + ': ' + value;
-          },
-        }
+        tooltip: {
+          callbacks: {
+            label: function (ctx) {
+              const label = ctx.dataset.label;
+              const value = ctx.dataset.data[ctx.parsed.x];
+              return value === null ? null : label + ': ' + value;
+            },
+          }
+        },
       },
       scales: {
         y: {
           stacked: true,
           ticks: {
             min: 0,
-            max: props.yMax
+            max: props.ymax
           }
         },
         x: {
@@ -56,15 +54,15 @@ const HeatingEnergyBalance = props => {
   let wallsBelowGrade = null;
   let spaceHeatingDemand = null;
   try {
-    internalHeatGains = parseFloat(Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
-    solarGains = parseFloat(Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
-    ventilation = parseFloat(Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round());
-    infiltration = parseFloat(Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round());
-    windows = parseFloat(Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round());
-    floor = parseFloat(Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round());
-    roof = parseFloat(Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round());
-    walls = parseFloat(Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round());
-    wallsBelowGrade = parseFloat(Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round());
+    internalHeatGains = parseFloat(Big(props.annualspaceheating.totalInternalHeatGainsKwha).times(props.annualspaceheating.utilizationFactor).div(tfa).round());
+    solarGains = parseFloat(Big(props.annualspaceheating.totalSolarGainsKwha).times(props.annualspaceheating.utilizationFactor).div(tfa).round());
+    ventilation = parseFloat(Big(props.annualspaceheating.ventilationkwha).div(tfa).round());
+    infiltration = parseFloat(Big(props.annualspaceheating.infiltrationkwha).div(tfa).round());
+    windows = parseFloat(Big(props.annualspaceheating.exteriorDoorsG1kwha).plus(props.annualspaceheating.windowsG1kwha).div(tfa).round());
+    floor = parseFloat(Big(props.annualspaceheating.floorG1kwha).div(tfa).round());
+    roof = parseFloat(Big(props.annualspaceheating.roofG1kwha).div(tfa).round());
+    walls = parseFloat(Big(props.annualspaceheating.wallAboveGradeG1kwha).div(tfa).round());
+    wallsBelowGrade = parseFloat(Big(props.annualspaceheating.wallBelowGradeG1kwha).div(tfa).round());
     spaceHeatingDemand = parseFloat(Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains));
   } catch (e) {
     // do nothing
@@ -77,8 +75,8 @@ const HeatingEnergyBalance = props => {
   } catch {
     tfa = 1;
   }
-  if (props.yMax != null) {
-    max = Big(props.yMax).div(tfa);
+  if (props.ymax != null) {
+    max = Big(props.ymax).div(tfa);
   }
   const tick = Math.ceil(Math.round(max.toString())/100)*100;
 
@@ -158,7 +156,7 @@ const HeatingEnergyBalance = props => {
     ]
   };
 
-  return <SimpleEnergyModelBar data={data} {...props} yMax={tick} />
+  return <SimpleEnergyModelBar data={data} {...props} ymax={tick} />
 };
 
 const NetZeroEnergySummary = props => {
@@ -247,7 +245,7 @@ const hexToRgbA = (hex, alpha) => {
   var c;
   if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
       c= hex.substring(1).split('');
-      if(c.length== 3){
+      if(c.length === 3){
           c= [c[0], c[0], c[1], c[1], c[2], c[2]];
       }
       c= '0x'+c.join('');
