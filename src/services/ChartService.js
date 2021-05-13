@@ -3,6 +3,7 @@ import ChartComponent, { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
+  console.log(props.ymax);
   return (
     <>
       <h3 className="ChartTitle">{props.title}</h3>
@@ -29,10 +30,7 @@ const SimpleEnergyModelBar = props => {
           scales: {
             y: {
               stacked: true,
-              ticks: {
-                min: 0,
-                max: props.ymax
-              }
+              max: props.ymax
             },
             x: {
               stacked: true
