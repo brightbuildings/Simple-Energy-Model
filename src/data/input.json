@@ -101,6 +101,13 @@
             "unit": "m²",
             "default": 64.3
           },
+          "gap3": {
+            "type": "gap"
+          },
+          "windowArea": {
+            "label": "Window Area",
+            "type": "label"
+          },
           "north": {
             "label": "North",
             "type": "float",
@@ -129,7 +136,7 @@
             "required": true,
             "default": 3.24
           },
-          "gap2": {
+          "gap4": {
             "type": "gap"
           },
           "exteriorSolidDoorArea": {
@@ -146,7 +153,7 @@
             "unit": "m³",
             "default": 618.0
           },
-          "gap1": {
+          "gap5": {
             "type": "gap"
           },
           "availableSolarArea": {
