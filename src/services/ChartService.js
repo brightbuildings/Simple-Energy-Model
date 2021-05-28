@@ -3,46 +3,44 @@ import ChartComponent, { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
-  return <Bar
-    height={300}
-    options={{
-      plugins: {
-        legend: {
-          position: "bottom"
-        },
-        title: {
-          text: props.title,
-          display: true
-        },
-      },
-      tooltips: {
-        mode: "label",
-        callbacks: {
-          label: function (tooltipItem, data) {
-            const tooltip = data.datasets[tooltipItem.datasetIndex];
-            const value = tooltip.data[tooltipItem.index];
-            return value === null ? null : tooltip.label + ': ' + value;
+  console.log(props.ymax);
+  return (
+    <>
+      <h3 className="ChartTitle">{props.title}</h3>
+      <Bar
+        height={300}
+        options={{
+          plugins: {
+            legend: {
+              position: "bottom"
+            },
+            tooltip: {
+              callbacks: {
+                label: function (ctx) {
+                  const label = ctx.dataset.label;
+                  const value = ctx.dataset.data[ctx.parsed.x];
+                  return value === null ? null : label + ': ' + value;
+                },
+                itemSort: function(a, b) {
+                  return b.datasetIndex - a.datasetIndex;
+              }
+              }
+            },
           },
-        },
-        itemSort: function(a, b) {
-          return b.datasetIndex - a.datasetIndex;
-       }
-      },
-      scales: {
-        y: {
-          stacked: true,
-          ticks: {
-            min: 0,
-            max: props.yMax
+          scales: {
+            y: {
+              stacked: true,
+              max: props.ymax
+            },
+            x: {
+              stacked: true
+            }
           }
-        },
-        x: {
-          stacked: true
-        }
-      }
-    }}
-    {...props}
-  />;
+        }}
+        {...props}
+      />
+    </>
+  );
 };
 
 const HeatingEnergyBalance = props => {
@@ -58,15 +56,15 @@ const HeatingEnergyBalance = props => {
   let wallsBelowGrade = null;
   let spaceHeatingDemand = null;
   try {
-    internalHeatGains = parseFloat(Big(props.annualSpaceHeating.totalInternalHeatGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
-    solarGains = parseFloat(Big(props.annualSpaceHeating.totalSolarGainsKwha).times(props.annualSpaceHeating.utilizationFactor).div(tfa).round());
-    ventilation = parseFloat(Big(props.annualSpaceHeating.ventilationkwha).div(tfa).round());
-    infiltration = parseFloat(Big(props.annualSpaceHeating.infiltrationkwha).div(tfa).round());
-    windows = parseFloat(Big(props.annualSpaceHeating.exteriorDoorsG1kwha).plus(props.annualSpaceHeating.windowsG1kwha).div(tfa).round());
-    floor = parseFloat(Big(props.annualSpaceHeating.floorG1kwha).div(tfa).round());
-    roof = parseFloat(Big(props.annualSpaceHeating.roofG1kwha).div(tfa).round());
-    walls = parseFloat(Big(props.annualSpaceHeating.wallAboveGradeG1kwha).div(tfa).round());
-    wallsBelowGrade = parseFloat(Big(props.annualSpaceHeating.wallBelowGradeG1kwha).div(tfa).round());
+    internalHeatGains = parseFloat(Big(props.annualspaceheating.totalInternalHeatGainsKwha).times(props.annualspaceheating.utilizationFactor).div(tfa).round());
+    solarGains = parseFloat(Big(props.annualspaceheating.totalSolarGainsKwha).times(props.annualspaceheating.utilizationFactor).div(tfa).round());
+    ventilation = parseFloat(Big(props.annualspaceheating.ventilationkwha).div(tfa).round());
+    infiltration = parseFloat(Big(props.annualspaceheating.infiltrationkwha).div(tfa).round());
+    windows = parseFloat(Big(props.annualspaceheating.exteriorDoorsG1kwha).plus(props.annualspaceheating.windowsG1kwha).div(tfa).round());
+    floor = parseFloat(Big(props.annualspaceheating.floorG1kwha).div(tfa).round());
+    roof = parseFloat(Big(props.annualspaceheating.roofG1kwha).div(tfa).round());
+    walls = parseFloat(Big(props.annualspaceheating.wallAboveGradeG1kwha).div(tfa).round());
+    wallsBelowGrade = parseFloat(Big(props.annualspaceheating.wallBelowGradeG1kwha).div(tfa).round());
     spaceHeatingDemand = parseFloat(Big(ventilation).plus(infiltration).plus(windows).plus(floor).plus(roof).plus(walls).plus(wallsBelowGrade).minus(internalHeatGains).minus(solarGains));
   } catch (e) {
     // do nothing
@@ -79,8 +77,8 @@ const HeatingEnergyBalance = props => {
   } catch {
     tfa = 1;
   }
-  if (props.yMax != null) {
-    max = Big(props.yMax).div(tfa);
+  if (props.ymax != null) {
+    max = Big(props.ymax).div(tfa);
   }
   const tick = Math.ceil(Math.round(max.toString())/100)*100;
 
@@ -88,79 +86,79 @@ const HeatingEnergyBalance = props => {
     labels: ["Losses", "Gains"],
     datasets: [
       {
-        label: "Walls",
-        data: [walls],
-        backgroundColor: getColor(10),
-        borderColor: getColor(10),
-        hoverBackgroundColor: getColor(10, true),
-      },
-      {
-        label: "Walls - Below Grade",
-        data: [wallsBelowGrade],
-        backgroundColor: getColor(9),
-        borderColor: getColor(9),
-        hoverBackgroundColor: getColor(9, true),
-      },
-      {
-        label: "Roof",
-        data: [roof],
-        backgroundColor: getColor(8),
-        borderColor: getColor(8),
-        hoverBackgroundColor: getColor(8, true),
-      },
-      {
-        label: "Floor",
-        data: [floor],
-        backgroundColor: getColor(7),
-        borderColor: getColor(7),
-        hoverBackgroundColor: getColor(7, true),
-      },
-      {
-        label: "Windows",
-        data: [windows],
-        backgroundColor: getColor(6),
-        borderColor: getColor(6),
-        hoverBackgroundColor: getColor(6, true),
+        label: "Ventilation",
+        data: [ventilation],
+        backgroundColor: hexToRgbA('#a9d18d', 0.7),
+        borderColor: '#a9d18d',
+        hoverBackgroundColor: '#a9d18d',
       },
       {
         label: "Infiltration",
         data: [infiltration],
-        backgroundColor: getColor(5),
-        borderColor: getColor(5),
-        hoverBackgroundColor: getColor(5, true),
+        backgroundColor: hexToRgbA('#D9D1FA', 0.7),
+        borderColor: '#D9D1FA',
+        hoverBackgroundColor: '#D9D1FA',
       },
       {
-        label: "Ventilation",
-        data: [ventilation],
-        backgroundColor: getColor(4),
-        borderColor: getColor(4),
-        hoverBackgroundColor: getColor(4, true),
+        label: "Windows",
+        data: [windows],
+        backgroundColor: hexToRgbA('#fbfd7e', 0.7),
+        borderColor: '#fbfd7e',
+        hoverBackgroundColor: '#fbfd7e',
+      },
+      {
+        label: "Floor",
+        data: [floor],
+        backgroundColor: hexToRgbA('#bf8f00', 0.7),
+        borderColor: '#bf8f00',
+        hoverBackgroundColor: '#bf8f00',
+      },
+      {
+        label: "Roof",
+        data: [roof],
+        backgroundColor: hexToRgbA('#2e5697', 0.7),
+        borderColor: '#2e5697',
+        hoverBackgroundColor: '#2e5697',
+      },
+      {
+        label: "Walls - Below Grade",
+        data: [wallsBelowGrade],
+        backgroundColor: hexToRgbA('#8fabdd', 0.7),
+        borderColor: '#8fabdd',
+        hoverBackgroundColor: '#8fabdd',
+      },
+      {
+        label: "Walls",
+        data: [walls],
+        backgroundColor: hexToRgbA('#bdc9eb', 0.7),
+        borderColor: '#bdc9eb',
+        hoverBackgroundColor: '#bdc9eb',
       },
       {
         label: "Space Heating Demand",
         data: [null, spaceHeatingDemand],
-        backgroundColor: getColor(1),
-        borderColor: getColor(1),
-        hoverBackgroundColor: getColor(1, true),
+        backgroundColor: hexToRgbA('#ee7e31', 0.7),
+        borderColor: '#ee7e31',
+        hoverBackgroundColor: '#ee7e31',
       },
       {
         label: "Internal Heat Gains",
         data: [null, internalHeatGains],
-        backgroundColor: getColor(2),
-        borderColor: getColor(2),
-        hoverBackgroundColor: getColor(2, true),
+        backgroundColor: hexToRgbA('#f6b284', 0.7),
+        borderColor: '#f6b284',
+        hoverBackgroundColor: '#f6b284',
       },
       {
         label: "Solar Gains",
         data: [null, solarGains],
-        backgroundColor: getColor(3),
-        borderColor: getColor(3),
-        hoverBackgroundColor: getColor(3, true),
+        backgroundColor: hexToRgbA('#fbfd7e', 0.7),
+        borderColor: '#fbfd7e',
+        hoverBackgroundColor: '#fbfd7e',
       }
     ]
   };
 
-  return <SimpleEnergyModelBar data={data} {...props} yMax={tick} />
+  return <SimpleEnergyModelBar data={data} {...props} ymax={tick} />
 };
 
 const NetZeroEnergySummary = props => {
@@ -176,37 +174,37 @@ const NetZeroEnergySummary = props => {
       { 
         label: "Space Heating",
         data: [parseFloat(spaceHeating), null, null, null, spaceHeating],
-        backgroundColor: getColor(1),
-        borderColor: getColor(1),
-        hoverBackgroundColor: getColor(1, true),
+        backgroundColor: hexToRgbA('#ed7e30', 0.7),
+        borderColor: '#ed7e30',
+        hoverBackgroundColor: '#ed7e30',
       },
       { 
         label: "Hot Water",
         data: [null, hotWater, null, null, hotWater],
-        backgroundColor: getColor(2),
-        borderColor: getColor(2),
-        hoverBackgroundColor: getColor(2, true),
+        backgroundColor: hexToRgbA('#4472c6', 0.7),
+        borderColor: '#4472c6',
+        hoverBackgroundColor: '#4472c6',
       },
       { 
         label: "Lights, Appliances, Plugs",
         data: [null, null, lightsAppliancesPlugs, null, lightsAppliancesPlugs],
-        backgroundColor: getColor(3),
-        borderColor: getColor(3),
-        hoverBackgroundColor: getColor(3, true),
+        backgroundColor: hexToRgbA('#808080', 0.7),
+        borderColor: '#808080',
+        hoverBackgroundColor: '#808080',
       },
       { 
         label: "Electric Vehicle",
         data: [null, null, null, electricVehicle, electricVehicle],
-        backgroundColor: getColor(4),
-        borderColor: getColor(4),
-        hoverBackgroundColor: getColor(4, true),
+        backgroundColor: hexToRgbA('#c1c100', 0.7),
+        borderColor: '#c1c100',
+        hoverBackgroundColor: '#c1c100',
       },
       { 
         label: "83.9 kW Solar Array",
         data: [null, null, null, null, null, electricityGeneration],
-        backgroundColor: getColor(4),
-        borderColor: getColor(4),
-        hoverBackgroundColor: getColor(4, true),
+        backgroundColor: hexToRgbA('#ffc202', 0.7),
+        borderColor: '#ffc202',
+        hoverBackgroundColor: '#ffc202',
       },
     ]
   }
@@ -243,6 +241,19 @@ const getColor = (index, isHover = false) => {
     return "#cccccc";
   }
   return isHover ? hoverColors[index-1] : colors[index-1];
+};
+
+const hexToRgbA = (hex, alpha) => {
+  var c;
+  if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+      c= hex.substring(1).split('');
+      if(c.length === 3){
+          c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+      }
+      c= '0x'+c.join('');
+      return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+alpha+')';
+  }
+  throw new Error('Bad Hex');
 };
 
 function FinancingSavingsBar (props){

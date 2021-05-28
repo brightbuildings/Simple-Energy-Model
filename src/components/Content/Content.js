@@ -165,9 +165,9 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
         <React.Fragment>
           <ChartService.HeatingEnergyBalance
             title="Heating Energy Balance - Model A"
-            annualSpaceHeating={output.annualSpaceHeatingA}
+            annualspaceheating={output.annualSpaceHeatingA}
             variables={variables}
-            yMax={maximumHeatingEnergyBalance}
+            ymax={maximumHeatingEnergyBalance}
           />
           <br />
           <br />
@@ -175,7 +175,7 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
             title="Net-zero Energy Summary - Model A"
             output={output.outputA}
             variables={variables}
-            yMax={output.maxEnergy}
+            ymax={output.maxEnergy}
           />
         </React.Fragment>
       );
@@ -184,9 +184,9 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
         <React.Fragment>
           <ChartService.HeatingEnergyBalance
             title="Heating Energy Balance - Model B"
-            annualSpaceHeating={output.annualSpaceHeatingB}
+            annualspaceheating={output.annualSpaceHeatingB}
             variables={variables}
-            yMax={maximumHeatingEnergyBalance}
+            ymax={maximumHeatingEnergyBalance}
           />
           <br />
           <br />
@@ -194,7 +194,7 @@ const getSidebar = (key, output, variables, maximumHeatingEnergyBalance) => {
             title="Net-zero Energy Summary - Model B"
             output={output.outputB}
             variables={variables}
-            yMax={output.maxEnergy}
+            ymax={output.maxEnergy}
           />
         </React.Fragment>
       );
