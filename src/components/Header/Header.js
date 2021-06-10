@@ -19,7 +19,7 @@ function Header() {
     <div className="Header">
       <div className="centered Navigation">
         <div>
-          <h1><a href="https://brightbuildings.tumblr.com/">Bright Buildings</a></h1>
+          <h1><a href="https://www.brightbuildings.ca/">Bright Buildings</a></h1>
           <h3>Simple Energy Model</h3>
         </div>
         <div>
