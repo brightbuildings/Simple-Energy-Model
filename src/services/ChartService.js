@@ -22,7 +22,6 @@ const SimpleEnergyModelBar = props => {
                 },
               },
               itemSort: function(a, b, item) {
-                console.log(item);
                 return b.datasetIndex - a.datasetIndex;
               }
             },
