@@ -3,7 +3,6 @@ import ChartComponent, { Bar } from "react-chartjs-2";
 const Big = require("big.js");
 
 const SimpleEnergyModelBar = props => {
-  console.log(props.ymax);
   return (
     <>
       <h3 className="ChartTitle">{props.title}</h3>
@@ -21,9 +20,10 @@ const SimpleEnergyModelBar = props => {
                   const value = ctx.dataset.data[ctx.parsed.x];
                   return value === null ? null : label + ': ' + value;
                 },
-                itemSort: function(a, b) {
-                  return b.datasetIndex - a.datasetIndex;
-              }
+              },
+              itemSort: function(a, b, item) {
+                console.log(item);
+                return b.datasetIndex - a.datasetIndex;
               }
             },
           },
