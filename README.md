@@ -1,9 +1,8 @@
-# Welcome!
+# Hello!
 
-An open source app to quickly estimate energy consumption of homes and small buildings in cold-climate Canada + prepare the business case to upgrade a building to net-zero energy through clean energy financing.
+We worked with Scott Borys and the team at Territorial to build this Javascript Web App to make a quick energy model for buildings in cold-climate Canada.
 
-## Contribution
-Please contact us ahead of time if you're interested in contributing to the project so we can best work together.
+Feel free to use anything and implement according to your need.
 
 ## Available Scripts
 
