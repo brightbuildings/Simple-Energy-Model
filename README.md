@@ -4,3 +4,5 @@
 and <a href=https://github.com/brightbuildings/Simple-Energy-Model/tree/develop>Javascript Web App</a>
 
 A simple energy model to evaluate buildings such as Passivhaus in cold climates.
+
+<img src=https://github.com/brightbuildings/Simple-Energy-Model/blob/main/Screen.JPG>
