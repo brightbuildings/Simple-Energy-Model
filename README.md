@@ -1,2 +1,5 @@
-# bb
-Open source app to quickly estimate energy consumption of homes and small buildings in cold-climate Canada + prepare the business case to upgrade a building to net-zero energy through clean energy financing. passivhaus solar net-zero
+# Simple Energy Model or bbApp
+
+Excel based spreadsheet and Javascript Web App https://github.com/brightbuildings/Simple-Energy-Model/tree/develop 
+
+A simple energy model to evaluate buildings such as Passivhaus in cold climates.
