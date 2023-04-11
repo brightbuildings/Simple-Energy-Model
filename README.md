@@ -1,4 +1,4 @@
-# Simple Energy Model or bbApp
+# Simple Energy Model or bbApp 🏡
 
 Excel based spreadsheet and Javascript Web App https://github.com/brightbuildings/Simple-Energy-Model/tree/develop 
 
